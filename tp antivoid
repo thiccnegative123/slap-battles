@@ -31,7 +31,7 @@ button1.Draggable = false
 
 local button2 = Instance.new("TextButton")
 button2.Size = UDim2.new(0.1, 0, 0.1, 0)
-button2.Position = UDim2.new(0.35, 452, 0.25, -125)
+button2.Position = UDim2.new(0.35, 400, 0.25, -100)
 button2.Text = "tp cannon"
 button2.Parent = gui
 button2.BackgroundColor3 = Color3.new(2, 2, 2)
