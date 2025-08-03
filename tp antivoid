@@ -1,0 +1,100 @@
+
+
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRoot = character:WaitForChild("HumanoidRootPart")
+
+local gui = Instance.new("ScreenGui")
+gui.Name = "Fuck me"
+gui.ResetOnSpawn = false
+gui.Parent = player:WaitForChild("PlayerGui")
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0.1, 0, 0.1, 0)
+button.Position = UDim2.new(0.35, 446, 0.25, -44)
+button.Text = "tp middle"
+button.Parent = gui
+button.BackgroundColor3 = Color3.new(1, 1, 1)
+button.TextColor3 = Color3.new(0, 0, 0)
+button.Active = true
+button.Draggable = false
+
+local button1 = Instance.new("TextButton")
+button1.Size = UDim2.new(0.1, 0, 0.1, 0)
+button1.Position = UDim2.new(0.35, 447, 0.25, 112)
+button1.Text = "tp slapple"
+button1.Parent = gui
+button1.BackgroundColor3 = Color3.new(2, 2, 2)
+button1.TextColor3 = Color3.new(0, 0, 0)
+button1.Active = true
+button1.Draggable = false
+
+local button2 = Instance.new("TextButton")
+button2.Size = UDim2.new(0.1, 0, 0.1, 0)
+button2.Position = UDim2.new(0.35, 452, 0.25, -125)
+button2.Text = "tp cannon"
+button2.Parent = gui
+button2.BackgroundColor3 = Color3.new(2, 2, 2)
+button2.TextColor3 = Color3.new(0, 0, 0)
+button2.Active = true
+button2.Draggable = false
+
+
+
+local part1 = Instance.new("Part", workspace)
+part1.Position = Vector3.new(-79.38, -107.51, -94.88)
+part1.Size = Vector3.new(2048, 30, 2048)
+part1.Transparency = 0.69
+part1.Anchored = true
+
+local part2 = Instance.new("Part", workspace)
+part2.Position = Vector3.new(1000, -107.51, -94.88)
+part2.Size = Vector3.new(2048, 30, 2048)
+part2.Transparency = 0.69
+part2.Anchored = true
+
+local part3 = Instance.new("Part", workspace)
+part3.Position = Vector3.new(-1000, -107.51, -94.88)
+part3.Size = Vector3.new(2048, 30, 2048)
+part3.Transparency = 0.69
+part3.Anchored = true
+
+
+local targetCFrame = CFrame.new(
+    16.0034809, -5.17285395, -2.27053714,
+    -0.890986919, -1.25783339e-08, -0.454028964,
+    -1.42237067e-09, 1, -2.4912552e-08,
+    0.454028964, -2.15509601e-08, -0.890986919
+)
+
+
+local function onTouched(hit)
+    local char = player.Character
+    if char and hit:IsDescendantOf(char) then
+        humanoidRoot.CFrame = targetCFrame
+    end
+end
+
+part1.Touched:Connect(onTouched)
+part2.Touched:Connect(onTouched)
+part3.Touched:Connect(onTouched)
+
+
+player.CharacterAdded:Connect(function(newChar)
+    humanoidRoot = newChar:WaitForChild("HumanoidRootPart")
+end)
+
+button.MouseButton1Click:Connect(function()
+humanoidRoot.CFrame = CFrame.new(16.0034809, -5.17285395, -2.27053714,
+    -0.890986919, -1.25783339e-08, -0.454028964,
+    -1.42237067e-09, 1, -2.4912552e-08,
+    0.454028964, -2.15509601e-08, -0.890986919)
+end)
+
+button1.MouseButton1Click:Connect(function()
+humanoidRoot.CFrame = CFrame.new(-397.460114, 50.764225, -20.3200607, 0.79329288, -1.27416415e-08, 0.608840227, -2.79996382e-09, 1, 2.45759608e-08, -0.608840227, -2.12006643e-08, 0.79329288)
+end)
+
+button2.MouseButton1Click:Connect(function()
+humanoidRoot.CFrame = CFrame.new(302.020294, 21.1556416, 229.779953, 0.623174548, 0, 0.782082796, -0, 1, -0, -0.782082915, 0, 0.623174489)
+end)
