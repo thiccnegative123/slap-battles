@@ -1,0 +1,271 @@
+local gui = Instance.new("ScreenGui", Game.Players.LocalPlayer.PlayerGui)
+gui.ResetOnSpawn = false
+local onoffbutton = Instance.new("TextButton", gui)
+local frame = Instance.new("Frame", gui)
+local text = Instance.new("TextLabel", frame)
+local text1 = Instance.new("TextLabel", frame)
+local text2 = Instance.new("TextLabel", frame)
+local text3 = Instance.new("TextLabel", frame)
+local text4 = Instance.new("TextLabel", frame)
+local text5 = Instance.new("TextLabel", frame)
+local text6 = Instance.new("TextLabel", frame)
+local text7 = Instance.new("TextLabel", frame)
+local button = Instance.new("TextButton", frame)
+local button1 = Instance.new("TextButton", frame)
+local button2 = Instance.new("TextButton", frame)
+local button3 = Instance.new("TextButton", frame)
+local button4 = Instance.new("TextButton", frame)
+local button5 = Instance.new("TextButton", frame)
+local button6 = Instance.new("TextButton", frame)
+local button7 = Instance.new("TextButton", frame)
+
+
+onoffbutton.Size = UDim2.new(0.1,0,0.1,0)
+onoffbutton.Position = UDim2.new(0.5,357,0.5,-226)
+onoffbutton.BackgroundColor3 = Color3.fromRGB(85, 170, 255)
+onoffbutton.Draggable = false
+onoffbutton.Active = true
+onoffbutton.Text = "On/Off"
+
+frame.Size = UDim2.new(0.8,0,0.5,0)
+frame.Position = UDim2.new(0.5,-350,0.5,-135)
+frame.BackgroundColor3 = Color3.fromRGB(105,105,105)
+frame.Draggable = false
+frame.Active = true
+frame.BorderSizePixel = 0
+frame.Visible = false
+
+text.Size = UDim2.new(0.8,0,0.5,0)
+text.Position = UDim2.new(0.5,-288,0.5,-119)
+text.Draggable = false
+text.Active = false
+text.Text = "SLAP BATTLES FUCKER 5000"
+text.BackgroundTransparency = 1
+text.TextSize = 20
+text.TextColor3 = Color3.fromRGB(255,0,0)
+
+text1.Size = UDim2.new(0.001,0,1,0)
+text1.Position = UDim2.new(0.5,251,0.5,-87)
+text1.Draggable = false
+text1.Active = false
+text1.Text = ""
+text1.BackgroundTransparency = 0
+text1.TextSize = 20
+text1.TextColor3 = Color3.fromRGB(255,0,0)
+
+text2.Size = UDim2.new(0.8,0,0.5,0)
+text2.Position = UDim2.new(0.5,10,0.5,-122)
+text2.Draggable = false
+text2.Active = false
+text2.Text = "Made by"
+text2.BackgroundTransparency = 1
+text2.TextSize = 20
+text2.TextColor3 = Color3.fromRGB(0,255,0)
+
+text3.Size = UDim2.new(0.8,0,0.5,0)
+text3.Position = UDim2.new(0.5,15,0.5,-97)
+text3.Draggable = false
+text3.Active = false
+text3.Text = "Haxarebest1"
+text3.BackgroundTransparency = 1
+text3.TextSize = 16
+text3.TextColor3 = Color3.fromRGB(255,0,0)
+
+text4.Size = UDim2.new(0.8,0,0.5,0)
+text4.Position = UDim2.new(0.5,17,0.5,-65)
+text4.Draggable = false
+text4.Active = false
+text4.Text = "ENJOY"
+text4.BackgroundTransparency = 1
+text4.TextSize = 26
+text4.TextColor3 = Color3.fromRGB(0,0,255)
+
+text5.Size = UDim2.new(0.8,0,0.5,0)
+text5.Position = UDim2.new(0.5,16,0.5,-29)
+text5.Draggable = false
+text5.Active = false
+text5.Text = "THE"
+text5.BackgroundTransparency = 1
+text5.TextSize = 26
+text5.TextColor3 = Color3.fromRGB(0,0,255)
+
+text6.Size = UDim2.new(0.8,0,0.5,0)
+text6.Position = UDim2.new(0.5,15,0.5,-2)
+text6.Draggable = false
+text6.Active = false
+text6.Text = "FUCKING"
+text6.BackgroundTransparency = 1
+text6.TextSize = 18
+text6.TextColor3 = Color3.fromRGB(255,0,0)
+
+text7.Size = UDim2.new(0.8,0,0.5,0)
+text7.Position = UDim2.new(0.5,17,0.5,25)
+text7.Draggable = false
+text7.Active = false
+text7.Text = "SCRIPT"
+text7.BackgroundTransparency = 1
+text7.TextSize = 24
+text7.TextColor3 = Color3.fromRGB(0,0,255)
+
+button.Size = UDim2.new(0.2,0,0.3,0)
+button.Position = UDim2.new(0.5,-356,0.5,-51)
+button.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button.TextColor3 = Color3.fromRGB(58,0,255)
+button.Draggable = false
+button.Active = true
+button.TextSize = 10
+button.Text = "my antivoid"
+
+button1.Size = UDim2.new(0.2,0,0.3,0)
+button1.Position = UDim2.new(0.5,-206,0.5,-51)
+button1.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button1.TextColor3 = Color3.fromRGB(58,0,255)
+button1.Draggable = false
+button1.Active = true
+button1.TextSize = 10
+button1.Text = "tp antivoid"
+
+button2.Size = UDim2.new(0.2,0,0.3,0)
+button2.Position = UDim2.new(0.5,-56,0.5,-51)
+button2.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button2.TextColor3 = Color3.fromRGB(58,0,255)
+button2.Draggable = false
+button2.Active = true
+button2.TextSize = 10
+button2.Text = "boring antivoid"
+
+button3.Size = UDim2.new(0.2,0,0.3,0)
+button3.Position = UDim2.new(0.5,100,0.5,-51)
+button3.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button3.TextColor3 = Color3.fromRGB(58,0,255)
+button3.Draggable = false
+button3.Active = true
+button3.TextSize = 10
+button3.Text = "fe pp default"
+
+button4.Size = UDim2.new(0.2,0,0.3,0)
+button4.Position = UDim2.new(0.5,-356,0.5,17)
+button4.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button4.TextColor3 = Color3.fromRGB(58,0,255)
+button4.Draggable = false
+button4.Active = true
+button4.TextSize = 10
+button4.Text = "fe pp extended"
+
+button5.Size = UDim2.new(0.2,0,0.3,0)
+button5.Position = UDim2.new(0.5,-206,0.5,17)
+button5.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button5.TextColor3 = Color3.fromRGB(58,0,255)
+button5.Draggable = false
+button5.Active = true
+button5.TextSize = 10
+button5.Text = "fe extended pp V2"
+
+button6.Size = UDim2.new(0.2,0,0.3,0)
+button6.Position = UDim2.new(0.5,-56,0.5,17)
+button6.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button6.TextColor3 = Color3.fromRGB(58,0,255)
+button6.Draggable = false
+button6.Active = true
+button6.TextSize = 10
+button6.Text = "Glove expander"
+
+button7.Size = UDim2.new(0.2,0,0.3,0)
+button7.Position = UDim2.new(0.5,100,0.5,17)
+button7.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button7.TextColor3 = Color3.fromRGB(58,0,255)
+button7.Draggable = false
+button7.Active = true
+button7.TextSize = 10
+button7.Text = "Cube of death disabler"
+
+onoffbutton.MouseButton1Click:Connect(function()
+	if frame.Visible == true then
+frame.Visible = false
+elseif frame.Visible == false then
+frame.Visible = true
+end
+end)
+
+button.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/sb%20antivoid%20OP"))();
+end)
+
+button1.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/tp%20antivoid"))();
+end)
+
+button2.MouseButton1Click:Connect(function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = "you can now walk on air";
+    Text = "Made by Haxarebest1";
+    Duration = 5
+    })
+
+local function block1()
+local part1 = Instance.new("Part")
+part1.Anchored = true
+part1.Parent = Workspace
+part1.Size = Vector3.new(1913, 1, 1027)
+part1.Position = Vector3.new(32.3564453, -15.4845371, 85.6070099, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+part1.Rotation = Vector3.new(0, 0, 0)
+part1.Transparency = 1
+part1.Name = "AntiVoidPart"
+end
+block1()
+end)
+
+button3.MouseButton1Click:Connect(function()
+local sword = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Default") or 
+game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Extended")
+if sword then
+    sword.Grip = CFrame.new(-1.5, 0.800000012, 1.5, 0.00144193158, -0.999998868, -1.49754662e-08, 0.0144193172, 2.07914309e-05, -0.999896049, 0.999895096, 0.00144178176, 0.0144193312)
+else
+    warn("Sword not found in Backpack!")
+end
+end)
+
+button4.MouseButton1Click:Connect(function()
+local sword = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Extended")
+if sword then
+    sword.Grip = CFrame.new(-1.5, -7, 1.5, 0.00144193158, -0.999998868, -1.49754662e-08, 0.0144193172, 2.07914309e-05, -0.999896049, 0.999895096, 0.00144178176, 0.0144193312)
+else
+    warn("Sword not found in Backpack!")
+end
+end)
+
+button5.MouseButton1Click:Connect(function()
+local sword = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Extended")
+if sword then
+    sword.Grip = CFrame.new(1.5, 7.80000019, 1.5, 0.00144193158, 0.99999851, -3.39856889e-08, 0.0144193172, -2.06294262e-05, 0.999895573, 0.999895096, -0.00144178222, -0.0144193266)
+else
+    warn("Sword not found in Backpack!")
+end
+end)
+
+button6.MouseButton1Click:Connect(function()
+local player = game.Players.LocalPlayer
+local backpack = player:WaitForChild("Backpack")
+
+for _, item in ipairs(backpack:GetChildren()) do
+    local glove = item:FindFirstChild("Glove")
+    if glove and glove:IsA("BasePart") then
+        glove.Size = Vector3.new(21, 21, 21)
+    end
+end
+end)
+
+button7.MouseButton1Click:Connect(function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = "MADE BY HAXAREBEST1";
+    Text = "death cube is now friendly";
+    Duration = 5
+    })
+
+local function thecube()
+local cube = workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"]
+cube.CanTouch = False
+end
+
+thecube()
+end)
