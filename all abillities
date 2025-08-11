@@ -1,0 +1,146 @@
+local screenGui = Instance.new("ScreenGui")
+screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+screenGui.ResetOnSpawn = false
+
+local mainFrame = Instance.new("Frame")
+mainFrame.Size = UDim2.new(0, 220, 0, 200)
+mainFrame.Position = UDim2.new(0.5, -110, 0.4, -100)
+mainFrame.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
+mainFrame.BorderSizePixel = 2
+mainFrame.Visible = false
+mainFrame.Parent = screenGui
+mainFrame.Active = true
+mainFrame.Draggable = true
+
+local searchBar = Instance.new("TextBox")
+searchBar.Size = UDim2.new(0, 200, 0, 30)
+searchBar.Position = UDim2.new(0, 10, 0, 10)
+searchBar.PlaceholderText = "Type to search..."
+searchBar.ClearTextOnFocus = false
+searchBar.Parent = mainFrame
+
+local suggestionFrame = Instance.new("Frame")
+suggestionFrame.Size = UDim2.new(0, 200, 0, 150)
+suggestionFrame.Position = UDim2.new(0, 10, 0, 45)
+suggestionFrame.BackgroundTransparency = 1
+suggestionFrame.Parent = mainFrame
+
+local toggleButton = Instance.new("TextButton")
+toggleButton.Size = UDim2.new(0, 100, 0, 30)
+toggleButton.Position = UDim2.new(0.5, -50, 0.85, 0)
+toggleButton.Text = "Open Search"
+toggleButton.Parent = screenGui
+toggleButton.Draggable = true
+
+local words = {
+    {name = "zzzzzzz", action = function() game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
+ end},
+    {name = "diamond", action = function() game:GetService("ReplicatedStorage").Rockmode:FireServer() end},
+
+{name = "brick (use it in arena)", action = function() game:GetService("ReplicatedStorage").lbrick:FireServer()
+ end},
+ 
+{name = "swapper (dont spamm)", action = function() game:GetService("ReplicatedStorage").SLOC:FireServer()
+ end},
+
+{name = "ghost (press it 1x)", action = function() 
+game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
+ end},
+
+{name = "ghost deactivation (click it 1x)", action = function() 
+game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
+ end},
+
+{name = "fort (dont spamm)", action = function() 
+game:GetService("ReplicatedStorage").Fortlol:FireServer()
+ end},
+
+{name = "pusher (wait till the other wall goes away)", action = function() 
+game:GetService("ReplicatedStorage").PusherWall:FireServer()
+ end},
+
+{name = "tycoon (at middel)", action = function() 
+local args = {
+    [1] = CFrame.new(57.24900436401367, -7.672859191894531, -16.269390106201172) * CFrame.Angles(7.275374400705914e-07, -1.4789093732833862, 7.294640909094596e-07)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+
+ end},
+
+{name = "tycoon (the iland before slapple)", action = function() 
+local args = {
+    [1] = CFrame.new(-217.8243408203125, -7.778175354003906, -30.511960983276367) * CFrame.Angles(-3.141592502593994, 0.8484033346176147, 3.1415927410125732)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+
+ end},
+
+{name = "tycoon (at slapple)", action = function() 
+local args = {
+    [1] = CFrame.new(-398.32147216796875, 48.64140319824219, 6.077454566955566) * CFrame.Angles(-1.5881926174188266e-07, -1.497984528541565, -1.5773066763813404e-07)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+
+ end},
+
+{name = "tycoon (iland 1)", action = function() 
+local args = {
+    [1] = CFrame.new(-38.042545318603516, -7.644439697265625, -223.01454162597656) * CFrame.Angles(-3.1415927410125732, 0.4666803479194641, 3.1415927410125732)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+
+ end},
+
+{name = "tycoon (iland 2)", action = function() 
+local args = {
+    [1] = CFrame.new(18.46354866027832, -7.567276954650879, 211.4311981201172) * CFrame.Angles(3.1415908336639404, 0.30686527490615845, -3.141592025756836)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+
+ end},
+
+}
+
+local function clearSuggestions()
+    for _, child in ipairs(suggestionFrame:GetChildren()) do
+        if child:IsA("TextButton") then
+            child:Destroy()
+        end
+    end
+end
+
+searchBar:GetPropertyChangedSignal("Text"):Connect(function()
+    local query = string.lower(searchBar.Text)
+    clearSuggestions()
+
+    if query ~= "" then
+        local yPos = 0
+        for _, wordData in ipairs(words) do
+            local wordName = string.lower(wordData.name)
+            if string.sub(wordName, 1, #query) == query then
+                local btn = Instance.new("TextButton")
+                btn.Size = UDim2.new(1, 0, 0, 25)
+                btn.Position = UDim2.new(0, 0, 0, yPos)
+                btn.Text = wordData.name
+                btn.Parent = suggestionFrame
+
+                btn.MouseButton1Click:Connect(function()
+                    wordData.action()
+                    -- NO clearSuggestions() here, so buttons stay visible
+                end)
+
+                yPos += 25
+            end
+        end
+    end
+end)
+
+toggleButton.MouseButton1Click:Connect(function()
+    mainFrame.Visible = not mainFrame.Visible
+    toggleButton.Text = mainFrame.Visible and "Close Search" or "Open Search"
+end)
