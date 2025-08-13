@@ -1,3 +1,35 @@
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+-- Function to disable CanTouch on the glove inside the "Default" tool
+local function disableGlove(tool)
+    if tool.Name == "Default" then
+        local glove = tool:FindFirstChild("Glove")
+        if glove and glove:IsA("BasePart") then
+            glove.CanTouch = false
+            print("Glove touch disabled")
+        end
+    end
+end
+
+-- Check tools already in backpack
+for _, tool in ipairs(player.Backpack:GetChildren()) do
+    disableGlove(tool)
+end
+
+
+
+-- Listen for tools being added to backpack
+player.Backpack.ChildAdded:Connect(function(child)
+    disableGlove(child)
+end)
+
+-- Listen for tools being added to character
+player.CharacterAdded:Connect(function(char)
+    char.ChildAdded:Connect(function(child)
+        disableGlove(child)
+    end)
+end)
 game.StarterGui:SetCore("SendNotification", {
     Title = "check console for troll aura";
     Text = "Made by Haxarebest1";
