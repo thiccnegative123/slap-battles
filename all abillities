@@ -1,3 +1,9 @@
+print("these are the abillities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick")
+game.StarterGui:SetCore("SendNotification", {
+    Title = "check console for the abillities";
+    Text = "Made by Haxarebest1";
+    Duration = 5
+    })
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 screenGui.ResetOnSpawn = false
@@ -38,6 +44,10 @@ local words = {
     {name = "diamond", action = function() game:GetService("ReplicatedStorage").Rockmode:FireServer() end},
 
 {name = "brick (use it in arena)", action = function() game:GetService("ReplicatedStorage").lbrick:FireServer()
+ end},
+
+{name = "za hando (dont spamm)", action = function() 
+game:GetService("ReplicatedStorage").Erase:FireServer()
  end},
  
 {name = "swapper (dont spamm)", action = function() game:GetService("ReplicatedStorage").SLOC:FireServer()
