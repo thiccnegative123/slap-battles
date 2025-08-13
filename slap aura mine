@@ -1,3 +1,9 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "check console for troll aura";
+    Text = "Made by Haxarebest1";
+    Duration = 5
+    })
+print("this is the gloves what works with the troll aura: \n snow\n bull\n pull\nbommarange\n end ")
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
@@ -17,12 +23,7 @@ for _, tool in ipairs(player.Backpack:GetChildren()) do
     disableGlove(tool)
 end
 
--- Check tools already equipped
-if player.Character then
-    for _, tool in ipairs(player.Character:GetChildren()) do
-        disableGlove(tool)
-    end
-end
+
 
 -- Listen for tools being added to backpack
 player.Backpack.ChildAdded:Connect(function(child)
@@ -35,150 +36,205 @@ player.CharacterAdded:Connect(function(char)
         disableGlove(child)
     end)
 end)
-
--- Also handle equipping (tool moves from backpack to character)
-player.Backpack.ChildRemoved:Connect(function(child)
-    if child.Name == "Default" then
-        task.wait(0.1) -- brief wait to let it move to character
-        if player.Character then
-            local equipped = player.Character:FindFirstChild("Default")
-            if equipped then
-                disableGlove(equipped)
-            end
-        end
-    end
-end)
-
--- Services
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
 local LocalPlayer = Players.LocalPlayer
 
--- Reach value (starts at 5 studs)
-_G.ReachRadius = 5
+game.StarterGui:SetCore("SendNotification", {  
+    Title = "check console for troll aura",  
+    Text = "Made by Haxarebest1",  
+    Duration = 5  
+})  
 
--- Main GUI
-local gui = Instance.new("ScreenGui")
-gui.Name = "SlapAuraGUI"
-gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
-gui.ResetOnSpawn = false
+print("this is the gloves what works with the troll aura: \n snow\n bull\n pull\nbommarange\n end ")  
 
--- Draggable frame
-local mainFrame = Instance.new("Frame", gui)
-mainFrame.Size = UDim2.new(0,200,0,150)
-mainFrame.Position = UDim2.new(0.4,0,0.5,0)
-mainFrame.BackgroundColor3 = Color3.fromRGB(30,30,30)
-mainFrame.Active = true
-mainFrame.Draggable = true
+local Players = game:GetService("Players")  
+local player = Players.LocalPlayer  
 
--- Slap Aura button
-local button = Instance.new("TextButton", mainFrame)
-button.Size = UDim2.new(1,0,0.4,0)
-button.Position = UDim2.new(0,0,0,0)
-button.Text = "Slap Aura"
-button.BackgroundColor3 = Color3.fromRGB(0,170,255)
-button.TextScaled = true
+-- Function to disable CanTouch on the glove inside the "Default" tool  
+local function disableGlove(tool)  
+    if tool.Name == "Default" then  
+        local glove = tool:FindFirstChild("Glove")  
+        if glove and glove:IsA("BasePart") then  
+            glove.CanTouch = false  
+            print("Glove touch disabled")  
+        end  
+    end  
+end  
 
--- Reach label
-local reachLabel = Instance.new("TextLabel", mainFrame)
-reachLabel.Size = UDim2.new(1,0,0.2,0)
-reachLabel.Position = UDim2.new(0,0,0.4,0)
-reachLabel.BackgroundTransparency = 0.5
-reachLabel.BackgroundColor3 = Color3.fromRGB(50,50,50)
-reachLabel.TextColor3 = Color3.new(1,1,1)
-reachLabel.TextScaled = true
-reachLabel.Text = "Reach: ".._G.ReachRadius
+-- Check tools already in backpack  
+for _, tool in ipairs(player.Backpack:GetChildren()) do  
+    disableGlove(tool)  
+end  
 
--- Minus button (-2)
-local minusBtn = Instance.new("TextButton", mainFrame)
-minusBtn.Size = UDim2.new(0.5,0,0.4,0)
-minusBtn.Position = UDim2.new(0,0,0.6,0)
-minusBtn.Text = "-"
-minusBtn.BackgroundColor3 = Color3.fromRGB(255,0,0)
-minusBtn.TextScaled = true
+-- Listen for tools being added to backpack  
+player.Backpack.ChildAdded:Connect(function(child)  
+    disableGlove(child)  
+end)  
 
--- Plus button (+2)
-local plusBtn = Instance.new("TextButton", mainFrame)
-plusBtn.Size = UDim2.new(0.5,0,0.4,0)
-plusBtn.Position = UDim2.new(0.5,0,0.6,0)
-plusBtn.Text = "+"
-plusBtn.BackgroundColor3 = Color3.fromRGB(0,255,0)
-plusBtn.TextScaled = true
+-- Listen for tools being added to character  
+player.CharacterAdded:Connect(function(char)  
+    char.ChildAdded:Connect(function(child)  
+        disableGlove(child)  
+    end)  
+end)  
 
--- Sphere
-local sphere
-local function createSphere()
-    if sphere then sphere:Destroy() end
-    sphere = Instance.new("Part")
-    sphere.Shape = Enum.PartType.Ball
-    sphere.Size = Vector3.new(_G.ReachRadius * 2, _G.ReachRadius * 2, _G.ReachRadius * 2)
-    sphere.Transparency = 0.7
-    sphere.Color = Color3.fromRGB(0, 170, 255)
-    sphere.Anchored = true
-    sphere.CanCollide = false
-    sphere.Material = Enum.Material.ForceField
-    sphere.Parent = workspace
+local ReplicatedStorage = game:GetService("ReplicatedStorage")  
+local RunService = game:GetService("RunService")  
+local UserInputService = game:GetService("UserInputService")  
+local LocalPlayer = Players.LocalPlayer  
+
+-- Reach value (starts at 5 studs)  
+_G.ReachRadius = 5  
+
+-- Main GUI  
+local gui = Instance.new("ScreenGui")  
+gui.Name = "ReachControlGUI"  
+gui.Parent = LocalPlayer:WaitForChild("PlayerGui")  
+gui.ResetOnSpawn = false  
+
+-- Draggable frame  
+local mainFrame = Instance.new("Frame", gui)  
+mainFrame.Size = UDim2.new(0, 200, 0, 100)  
+mainFrame.Position = UDim2.new(0.4, 0, 0.8, 0)  
+mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)  
+mainFrame.Active = true  
+mainFrame.Draggable = true  
+
+-- Reach label  
+local reachLabel = Instance.new("TextLabel", mainFrame)  
+reachLabel.Size = UDim2.new(1, 0, 0.4, 0)  
+reachLabel.Position = UDim2.new(0, 0, 0, 0)  
+reachLabel.BackgroundTransparency = 0.5  
+reachLabel.BackgroundColor3 = Color3.fromRGB(50, 50, 50)  
+reachLabel.TextColor3 = Color3.new(1, 1, 1)  
+reachLabel.TextScaled = true  
+reachLabel.Text = "Reach: " .. _G.ReachRadius  
+
+-- Minus button (-2)  
+local minusBtn = Instance.new("TextButton", mainFrame)  
+minusBtn.Size = UDim2.new(0.5, 0, 0.6, 0)  
+minusBtn.Position = UDim2.new(0, 0, 0.4, 0)  
+minusBtn.Text = "-"  
+minusBtn.BackgroundColor3 = Color3.fromRGB(255, 0, 0)  
+minusBtn.TextScaled = true  
+
+-- Plus button (+2)  
+local plusBtn = Instance.new("TextButton", mainFrame)  
+plusBtn.Size = UDim2.new(0.5, 0, 0.6, 0)  
+plusBtn.Position = UDim2.new(0.5, 0, 0.4, 0)  
+plusBtn.Text = "+"  
+plusBtn.BackgroundColor3 = Color3.fromRGB(0, 255, 0)  
+plusBtn.TextScaled = true  
+
+-- Sphere visualization  
+local sphere  
+local function createSphere()  
+    if sphere then  
+        sphere:Destroy()  
+    end  
+    sphere = Instance.new("Part")  
+    sphere.Shape = Enum.PartType.Ball  
+    sphere.Size = Vector3.new(_G.ReachRadius * 2, _G.ReachRadius * 2, _G.ReachRadius * 2)  
+    sphere.Transparency = 0.7  
+    sphere.Color = Color3.fromRGB(0, 170, 255)  
+    sphere.Anchored = true  
+    sphere.CanCollide = false  
+    sphere.Material = Enum.Material.ForceField  
+    sphere.Parent = workspace  
+end  
+
+-- Update sphere position  
+RunService.RenderStepped:Connect(function()  
+    local char = LocalPlayer.Character  
+    if char and char:FindFirstChild("HumanoidRootPart") and sphere then  
+        sphere.Position = char.HumanoidRootPart.Position  
+    end  
+end)  
+
+-- Respawn handling  
+LocalPlayer.CharacterAdded:Connect(function()  
+    task.wait(0.5)  
+    createSphere()  
+end)  
+
+-- Increase reach  
+plusBtn.MouseButton1Click:Connect(function()  
+    _G.ReachRadius = _G.ReachRadius + 2  
+    reachLabel.Text = "Reach: " .. _G.ReachRadius  
+    if sphere then  
+        sphere.Size = Vector3.new(_G.ReachRadius * 2, _G.ReachRadius * 2, _G.ReachRadius * 2)  
+    end  
+end)  
+
+-- Decrease reach  
+minusBtn.MouseButton1Click:Connect(function()  
+    _G.ReachRadius = math.max(3, _G.ReachRadius - 2)  
+    reachLabel.Text = "Reach: " .. _G.ReachRadius  
+    if sphere then  
+        sphere.Size = Vector3.new(_G.ReachRadius * 2, _G.ReachRadius * 2, _G.ReachRadius * 2)  
+    end  
+end)  
+
+-- Get nearest player within reach  
+local function getNearestPlayerWithinReach()  
+    local nearestPlayer, shortestDistance = nil, math.huge  
+    local char = LocalPlayer.Character  
+    if not char or not char:FindFirstChild("HumanoidRootPart") then  
+        return nil  
+    end  
+    local localHRP = char.HumanoidRootPart  
+
+    for _, player in ipairs(Players:GetPlayers()) do  
+        if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then  
+            local targetHRP = player.Character.HumanoidRootPart  
+            local distance = (localHRP.Position - targetHRP.Position).Magnitude  
+            if distance < shortestDistance and distance <= _G.ReachRadius then  
+                shortestDistance = distance  
+                nearestPlayer = player  
+            end  
+        end  
+    end  
+    return nearestPlayer  
+end  
+
+-- Slap function  
+local function performSlap()  
+    local target = getNearestPlayerWithinReach()  
+    if target and target.Character then  
+        local char = target.Character  
+
+        local hrp = char:FindFirstChild("HumanoidRootPart")  
+        if hrp and ReplicatedStorage:FindFirstChild("SnowHit") then  
+            ReplicatedStorage.SnowHit:FireServer(hrp)  
+        end  
+
+        local rightArm = char:FindFirstChild("Right Arm")  
+        if rightArm and ReplicatedStorage:FindFirstChild("BullHit") then  
+            ReplicatedStorage.BullHit:FireServer(rightArm)  
+        end  
+
+        local leftArm = char:FindFirstChild("Left Arm")  
+        if leftArm and ReplicatedStorage:FindFirstChild("PullHit") then  
+            ReplicatedStorage.PullHit:FireServer(leftArm)  
+        end  
+
+        if rightArm and ReplicatedStorage:FindFirstChild("BoomerangH") then  
+            ReplicatedStorage.BoomerangH:FireServer(rightArm)  
+        end  
+    end  
 end
 
--- Update sphere position
-RunService.RenderStepped:Connect(function()
-    local char = LocalPlayer.Character
-    if char and char:FindFirstChild("HumanoidRootPart") then
-        sphere.Position = char.HumanoidRootPart.Position
-    end
-end)
+-- Click anywhere to slap  
+UserInputService.InputBegan:Connect(function(input, gameProcessed)  
+    if not gameProcessed then  
+        if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then  
+            performSlap()  
+        end  
+    end  
+end)  
 
--- Respawn handling
-LocalPlayer.CharacterAdded:Connect(function()
-    task.wait(0.5)
-    createSphere()
-end)
-
--- Increase reach (+2)
-plusBtn.MouseButton1Click:Connect(function()
-    _G.ReachRadius = _G.ReachRadius + 2
-    reachLabel.Text = "Reach: ".._G.ReachRadius
-    sphere.Size = Vector3.new(_G.ReachRadius * 2, _G.ReachRadius * 2, _G.ReachRadius * 2)
-end)
-
--- Decrease reach (-2, min 3)
-minusBtn.MouseButton1Click:Connect(function()
-    _G.ReachRadius = math.max(3, _G.ReachRadius - 2)
-    reachLabel.Text = "Reach: ".._G.ReachRadius
-    sphere.Size = Vector3.new(_G.ReachRadius * 2, _G.ReachRadius * 2, _G.ReachRadius * 2)
-end)
-
--- Nearest player function
-local function getNearestPlayerWithinReach()
-    local nearestPlayer, shortestDistance = nil, math.huge
-    local char = LocalPlayer.Character
-    if not char or not char:FindFirstChild("HumanoidRootPart") then return nil end
-    local localHRP = char.HumanoidRootPart
-
-    for _, player in ipairs(Players:GetPlayers()) do
-        if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-            local targetHRP = player.Character.HumanoidRootPart
-            local distance = (localHRP.Position - targetHRP.Position).Magnitude
-            if distance < shortestDistance and distance <= _G.ReachRadius then
-                shortestDistance = distance
-                nearestPlayer = player
-            end
-        end
-    end
-    return nearestPlayer
-end
-
--- Attack button
-button.MouseButton1Click:Connect(function()
-    local target = getNearestPlayerWithinReach()
-    if target then
-        local args = { target.Character.HumanoidRootPart }
-        ReplicatedStorage.SnowHit:FireServer(unpack(args))
-    else
-        warn("No player within reach (".._G.ReachRadius.." studs)")
-    end
-end)
-
--- Create sphere initially
+-- Create sphere initially  
 createSphere()
