@@ -1,3 +1,8 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "made by haxarebest1";
+    Text = "took me 10 years to make";
+    Duration = 5
+    })
 local gui = Instance.new("ScreenGui", Game.Players.LocalPlayer.PlayerGui)
 gui.ResetOnSpawn = false
 local onoffbutton = Instance.new("TextButton", gui)
@@ -10,6 +15,13 @@ local text4 = Instance.new("TextLabel", frame)
 local text5 = Instance.new("TextLabel", frame)
 local text6 = Instance.new("TextLabel", frame)
 local text7 = Instance.new("TextLabel", frame)
+local text8 = Instance.new("TextLabel", frame)
+local text9 = Instance.new("TextLabel", frame)
+local text10 = Instance.new("TextLabel", frame)
+local text11 = Instance.new("TextLabel", frame)
+local text12 = Instance.new("TextLabel", frame)
+local text13 = Instance.new("TextLabel", frame)
+local text14 = Instance.new("TextLabel", frame)
 local button = Instance.new("TextButton", frame)
 local button1 = Instance.new("TextButton", frame)
 local button2 = Instance.new("TextButton", frame)
@@ -18,6 +30,20 @@ local button4 = Instance.new("TextButton", frame)
 local button5 = Instance.new("TextButton", frame)
 local button6 = Instance.new("TextButton", frame)
 local button7 = Instance.new("TextButton", frame)
+local button8 = Instance.new("TextButton", frame)
+local button9 = Instance.new("TextButton", frame)
+local button10 = Instance.new("TextButton", frame)
+local button11 = Instance.new("TextButton", frame)
+local button12 = Instance.new("TextButton", frame)
+local button13 = Instance.new("TextButton", frame)
+local button14 = Instance.new("TextButton", frame)
+
+local button15 = Instance.new("TextButton", frame)
+
+local button16 = Instance.new("TextButton", frame)
+
+local button17 = Instance.new("TextButton", frame)
+
 
 
 onoffbutton.Size = UDim2.new(0.1,0,0.1,0)
@@ -107,6 +133,56 @@ text7.BackgroundTransparency = 1
 text7.TextSize = 24
 text7.TextColor3 = Color3.fromRGB(0,0,255)
 
+text8.Size = UDim2.new(0.8,0,0.5,0)
+text8.Position = UDim2.new(0.5,10,0.5,-122)
+text8.Draggable = false
+text8.Active = false
+text8.Text = "EVERYTHING"
+text8.BackgroundTransparency = 1
+text8.TextSize = 13
+text8.TextColor3 = Color3.fromRGB(0,255,0)
+text8.Visible = false
+
+text9.Size = UDim2.new(0.8,0,0.5,0)
+text9.Position = UDim2.new(0.5,15,0.5,-97)
+text9.Draggable = false
+text9.Active = false
+text9.Text = "HERE"
+text9.BackgroundTransparency = 1
+text9.TextSize = 21
+text9.TextColor3 = Color3.fromRGB(0,255,0)
+text9.Visible = false
+
+text10.Size = UDim2.new(0.8,0,0.5,0)
+text10.Position = UDim2.new(0.5,17,0.5,-65)
+text10.Draggable = false
+text10.Active = false
+text10.Text = "IS"
+text10.BackgroundTransparency = 1
+text10.TextSize = 26
+text10.TextColor3 = Color3.fromRGB(0,255,0)
+text10.Visible = false
+
+text11.Size = UDim2.new(0.8,0,0.5,0)
+text11.Position = UDim2.new(0.5,16,0.5,-29)
+text11.Draggable = false
+text11.Active = false
+text11.Text = "SKIDDED!"
+text11.BackgroundTransparency = 1
+text11.TextSize = 20
+text11.TextColor3 = Color3.fromRGB(255,0,0)
+text11.Visible = false
+
+text12.Size = UDim2.new(0.8,0,0.5,0)
+text12.Position = UDim2.new(0.5,-243,0.5,34)
+text12.Draggable = false
+text12.Active = false
+text12.Text = "70% skidded(chat gpt)  50% skidded (chat gpt)  30% skidded (chat gpt)"
+text12.BackgroundTransparency = 1
+text12.TextSize = 12
+text12.TextColor3 = Color3.fromRGB(0,0,255)
+text12.Visible = false
+
 button.Size = UDim2.new(0.2,0,0.3,0)
 button.Position = UDim2.new(0.5,-356,0.5,-51)
 button.BackgroundColor3 = Color3.fromRGB(85,170,255)
@@ -178,6 +254,105 @@ button7.Draggable = false
 button7.Active = true
 button7.TextSize = 10
 button7.Text = "Cube of death disabler"
+
+button8.Size = UDim2.new(1,0,0.1,0)
+button8.Position = UDim2.new(0.5,-362,0.5,88)
+button8.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button8.TextColor3 = Color3.fromRGB(58,0,255)
+button8.Draggable = false
+button8.Active = true
+button8.TextSize = 15
+button8.Text = "Next page"
+
+button9.Size = UDim2.new(1,0,0.1,0)
+button9.Position = UDim2.new(0.5,-362,0.5,88)
+button9.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button9.TextColor3 = Color3.fromRGB(58,0,255)
+button9.Draggable = false
+button9.Active = true
+button9.TextSize = 15
+button9.Text = "Back 1 page"
+button9.Visible = false
+
+button10.Size = UDim2.new(0.2,0,0.3,0)
+button10.Position = UDim2.new(0.5,-356,0.5,-51)
+button10.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button10.TextColor3 = Color3.fromRGB(58,0,255)
+button10.Draggable = false
+button10.Active = true
+button10.TextSize = 10
+button10.Text = "slap farm hub"
+button10.Visible = false
+
+button11.Size = UDim2.new(0.2,0,0.3,0)
+button11.Position = UDim2.new(0.5,-206,0.5,-51)
+button11.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button11.TextColor3 = Color3.fromRGB(58,0,255)
+button11.Draggable = false
+button11.Active = true
+button11.TextSize = 10
+button11.Text = "slapple farm (Server hops)"
+button11.Visible = false
+
+button12.Size = UDim2.new(0.2,0,0.3,0)
+button12.Position = UDim2.new(0.5,-56,0.5,-51)
+button12.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button12.TextColor3 = Color3.fromRGB(58,0,255)
+button12.Draggable = false
+button12.Active = true
+button12.TextSize = 10
+button12.Text = "snow farm (op)"
+button12.Visible = false
+
+button13.Size = UDim2.new(0.2,0,0.3,0)
+button13.Position = UDim2.new(0.5,100,0.5,-51)
+button13.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button13.TextColor3 = Color3.fromRGB(58,0,255)
+button13.Draggable = false
+button13.Active = true
+button13.TextSize = 10
+button13.Text = "slap royal (trash)"
+button13.Visible = false
+
+button14.Size = UDim2.new(0.2,0,0.3,0)
+button14.Position = UDim2.new(0.5,-356,0.5,17)
+button14.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button14.TextColor3 = Color3.fromRGB(58,0,255)
+button14.Draggable = false
+button14.Active = true
+button14.TextSize = 10
+button14.Text = "unlock all gloves"
+button14.Visible = false
+
+button15.Size = UDim2.new(0.2,0,0.3,0)
+button15.Position = UDim2.new(0.5,-206,0.5,17)
+button15.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button15.TextColor3 = Color3.fromRGB(58,0,255)
+button15.Draggable = false
+button15.Active = true
+button15.TextSize = 10
+button15.Text = "slap aura"
+button15.Visible = false
+
+button16.Size = UDim2.new(0.2,0,0.3,0)
+button16.Position = UDim2.new(0.5,-56,0.5,17)
+button16.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button16.TextColor3 = Color3.fromRGB(58,0,255)
+button16.Draggable = false
+button16.Active = true
+button16.TextSize = 10
+button16.Text = "all glove abillities"
+button16.Visible = false
+
+button17.Size = UDim2.new(0.2,0,0.3,0)
+button17.Position = UDim2.new(0.5,100,0.5,17)
+button17.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button17.TextColor3 = Color3.fromRGB(58,0,255)
+button17.Draggable = false
+button17.Active = true
+button17.TextSize = 10
+button17.Text = "all glove abillities (godmode)"
+button17.Visible = false
 
 onoffbutton.MouseButton1Click:Connect(function()
 	if frame.Visible == true then
@@ -268,4 +443,102 @@ cube.CanTouch = False
 end
 
 thecube()
+end)
+
+button8.MouseButton1Click:Connect(function()
+text1.Visible = false
+text2.Visible = false
+text3.Visible = false
+text4.Visible = false
+text5.Visible = false
+text6.Visible = false
+text7.Visible = false
+text8.Visible = true
+text9.Visible = true
+text10.Visible = true
+text11.Visible = true
+text12.Visible = true
+button.Visible = false
+button1.Visible = false
+button2.Visible = false
+button3.Visible = false
+button4.Visible = false
+button5.Visible = false
+button6.Visible = false
+button7.Visible = false
+button8.Visible = true
+button9.Visible = true
+button10.Visible = true
+button11.Visible = true
+button12.Visible = true
+button13.Visible = true
+button14.Visible = true
+button15.Visible = true
+button16.Visible = true
+button17.Visible = true
+end)
+
+button9.MouseButton1Click:Connect(function()
+text1.Visible = true
+text2.Visible = true
+text3.Visible = true
+text4.Visible = true
+text5.Visible = true
+text6.Visible = true
+text7.Visible = true
+text8.Visible = false
+text9.Visible = false
+text10.Visible = false
+text11.Visible = false
+text12.Visible = flase
+button.Visible = true
+button1.Visible = true
+button2.Visible = true
+button3.Visible = true
+button4.Visible = true
+button5.Visible = true
+button6.Visible = true
+button7.Visible = true
+button8.Visible = true
+button9.Visible = false
+button10.Visible = false
+button11.Visible = false
+button12.Visible = false
+button13.Visible = false
+button14.Visible = false
+button15.Visible = false
+button16.Visible = false
+button17.Visible = false
+end)
+
+button10.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Pro666Pro/slapfarmgui/main/main.lua'))()
+end)
+
+button11.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet(("https://raw.githubusercontent.com/Ver-Sv/Blurslapple/refs/heads/main/slapple")))()
+end)
+
+button12.MouseButton1Click:Connect(function()
+_G.SnowFarm = true _G.FarmSlapsSnowFarm = 200 _G.WaitRegisterSnowFarm = 1 loadstring(game:HttpGet('https://raw.githubusercontent.com/Pro666Pro/OpenSourceScripts/refs/heads/main/SlapFarmGui/Versions/(v4.3).luau'))()
+end)
+
+button13.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Ver-Sv/BlurHubFull/refs/heads/main/BlurHubControl"))()
+end)
+
+button14.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IncognitoScripts/SlapBattles/refs/heads/main/InstantGloves"))()
+end)
+
+button15.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/slap%20aura%20mine"))();
+end)
+
+button16.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/all%20abillities"))();
+end)
+
+button17.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/all%20abillities%20(godmode)"))();
 end)
