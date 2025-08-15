@@ -1,72 +1,78 @@
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 
--- Function to disable CanTouch on the glove inside the "Default" tool
-local function disableGlove(tool)
-    if tool.Name == "Default" then
+-- Toggle state: true = slapable, false = unslapable
+local slapableEnabled = false
+
+-- GUI setup
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "SlapableToggleGUI"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+local button = Instance.new("TextButton")
+button.Size = UDim2.new(0, 150, 0, 40)
+button.Position = UDim2.new(0, 10, 0, 10) -- top left
+button.BackgroundColor3 = Color3.fromRGB(170, 0, 0)
+button.TextColor3 = Color3.fromRGB(255, 255, 255)
+button.Font = Enum.Font.GothamBold
+button.TextSize = 18
+button.Text = "Slapable: OFF"
+button.Parent = screenGui
+
+-- Function to update button look
+local function updateButton()
+    if slapableEnabled then
+        button.Text = "Slapable: ON"
+        button.BackgroundColor3 = Color3.fromRGB(0, 170, 0) -- green
+    else
+        button.Text = "Slapable: OFF"
+        button.BackgroundColor3 = Color3.fromRGB(170, 0, 0) -- red
+    end
+end
+
+-- Function to apply setting to one tool
+local function setGloveTouch(tool)
+    if tool:IsA("Tool") and tool.Name == "Default" then
         local glove = tool:FindFirstChild("Glove")
         if glove and glove:IsA("BasePart") then
-            glove.CanTouch = false
-            print("Glove touch disabled")
+            glove.CanTouch = slapableEnabled
         end
     end
 end
 
--- Check tools already in backpack
-for _, tool in ipairs(player.Backpack:GetChildren()) do
-    disableGlove(tool)
-end
-
-
-
--- Listen for tools being added to backpack
-player.Backpack.ChildAdded:Connect(function(child)
-    disableGlove(child)
-end)
-
--- Listen for tools being added to character
-player.CharacterAdded:Connect(function(char)
-    char.ChildAdded:Connect(function(child)
-        disableGlove(child)
-    end)
-end)
-game.StarterGui:SetCore("SendNotification", {
-    Title = "check console for troll aura";
-    Text = "Made by Haxarebest1";
-    Duration = 5
-})
-print("this is the gloves what works with the troll aura: \n snow\n bull\n pull\nbommarange\n end ")
-
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-
--- Function to disable CanTouch on the glove inside the "Default" tool
-local function disableGlove(tool)
-    if tool.Name == "Default" then
-        local glove = tool:FindFirstChild("Glove")
-        if glove and glove:IsA("BasePart") then
-            glove.CanTouch = false
-            print("Glove touch disabled")
+-- Function to update all current tools
+local function updateAllTools()
+    -- Check backpack
+    for _, tool in ipairs(player.Backpack:GetChildren()) do
+        setGloveTouch(tool)
+    end
+    -- Check character
+    if player.Character then
+        for _, tool in ipairs(player.Character:GetChildren()) do
+            setGloveTouch(tool)
         end
     end
 end
 
--- Check tools already in backpack
-for _, tool in ipairs(player.Backpack:GetChildren()) do
-    disableGlove(tool)
-end
-
--- Listen for tools being added to backpack
-player.Backpack.ChildAdded:Connect(function(child)
-    disableGlove(child)
+-- Toggle when button tapped
+button.MouseButton1Click:Connect(function()
+    slapableEnabled = not slapableEnabled
+    updateAllTools()
+    updateButton()
 end)
 
--- Listen for tools being added to character
+-- Listen for new tools in backpack
+player.Backpack.ChildAdded:Connect(setGloveTouch)
+
+-- Listen for new tools in character
 player.CharacterAdded:Connect(function(char)
-    char.ChildAdded:Connect(function(child)
-        disableGlove(child)
-    end)
+    char.ChildAdded:Connect(setGloveTouch)
 end)
+
+-- First run
+updateButton()
+updateAllTools()
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
