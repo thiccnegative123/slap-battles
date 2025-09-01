@@ -3,20 +3,28 @@
 --4,2 seconds untill respawn
 
 game.StarterGui:SetCore("SendNotification", {
-    Title = "FORT DPAWN TRAPPER";
-    Text = "Made by Haxarebest1";
+    Title = "hi";
+    Text = "FORT SPAWN TRAPPER";
     Duration = 5
     })
 
 local gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
 gui.ResetOnSpawn = false
-local button = Instance.new("TextButton", gui)
+local frame = Instance.new("Frame", gui)
+local button = Instance.new("TextButton", frame)
 
-button.Size = UDim2.new(0.1,0,0.1,0)
-button.Position = UDim2.new(0,760,0,167)
+frame.Size = UDim2.new(0.2,0,0.2,0)
+frame.Position = UDim2.new(0,760,0,167)
+frame.Active = true
+frame.Draggable = true
+frame.BackgroundColor3 = Color3.fromRGB(85, 0, 255)
+
+button.Size = UDim2.new(0.7,0,0.7,0)
+button.Position = UDim2.new(0,25,0,9)
 button.Active = true
 button.Draggable = true
 button.Text = "stop the script"
+button.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
 
 local part1 = Instance.new("Part")
 local on = 1
@@ -84,14 +92,16 @@ game:GetService("ReplicatedStorage").Fortlol:FireServer()
 
 part1:Destroy() 
 
+local stop = true
+
 delay(25, function()
    if stop then game.StarterGui:SetCore("SendNotification", {
         Title = "reset to work",
         Text = "100%",
         Duration = 3
     })
-end)
 end
+end)
 
 delay(32, function()
    if stop then game.StarterGui:SetCore("SendNotification", {
@@ -99,8 +109,8 @@ delay(32, function()
         Text = "TURN OFF SHIFTLOCK, DONT WALK",
         Duration = 3
     })
-end)
 end
+end)
 
 wait(35)
 end
@@ -116,11 +126,11 @@ player.CharacterAdded:Connect(function()
 end)
 end
 
-local stop = true
-
 delay(55.8, function()
     if stop then Game.Players.LocalPlayer.Character.Humanoid.Health = 0
 else
 print("DIDNT WORK")
     end
 end)
+
+
