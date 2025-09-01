@@ -2,6 +2,12 @@
 --24,5 sec after the script ends
 --4,2 seconds untill respawn
 
+game.StarterGui:SetCore("SendNotification", {
+    Title = "FORT DPAWN TRAPPER";
+    Text = "Made by Haxarebest1";
+    Duration = 5
+    })
+
 local gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
 gui.ResetOnSpawn = false
 local button = Instance.new("TextButton", gui)
