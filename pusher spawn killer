@@ -1,0 +1,45 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "PUSHER SPAWN KUKLER";
+    Text = "Made by Haxarebest1";
+    Duration = 5
+    })
+local on = 1
+local gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+gui.ResetOnSpawn = false
+local frame = Instance.new("Frame", gui)
+local button = Instance.new("TextButton", frame)
+
+frame.Size = UDim2.new(0.2,0,0.2,0)
+frame.Position = UDim2.new(0,760,0,167)
+frame.Active = true
+frame.Draggable = true
+frame.BackgroundColor3 = Color3.fromRGB(85, 0, 255)
+
+button.Size = UDim2.new(0.7,0,0.7,0)
+button.Position = UDim2.new(0,25,0,9)
+button.Active = true
+button.Draggable = false
+button.Text = "stop the script"
+button.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+
+button.MouseButton1Click:Connect(function()
+on = 0
+gui:Destroy()
+end)
+
+
+button.MouseButton1Click:Connect(function()
+on = 0
+end)
+
+local humanoidroot = Game.Players.LocalPlayer.Character.HumanoidRootPart
+
+while on == 1 do
+humanoidroot.CFrame = CFrame.new(-996.128052, 326.989227, -26.1117363, -0.998909354, 9.24069283e-08, -0.0466918238, 9.23074808e-08, 1, 4.28605995e-09, 0.0466918238, -2.86193465e-11, -0.998909354)
+wait(0.4)
+
+
+game:GetService("ReplicatedStorage").PusherWall:FireServer()
+wait(5.6)
+end
+
