@@ -1,5 +1,5 @@
 game.StarterGui:SetCore("SendNotification", {
-    Title = "PUSHER SPAWN KUKLER";
+    Title = "PUSHER SPAWN KILLER";
     Text = "Made by Haxarebest1";
     Duration = 5
     })
