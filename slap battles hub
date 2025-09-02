@@ -226,7 +226,7 @@ button4.TextColor3 = Color3.fromRGB(58,0,255)
 button4.Draggable = false
 button4.Active = true
 button4.TextSize = 10
-button4.Text = "fe pp extended"
+button4.Text = "fe fort spawn trapper"
 
 button5.Size = UDim2.new(0.2,0,0.3,0)
 button5.Position = UDim2.new(0.5,-206,0.5,17)
@@ -253,7 +253,7 @@ button7.TextColor3 = Color3.fromRGB(58,0,255)
 button7.Draggable = false
 button7.Active = true
 button7.TextSize = 10
-button7.Text = "Cube of death disabler"
+button7.Text = "pusher spawn killer"
 
 button8.Size = UDim2.new(1,0,0.1,0)
 button8.Position = UDim2.new(0.5,-362,0.5,88)
@@ -364,6 +364,7 @@ end)
 
 button.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/sb%20antivoid%20OP"))();
+
 end)
 
 button1.MouseButton1Click:Connect(function()
@@ -401,12 +402,7 @@ end
 end)
 
 button4.MouseButton1Click:Connect(function()
-local sword = game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Extended")
-if sword then
-    sword.Grip = CFrame.new(-1.5, -7, 1.5, 0.00144193158, -0.999998868, -1.49754662e-08, 0.0144193172, 2.07914309e-05, -0.999896049, 0.999895096, 0.00144178176, 0.0144193312)
-else
-    warn("Sword not found in Backpack!")
-end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/Fort%20spawn%20trapper%20OP"))();
 end)
 
 button5.MouseButton1Click:Connect(function()
@@ -430,19 +426,7 @@ for _, item in ipairs(backpack:GetChildren()) do
 end
 end)
 
-button7.MouseButton1Click:Connect(function()
-game.StarterGui:SetCore("SendNotification", {
-    Title = "MADE BY HAXAREBEST1";
-    Text = "death cube is now friendly";
-    Duration = 5
-    })
-
-local function thecube()
-local cube = workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"]
-cube.CanTouch = False
-end
-
-thecube()
+button7.MouseButton1Click:Connect(function() loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/pusher%20spawn%20killer"))();
 end)
 
 button8.MouseButton1Click:Connect(function()
@@ -490,7 +474,7 @@ text8.Visible = false
 text9.Visible = false
 text10.Visible = false
 text11.Visible = false
-text12.Visible = flase
+text12.Visible = false
 button.Visible = true
 button1.Visible = true
 button2.Visible = true
