@@ -1,9 +1,10 @@
-print("these are the abillities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick")
+print("these are the abillities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick\ngold\nreplica")
 game.StarterGui:SetCore("SendNotification", {
     Title = "check console for the abillities";
     Text = "Made by Haxarebest1";
     Duration = 5
     })
+local on = 1
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 screenGui.ResetOnSpawn = false
@@ -53,6 +54,25 @@ game:GetService("ReplicatedStorage").Erase:FireServer()
 {name = "swapper (dont spamm)", action = function() game:GetService("ReplicatedStorage").SLOC:FireServer()
  end},
 
+{name = "gold inf", action = function() 
+local args = {
+    [1] = true
+}
+
+game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+
+ end},
+
+{name = "gold inf stop", action = function() 
+local args = {
+    [1] = false,
+    [2] = BrickColor.new(37)
+}
+
+game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+
+ end},
+
 {name = "ghost (press it 1x)", action = function() 
 game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
  end},
@@ -61,8 +81,31 @@ game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
 game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
  end},
 
+{name = "ghost spammer", action = function() 
+on = 1
+while on == 1 do
+wait()
+game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
+wait()
+game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
+end
+ end},
+
+{name = "ghost spammer stopper", action = function() 
+on = 0
+ end},
+
 {name = "fort (dont spamm)", action = function() 
 game:GetService("ReplicatedStorage").Fortlol:FireServer()
+ end},
+
+{name = "replica", action = function() 
+local args = {
+    [1] = true
+}
+
+game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack(args))
+
  end},
 
 {name = "pusher (wait till the other wall goes away)", action = function() 
