@@ -1,4 +1,4 @@
-print("these are the abilities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick\ngold\nreplica\nreverse")
+print("these are the abilities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick\ngold\nreplica\nreverse\nmail\nmr")
 game.StarterGui:SetCore("SendNotification", {
     Title = "check console for the abilities";
     Text = "Made by Haxarebest1";
@@ -6,6 +6,8 @@ game.StarterGui:SetCore("SendNotification", {
 })
 local on = 1
 local lol1 = 1
+local lol2 = 1
+local lol3 = 1
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 screenGui.ResetOnSpawn = false
@@ -66,6 +68,22 @@ lol = 1
 
     {name = "za hando (dont spamm)", action = function() game:GetService("ReplicatedStorage").Erase:FireServer() end},
 
+{name = "mail", action = function() 
+game:GetService("ReplicatedStorage").MailSend:FireServer()
+ end},
+
+{name = "mail spammer", action = function() 
+lol2 = 1
+while lol2 == 1 do
+game:GetService("ReplicatedStorage").MailSend:FireServer()
+wait(3.5)
+end
+ end},
+
+{name = "mail spammer stopper", action = function() 
+lol2 = 0
+ end},
+
     {name = "swapper (dont spamm)", action = function() game:GetService("ReplicatedStorage").SLOC:FireServer() end},
 
     {name = "gold inf", action = function() 
@@ -77,6 +95,22 @@ lol = 1
         local args = {[1] = false, [2] = BrickColor.new(37)}
         game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
     end},
+
+{name = "MR", action = function() 
+game:GetService("ReplicatedStorage").Spherify:FireServer()
+ end},
+
+{name = "MR spammer", action = function()
+lol3 = 1
+while lol3 == 1 do 
+wait()
+game:GetService("ReplicatedStorage").Spherify:FireServer()
+end
+ end},
+
+{name = "MR spammer stopper", action = function() 
+lol3 = 0
+ end},
 
     {name = "reverse", action = function() 
 game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
