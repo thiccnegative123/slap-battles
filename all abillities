@@ -1,4 +1,4 @@
-print("these are the abilities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick\ngold\nreplica\nreverse\nmail\nmr")
+print("these are the abilities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick\ngold\nreplica\nreverse\nmail\nmr\nspace")
 game.StarterGui:SetCore("SendNotification", {
     Title = "check console for the abilities";
     Text = "Made by Haxarebest1";
@@ -8,6 +8,7 @@ local on = 1
 local lol1 = 1
 local lol2 = 1
 local lol3 = 1
+local lol4 = 1
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 screenGui.ResetOnSpawn = false
@@ -152,6 +153,22 @@ lol1 = 0
     end},
 
     {name = "pusher (wait till the other wall goes away)", action = function() game:GetService("ReplicatedStorage").PusherWall:FireServer() end},
+
+{name = "space sound", action = function()  
+game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
+end},
+
+{name = "space sound spammer", action = function()
+lol4 = 1
+while lol4 == 1 do  
+game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
+wait()
+end
+end},
+
+{name = "space sound spammer stopper", action = function()  
+lol4 = 0
+end},
 
     {name = "tycoon (at middel)", action = function() 
         local args = {[1] = CFrame.new(57.24900436401367, -7.672859191894531, -16.269390106201172) * CFrame.Angles(7.275374400705914e-07, -1.4789093732833862, 7.294640909094596e-07)}
