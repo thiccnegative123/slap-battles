@@ -1,0 +1,113 @@
+local lol = 1
+local gui = Instance.new("ScreenGui")
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+gui.ResetOnSpawn = false
+local frame = Instance.new("Frame", gui)
+local button = Instance.new("TextButton", frame)
+
+frame.Size = UDim2.new(0.2,0,0.2,0)
+frame.Position = UDim2.new(0,760,0,167)
+frame.Active = true
+frame.Draggable = true
+frame.BackgroundColor3 = Color3.fromRGB(85, 0, 255)
+
+button.Size = UDim2.new(0.7,0,0.7,0)
+button.Position = UDim2.new(0,25,0,9)
+button.Active = true
+button.Draggable = true
+button.Text = "stop the script"
+button.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+
+button.MouseButton1Click:Connect(function()
+lol = 2
+gui:Destroy()
+end)
+
+
+
+
+--block1
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(-991.528503, 338.976044, 9.86055565) * CFrame.Angles(-5.9172393207518326e-08, -0.021611923351883888, 1.5707963705062866),
+    [2] = Vector3.new(23.299985885620117, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+wait(5.2)
+end
+--block 2
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(-976.393555, 329.924072, -2.53042769) * CFrame.Angles(-5.9172393207518326e-08, -0.021611923351883888, 1.5707963705062866),
+    [2] = Vector3.new(-4.7651667500758776e-08, -1.5649471282958984, 1.570796251296997)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+wait(5.2)
+end
+--block3
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(-965.922729, 329.09906, 3.54099178) * CFrame.Angles(-5.9172393207518326e-08, -0.021611923351883888, 1.5707963705062866),
+    [2] = Vector3.new(-4.7651667500758776e-08, -1.5649471282958984, 1.570796251296997)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+
+wait(5.2)
+end
+
+--block4
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(-952.705139, 327.366547, -8.41721654) * CFrame.Angles(7.69415927410125732, -1.5461701154708862, -1.570796251296997),
+    [2] = Vector3.new(12.50000286102295, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+wait(5.2)
+end
+
+--block5
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(-933.749695, 333.031067, 8.46277046) * CFrame.Angles(0, 4.7, 0),
+    [2] = Vector3.new(30, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+
+wait(5.2)
+end
+--block6
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(-900.118774, 337.981445, 12.1553946) * CFrame.Angles(0, 4.7, 0),
+    [2] = Vector3.new(21, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+wait(5.2)
+end
+
+--block7
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(-868.959595, 334.482086, 10.8615768) * CFrame.Angles(0, 4.7, 0),
+    [2] = Vector3.new(21, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+wait(5.2)
+end
+--block8
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(-830.976868, 337.581635, 2.0285225529) * CFrame.Angles(-5.9172393207518326e-08, -0.021611923351883888, 1.5707963705062866),
+    [2] = Vector3.new(23.299985885620117, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))     
+end
+
