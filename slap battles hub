@@ -377,7 +377,7 @@ game.StarterGui:SetCore("SendNotification", {
     Text = "Made by Haxarebest1";
     Duration = 5
     })
-loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/plank%20spawn%20parkour"))();
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/plank%20build%20hub"))();
 end)
 
 button3.MouseButton1Click:Connect(function()
