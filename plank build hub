@@ -1,0 +1,61 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "made by haxarebest1";
+    Text = "im good at obbies";
+    Duration = 5
+    })
+local gui = Instance.new("ScreenGui")
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+gui.ResetOnSpawn = false
+local frame = Instance.new("Frame", gui)
+local button = Instance.new("TextButton", frame)
+local button1 = Instance.new("TextButton", frame)
+local button2 = Instance.new("TextButton", frame)
+local button3 = Instance.new("TextButton", frame)
+
+
+frame.Size = UDim2.new(0.25,0,0.25,0)
+frame.Position = UDim2.new(0,523,0,14)
+frame.Draggable = true
+frame.Active = true
+frame.BackgroundColor3 = Color3.fromRGB(69,69,255)
+
+button.Size = UDim2.new(0.4,0,0.4,0)
+button.Position = UDim2.new(0,12,0,6)
+button.Draggable = false
+button.Active = true
+button.BackgroundColor3 = Color3.fromRGB(0,255,0)
+button.Text = "middle to cannon plank obby"
+
+button1.Size = UDim2.new(0.4,0,0.4,0)
+button1.Position = UDim2.new(0,12,0,47)
+button1.Draggable = false
+button1.Active = true
+button1.BackgroundColor3 = Color3.fromRGB(0,255,0)
+button1.Text = "lobby plank obby"
+
+button2.Size = UDim2.new(0.4,0,0.4,0)
+button2.Position = UDim2.new(0,111,0,7)
+button2.Draggable = false
+button2.Active = true
+button2.BackgroundColor3 = Color3.fromRGB(0,255,0)
+button2.Text = "Comming soon"
+
+button3.Size = UDim2.new(0.4,0,0.4,0)
+button3.Position = UDim2.new(0,111,0,48)
+button3.Draggable = false
+button3.Active = true
+button3.BackgroundColor3 = Color3.fromRGB(255,0,0)
+button3.Text = "delete script"
+
+
+button.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/plank%20parkour%20v2"))();
+end)
+
+button1.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/plank%20spawn%20parkour"))();
+end)
+
+button3.MouseButton1Click:Connect(function()
+gui:Destroy()
+end)
