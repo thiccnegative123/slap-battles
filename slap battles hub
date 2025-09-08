@@ -208,7 +208,7 @@ button2.TextColor3 = Color3.fromRGB(58,0,255)
 button2.Draggable = false
 button2.Active = true
 button2.TextSize = 10
-button2.Text = "plank spawn parkour"
+button2.Text = "plank builder hub"
 
 button3.Size = UDim2.new(0.2,0,0.3,0)
 button3.Position = UDim2.new(0.5,100,0.5,-51)
@@ -373,7 +373,7 @@ end)
 
 button2.MouseButton1Click:Connect(function()
 game.StarterGui:SetCore("SendNotification", {
-    Title = "spawning parkour";
+    Title = "enjoy the build";
     Text = "Made by Haxarebest1";
     Duration = 5
     })
