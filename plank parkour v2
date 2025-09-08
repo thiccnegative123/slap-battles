@@ -1,0 +1,118 @@
+
+local lol = 1
+local gui = Instance.new("ScreenGui")
+gui.Parent = game.Players.LocalPlayer.PlayerGui
+gui.ResetOnSpawn = false
+local frame = Instance.new("Frame", gui)
+local button = Instance.new("TextButton", frame)
+
+frame.Size = UDim2.new(0.2,0,0.2,0)
+frame.Position = UDim2.new(0,760,0,167)
+frame.Active = true
+frame.Draggable = true
+frame.BackgroundColor3 = Color3.fromRGB(85, 0, 255)
+
+button.Size = UDim2.new(0.7,0,0.7,0)
+button.Position = UDim2.new(0,25,0,9)
+button.Active = true
+button.Draggable = true
+button.Text = "stop the script"
+button.BackgroundColor3 = Color3.fromRGB(0, 255, 255)
+
+button.MouseButton1Click:Connect(function()
+lol = 2
+gui:Destroy()
+end)
+
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(108.96236419677734, -0.7728595733642578, 64.68164825439453) * CFrame.Angles(1.1631658303201675e-08, -0.41841334104537964, 1.5707963705062866),
+    [2] = Vector3.new(14.600004196166992, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+end
+wait(5.4)
+
+if lol == 1 then
+  local args = {
+    [1] = CFrame.new(108.96236419677734, -3.7728595733642578, 64.68164825439453) * CFrame.Angles(7.69415927410125732, -1.5461701154708862, -1.570796251296997),
+    [2] = Vector3.new(14.600004196166992, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+end
+wait(5.4)
+
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(130.96236419677734, -3.7728595733642578, 64.68164825439453) * CFrame.Angles(7.69415927410125732, -1.5461701154708862, -1.570796251296997),
+    [2] = Vector3.new(14.600004196166992, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+end
+wait(5.4)
+
+if lol == 1 then
+   local args = {
+    [1] = CFrame.new(150.96236419677734, 5.7728595733642578, 84.68164825439453) * CFrame.Angles(1.1631658303201675e-08, -0.41841334104537964, 1.5707963705062866),
+    [2] = Vector3.new(14.600004196166992, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))      
+end
+wait(5.4)
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(158.96236419677734, 10.7728595733642578, 100.68164825439453) * CFrame.Angles(1.1631658303201675e-08, -0.41841334104537964, 1.5707963705062866),
+    [2] = Vector3.new(14.600004196166992, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+end
+wait(5.4)
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(168.96236419677734, 5.7728595733642578, 100.68164825439453) * CFrame.Angles(7.69415927410125732, -1.5461701154708862, -1.570796251296997),
+    [2] = Vector3.new(14.600004196166992, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+end
+wait(5.4)
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(186.96236419677734, 17.7728595733642578, 125.68164825439453) * CFrame.Angles(1.1631658303201675e-08, -0.41841334104537964, 1.5707963705062866),
+    [2] = Vector3.new(14.600004196166992, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+end
+wait(5.4)
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(196.96236419677734, 17.7728595733642578, 140.68164825439453) * CFrame.Angles(1.1631658303201675e-08, -0.41841334104537964, 1.5707963705062866),
+    [2] = Vector3.new(14.600004196166992, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+end
+wait(5.4)
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(196.96236419677734, 24.7728595733642578, 160.68164825439453) * CFrame.Angles(1.1631658303201675e-08, -0.41841334104537964, 1.5707963705062866),
+    [2] = Vector3.new(14.600004196166992, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+end
+wait(5.4)
+if lol == 1 then
+local args = {
+    [1] = CFrame.new(203.96236419677734, 23.7728595733642578, 145.68164825439453) * CFrame.Angles(7.69415927410125732, -1.5461701154708862, -1.570796251296997),
+    [2] = Vector3.new(14.600004196166992, 3, 0.3499999940395355)
+}
+
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+end
