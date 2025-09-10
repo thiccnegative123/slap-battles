@@ -121,7 +121,7 @@ game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
 lol1 = 1
 while lol1 == 1 do
 game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
-wait(5.5)
+wait(6)
 end
  end},
 
