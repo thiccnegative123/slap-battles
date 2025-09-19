@@ -1,4 +1,4 @@
-print("these are the abilities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick\ngold\nreplica\nreverse\nmail\nmr\nspace")
+print("these are the abilities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick\ngold\nreplica\nreverse\nmail\nmr\nspace\nretro\nscythe\nglovel")
 game.StarterGui:SetCore("SendNotification", {
     Title = "check console for the abilities";
     Text = "Made by Haxarebest1";
@@ -9,6 +9,8 @@ local lol1 = 1
 local lol2 = 1
 local lol3 = 1
 local lol4 = 1
+local lol5 = 1
+local lol6 = 1
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 screenGui.ResetOnSpawn = false
@@ -35,6 +37,268 @@ suggestionFrame.Size = UDim2.new(0, 200, 0, 150)
 suggestionFrame.Position = UDim2.new(0, 10, 0, 45)
 suggestionFrame.BackgroundTransparency = 1
 suggestionFrame.Parent = mainFrame
+
+local toggleButton = Instance.new("TextButton")
+toggleButton.Size = UDim2.new(0, 100, 0, 30)
+toggleButton.Position = UDim2.new(0.5, -50, 0.85, 0)
+toggleButton.Text = "Open Search"
+toggleButton.Parent = screenGui
+toggleButton.Draggable = true
+
+local words = {
+    {name = "zzzzzzz", action = function() game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer() end},
+    {name = "diamond", action = function() game:GetService("ReplicatedStorage").Rockmode:FireServer() end},
+
+    {name = "brick (use it in arena)", action = function() game:GetService("ReplicatedStorage").lbrick:FireServer() end},
+
+    {name = "defense", action = function() 
+        local args = {[1] = 1}
+        game:GetService("ReplicatedStorage").Barrier:FireServer(unpack(args))
+    end},
+
+    {name = "defense spamm", action = function() 
+lol = 1
+        while lol == 1 do
+            wait()
+            local args = {[1] = 1}
+            game:GetService("ReplicatedStorage").Barrier:FireServer(unpack(args))
+        end
+    end},
+
+    {name = "defense spamm stopper", action = function() 
+        lol = 0
+    end},
+
+    {name = "za hando (dont spamm)", action = function() game:GetService("ReplicatedStorage").Erase:FireServer() end},
+
+{name = "mail", action = function() 
+game:GetService("ReplicatedStorage").MailSend:FireServer()
+ end},
+
+{name = "mail spammer", action = function() 
+lol2 = 1
+while lol2 == 1 do
+game:GetService("ReplicatedStorage").MailSend:FireServer()
+wait(3.5)
+end
+ end},
+
+{name = "mail spammer stopper", action = function() 
+lol2 = 0
+ end},
+
+    {name = "swapper (dont spamm)", action = function() game:GetService("ReplicatedStorage").SLOC:FireServer() end},
+
+    {name = "gold inf", action = function() 
+        local args = {[1] = true}
+        game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+    end},
+
+    {name = "gold inf stop", action = function() 
+        local args = {[1] = false, [2] = BrickColor.new(37)}
+        game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+    end},
+
+{name = "MR", action = function() 
+game:GetService("ReplicatedStorage").Spherify:FireServer()
+ end},
+
+{name = "MR spammer", action = function()
+lol3 = 1
+while lol3 == 1 do 
+wait()
+game:GetService("ReplicatedStorage").Spherify:FireServer()
+end
+ end},
+
+{name = "MR spammer stopper", action = function() 
+lol3 = 0
+ end},
+
+{name = "retro rocket", action = function() 
+local args = {
+    [1] = "Rocket Launcher"
+}
+
+game:GetService("ReplicatedStorage").RetroAbility:FireServer(unpack(args))
+ end},
+
+{name = "retro hammer", action = function() 
+local args = {
+    [1] = "Ban Hammer"
+}
+
+game:GetService("ReplicatedStorage").RetroAbility:FireServer(unpack(args))
+ end},
+
+{name = "glovel", action = function() 
+game:GetService("ReplicatedStorage").GlovelFunc:InvokeServer()
+ end},
+
+{name = "retro bomb", action = function() 
+local args = {
+    [1] = "Bomb"
+}
+
+game:GetService("ReplicatedStorage").RetroAbility:FireServer(unpack(args))
+ end},
+
+{name = "glovel spammer", action = function() 
+lol6 = 1
+while lol6 == 1 do
+wait()
+game:GetService("ReplicatedStorage").GlovelFunc:InvokeServer()
+end
+ end},
+
+{name = "glovel spammer stopper", action = function() 
+lol6 = 0
+ end},
+
+ {name = "scythe", action = function() 
+local args = {
+    [1] = "ScytheWeapon"
+}
+
+game:GetService("ReplicatedStorage").Scythe:FireServer(unpack(args))
+ end},
+
+{name = "scythe spamming", action = function() 
+lol5 = 1
+while lol5 == 1 do
+wait()
+local args = {
+    [1] = "ScytheWeapon"
+}
+
+game:GetService("ReplicatedStorage").Scythe:FireServer(unpack(args))
+end
+ end},
+
+ {name = "scythe spamm stopper", action = function() 
+lol5 = 0
+ end},
+
+    {name = "reverse", action = function() 
+game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
+ end},
+
+{name = "reverse inf", action = function() 
+lol1 = 1
+while lol1 == 1 do
+game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
+wait(6)
+end
+ end},
+
+{name = "reverse inf stopper", action = function() 
+lol1 = 0
+ end},
+
+    {name = "ghost (press it 1x)", action = function() game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer() end},
+
+    {name = "ghost deactivation (click it 1x)", action = function() game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer() end},
+
+    {name = "ghost spammer", action = function() 
+        on = 1
+        while on == 1 do
+            wait()
+            game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
+            wait()
+            game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
+        end
+    end},
+
+    {name = "ghost spammer stopper", action = function() on = 0 end},
+
+    {name = "fort (dont spamm)", action = function() game:GetService("ReplicatedStorage").Fortlol:FireServer() end},
+
+    {name = "replica", action = function() 
+        local args = {[1] = true}
+        game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack(args))
+    end},
+
+    {name = "pusher (wait till the other wall goes away)", action = function() game:GetService("ReplicatedStorage").PusherWall:FireServer() end},
+
+{name = "space sound", action = function()  
+game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
+end},
+
+{name = "space sound spammer", action = function()
+lol4 = 1
+while lol4 == 1 do  
+game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
+wait()
+end
+end},
+
+{name = "space sound spammer stopper", action = function()  
+lol4 = 0
+end},
+
+    {name = "tycoon (at middel)", action = function() 
+        local args = {[1] = CFrame.new(57.24900436401367, -7.672859191894531, -16.269390106201172) * CFrame.Angles(7.275374400705914e-07, -1.4789093732833862, 7.294640909094596e-07)}
+        game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+    end},
+
+    {name = "tycoon (the iland before slapple)", action = function() 
+        local args = {[1] = CFrame.new(-217.8243408203125, -7.778175354003906, -30.511960983276367) * CFrame.Angles(-3.141592502593994, 0.8484033346176147, 3.1415927410125732)}
+        game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+    end},
+
+    {name = "tycoon (at slapple)", action = function() 
+        local args = {[1] = CFrame.new(-398.32147216796875, 48.64140319824219, 6.077454566955566) * CFrame.Angles(-1.5881926174188266e-07, -1.497984528541565, -1.5773066763813404e-07)}
+        game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+    end},
+
+    {name = "tycoon (iland 1)", action = function() 
+        local args = {[1] = CFrame.new(-38.042545318603516, -7.644439697265625, -223.01454162597656) * CFrame.Angles(-3.1415927410125732, 0.4666803479194641, 3.1415927410125732)}
+        game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+    end},
+
+    {name = "tycoon (iland 2)", action = function() 
+        local args = {[1] = CFrame.new(18.46354866027832, -7.567276954650879, 211.4311981201172) * CFrame.Angles(3.1415908336639404, 0.30686527490615845, -3.141592025756836)}
+        game:GetService("ReplicatedStorage").GeneralAbility:FireServer(unpack(args))
+    end},
+}
+
+local function clearSuggestions()
+    for _, child in ipairs(suggestionFrame:GetChildren()) do
+        if child:IsA("TextButton") then
+            child:Destroy()
+        end
+    end
+end
+
+searchBar:GetPropertyChangedSignal("Text"):Connect(function()
+    local query = string.lower(searchBar.Text)
+    clearSuggestions()
+
+    if query ~= "" then
+        local yPos = 0
+        for _, wordData in ipairs(words) do
+            local wordName = string.lower(wordData.name)
+            if string.sub(wordName, 1, #query) == query then
+                local btn = Instance.new("TextButton")
+                btn.Size = UDim2.new(1, 0, 0, 25)
+                btn.Position = UDim2.new(0, 0, 0, yPos)
+                btn.Text = wordData.name
+                btn.Parent = suggestionFrame
+
+                btn.MouseButton1Click:Connect(function()
+                    wordData.action()
+                end)
+
+                yPos += 25
+            end
+        end
+    end
+end)
+
+toggleButton.MouseButton1Click:Connect(function()
+    mainFrame.Visible = not mainFrame.Visible
+    toggleButton.Text = mainFrame.Visible and "Close Search" or "Open Search"
+end)suggestionFrame.Parent = mainFrame
 
 local toggleButton = Instance.new("TextButton")
 toggleButton.Size = UDim2.new(0, 100, 0, 30)
