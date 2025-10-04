@@ -1,4 +1,4 @@
-print("these are the abilities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick\ngold\nreplica\nreverse\nmail\nmr\nspace\nretro\nscythe\nglovel")
+print("these are the abilities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick\ngold\nreplica\nreverse\nmail\nmr\nspace\nretro\nscythe\nglovel\nadmin")
 game.StarterGui:SetCore("SendNotification", {
     Title = "check console for the abilities";
     Text = "Made by Haxarebest1";
@@ -11,6 +11,8 @@ local lol3 = 1
 local lol4 = 1
 local lol5 = 1
 local lol6 = 1
+local lol7 = 1
+local lol8 = 1
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 screenGui.ResetOnSpawn = false
@@ -46,10 +48,67 @@ toggleButton.Parent = screenGui
 toggleButton.Draggable = true
 
 local words = {
-    {name = "zzzzzzz", action = function() game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer() end},
-    {name = "diamond", action = function() game:GetService("ReplicatedStorage").Rockmode:FireServer() end},
 
-    {name = "brick (use it in arena)", action = function() game:GetService("ReplicatedStorage").lbrick:FireServer() end},
+    {name = "admin anvil", action = function() local args = {
+    [1] = "Anvil"
+}
+
+game:GetService("ReplicatedStorage").AdminAbility:FireServer(unpack(args))
+
+ end},
+
+
+{name = "admin invisible", action = function()
+ local args = {
+    [1] = "Invisibility"
+}
+
+game:GetService("ReplicatedStorage").AdminAbility:FireServer(unpack(args))
+
+ end},
+
+   
+
+{name = "admin fling", action = function()
+ local args = {
+    [1] = "Fling"
+}
+
+game:GetService("ReplicatedStorage").AdminAbility:FireServer(unpack(args))
+ end},
+
+
+    {name = "zzzzzzz", action = function() game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
+ end},
+
+ {name = "zzzzzzz spamm", action = function()
+lol7 = 1
+while lol7 == 1 do
+wait() game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
+end
+ end},
+
+ {name = "zzzzzzz spamm stopper", action = function() 
+lol7 = 0
+ end},
+
+
+    {name = "diamond", action = function() game:GetService("ReplicatedStorage").Rockmode:FireServer() 
+end},
+
+    {name = "brick (use it in arena)", action = function() game:GetService("ReplicatedStorage").lbrick:FireServer()
+ end},
+
+{name = "brick spamm", action = function()
+lol8 = 1
+while lol8 == 1 do
+wait() game:GetService("ReplicatedStorage").lbrick:FireServer()
+end
+ end},
+
+{name = "brick spamm stopper", action = function()
+lol8 = 0
+ end},
 
     {name = "defense", action = function() 
         local args = {[1] = 1}
