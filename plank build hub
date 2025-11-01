@@ -1,5 +1,5 @@
 game.StarterGui:SetCore("SendNotification", {
-    Title = "made by haxarebest1";
+    Title = "made by haxarebest2";
     Text = "im good at obbies";
     Duration = 5
     })
