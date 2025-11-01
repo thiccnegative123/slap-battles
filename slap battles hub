@@ -1,5 +1,5 @@
 game.StarterGui:SetCore("SendNotification", {
-    Title = "made by haxarebest1";
+    Title = "made by haxarebest2";
     Text = "took me 10 years to make";
     Duration = 5
     })
@@ -92,7 +92,7 @@ text3.Size = UDim2.new(0.8,0,0.5,0)
 text3.Position = UDim2.new(0.5,15,0.5,-97)
 text3.Draggable = false
 text3.Active = false
-text3.Text = "Haxarebest1"
+text3.Text = "Haxarebest2"
 text3.BackgroundTransparency = 1
 text3.TextSize = 16
 text3.TextColor3 = Color3.fromRGB(255,0,0)
