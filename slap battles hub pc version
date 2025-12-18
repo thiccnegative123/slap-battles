@@ -134,7 +134,7 @@ text7.TextSize = 24
 text7.TextColor3 = Color3.fromRGB(0,0,255)
 
 text8.Size = UDim2.new(0.8,0,0.5,0)
-text8.Position = UDim2.new(0.5,10,0.5,-122)
+text8.Position = UDim2.new(0.5,78,0.5,-247)
 text8.Draggable = false
 text8.Active = false
 text8.Text = "EVERYTHING"
@@ -144,7 +144,7 @@ text8.TextColor3 = Color3.fromRGB(0,255,0)
 text8.Visible = false
 
 text9.Size = UDim2.new(0.8,0,0.5,0)
-text9.Position = UDim2.new(0.5,15,0.5,-97)
+text9.Position = UDim2.new(0.5,83,0.5,-222)
 text9.Draggable = false
 text9.Active = false
 text9.Text = "HERE"
@@ -154,7 +154,7 @@ text9.TextColor3 = Color3.fromRGB(0,255,0)
 text9.Visible = false
 
 text10.Size = UDim2.new(0.8,0,0.5,0)
-text10.Position = UDim2.new(0.5,17,0.5,-65)
+text10.Position = UDim2.new(0.5,85,0.5,-190)
 text10.Draggable = false
 text10.Active = false
 text10.Text = "IS"
@@ -164,7 +164,7 @@ text10.TextColor3 = Color3.fromRGB(0,255,0)
 text10.Visible = false
 
 text11.Size = UDim2.new(0.8,0,0.5,0)
-text11.Position = UDim2.new(0.5,16,0.5,-29)
+text11.Position = UDim2.new(0.5,84,0.5,-154)
 text11.Draggable = false
 text11.Active = false
 text11.Text = "SKIDDED!"
@@ -274,7 +274,7 @@ button9.TextSize = 15
 button9.Text = "Back 1 page"
 button9.Visible = false
 
-button10.Size = UDim2.new(0.2,0,0.3,0)
+button10.Size = UDim2.new(0.16,0,0.3,0)
 button10.Position = UDim2.new(0.5,-356,0.5,-51)
 button10.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button10.TextColor3 = Color3.fromRGB(58,0,255)
@@ -284,7 +284,7 @@ button10.TextSize = 10
 button10.Text = "slap farm hub"
 button10.Visible = false
 
-button11.Size = UDim2.new(0.2,0,0.3,0)
+button11.Size = UDim2.new(0.16,0,0.3,0)
 button11.Position = UDim2.new(0.5,-206,0.5,-51)
 button11.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button11.TextColor3 = Color3.fromRGB(58,0,255)
@@ -294,7 +294,7 @@ button11.TextSize = 10
 button11.Text = "slapple farm (Server hops)"
 button11.Visible = false
 
-button12.Size = UDim2.new(0.2,0,0.3,0)
+button12.Size = UDim2.new(0.16,0,0.3,0)
 button12.Position = UDim2.new(0.5,-56,0.5,-51)
 button12.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button12.TextColor3 = Color3.fromRGB(58,0,255)
@@ -304,7 +304,7 @@ button12.TextSize = 10
 button12.Text = "fe killerfish"
 button12.Visible = false
 
-button13.Size = UDim2.new(0.2,0,0.3,0)
+button13.Size = UDim2.new(0.16,0,0.3,0)
 button13.Position = UDim2.new(0.5,100,0.5,-51)
 button13.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button13.TextColor3 = Color3.fromRGB(58,0,255)
@@ -314,7 +314,7 @@ button13.TextSize = 10
 button13.Text = "slap royal (trash)"
 button13.Visible = false
 
-button14.Size = UDim2.new(0.2,0,0.3,0)
+button14.Size = UDim2.new(0.16,0,0.3,0)
 button14.Position = UDim2.new(0.5,-356,0.5,17)
 button14.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button14.TextColor3 = Color3.fromRGB(58,0,255)
@@ -324,7 +324,7 @@ button14.TextSize = 10
 button14.Text = "unlock all gloves"
 button14.Visible = false
 
-button15.Size = UDim2.new(0.2,0,0.3,0)
+button15.Size = UDim2.new(0.16,0,0.3,0)
 button15.Position = UDim2.new(0.5,-206,0.5,17)
 button15.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button15.TextColor3 = Color3.fromRGB(58,0,255)
@@ -334,7 +334,7 @@ button15.TextSize = 10
 button15.Text = "slap aura"
 button15.Visible = false
 
-button16.Size = UDim2.new(0.2,0,0.3,0)
+button16.Size = UDim2.new(0.16,0,0.3,0)
 button16.Position = UDim2.new(0.5,-56,0.5,17)
 button16.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button16.TextColor3 = Color3.fromRGB(58,0,255)
@@ -344,7 +344,7 @@ button16.TextSize = 10
 button16.Text = "all glove abillities"
 button16.Visible = false
 
-button17.Size = UDim2.new(0.2,0,0.3,0)
+button17.Size = UDim2.new(0.16,0,0.3,0)
 button17.Position = UDim2.new(0.5,100,0.5,17)
 button17.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button17.TextColor3 = Color3.fromRGB(58,0,255)
@@ -426,7 +426,7 @@ text4.Visible = false
 text5.Visible = false
 text6.Visible = false
 text7.Visible = false
-text8.Visible = false
+text8.Visible = true
 text9.Visible = true
 text10.Visible = true
 text11.Visible = true
@@ -459,7 +459,7 @@ text4.Visible = true
 text5.Visible = true
 text6.Visible = true
 text7.Visible = true
-text8.Visible = true
+text8.Visible = false
 text9.Visible = false
 text10.Visible = false
 text11.Visible = false
