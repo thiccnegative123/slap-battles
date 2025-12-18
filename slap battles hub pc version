@@ -80,7 +80,7 @@ text1.TextSize = 20
 text1.TextColor3 = Color3.fromRGB(255,0,0)
 
 text2.Size = UDim2.new(0.8,0,0.5,0)
-text2.Position = UDim2.new(0.5,10,0.5,-122)
+text2.Position = UDim2.new(0.5,2,0.5,-269)
 text2.Draggable = false
 text2.Active = false
 text2.Text = "Made by"
@@ -89,7 +89,7 @@ text2.TextSize = 20
 text2.TextColor3 = Color3.fromRGB(0,255,0)
 
 text3.Size = UDim2.new(0.8,0,0.5,0)
-text3.Position = UDim2.new(0.5,15,0.5,-97)
+text3.Position = UDim2.new(0.5,10,0.5,-241)
 text3.Draggable = false
 text3.Active = false
 text3.Text = "Haxarebest2"
@@ -98,7 +98,7 @@ text3.TextSize = 16
 text3.TextColor3 = Color3.fromRGB(255,0,0)
 
 text4.Size = UDim2.new(0.8,0,0.5,0)
-text4.Position = UDim2.new(0.5,17,0.5,-65)
+text4.Position = UDim2.new(0.5,12,0.5,-212)
 text4.Draggable = false
 text4.Active = false
 text4.Text = "ENJOY"
@@ -107,7 +107,7 @@ text4.TextSize = 26
 text4.TextColor3 = Color3.fromRGB(0,0,255)
 
 text5.Size = UDim2.new(0.8,0,0.5,0)
-text5.Position = UDim2.new(0.5,16,0.5,-29)
+text5.Position = UDim2.new(0.5,11,0.5,-176)
 text5.Draggable = false
 text5.Active = false
 text5.Text = "THE"
@@ -116,7 +116,7 @@ text5.TextSize = 26
 text5.TextColor3 = Color3.fromRGB(0,0,255)
 
 text6.Size = UDim2.new(0.8,0,0.5,0)
-text6.Position = UDim2.new(0.5,15,0.5,-2)
+text6.Position = UDim2.new(0.5,10,0.5,-149)
 text6.Draggable = false
 text6.Active = false
 text6.Text = "FUCKING"
@@ -125,7 +125,7 @@ text6.TextSize = 18
 text6.TextColor3 = Color3.fromRGB(255,0,0)
 
 text7.Size = UDim2.new(0.8,0,0.5,0)
-text7.Position = UDim2.new(0.5,17,0.5,25)
+text7.Position = UDim2.new(0.5,12,0.5,-122)
 text7.Draggable = false
 text7.Active = false
 text7.Text = "SCRIPT"
