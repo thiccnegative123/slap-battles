@@ -220,7 +220,7 @@ button3.TextSize = 10
 button3.Text = "fe pp default"
 
 button4.Size = UDim2.new(0.16,0,0.3,0)
-button4.Position = UDim2.new(0.5,-356,0.5,17)
+button4.Position = UDim2.new(0.5,-765,0.5,78)
 button4.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button4.TextColor3 = Color3.fromRGB(58,0,255)
 button4.Draggable = false
@@ -229,7 +229,7 @@ button4.TextSize = 10
 button4.Text = "fe fort spawn trapper"
 
 button5.Size = UDim2.new(0.16,0,0.3,0)
-button5.Position = UDim2.new(0.5,-206,0.5,17)
+button5.Position = UDim2.new(0.5,-422,0.5,78)
 button5.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button5.TextColor3 = Color3.fromRGB(58,0,255)
 button5.Draggable = false
@@ -238,7 +238,7 @@ button5.TextSize = 10
 button5.Text = "fe extended pp V2"
 
 button6.Size = UDim2.new(0.16,0,0.3,0)
-button6.Position = UDim2.new(0.5,-56,0.5,17)
+button6.Position = UDim2.new(0.5,-84,0.5,78)
 button6.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button6.TextColor3 = Color3.fromRGB(58,0,255)
 button6.Draggable = false
@@ -247,7 +247,7 @@ button6.TextSize = 10
 button6.Text = "Glove expander"
 
 button7.Size = UDim2.new(0.16,0,0.3,0)
-button7.Position = UDim2.new(0.5,100,0.5,17)
+button7.Position = UDim2.new(0.5,261,0.5,78)
 button7.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button7.TextColor3 = Color3.fromRGB(58,0,255)
 button7.Draggable = false
