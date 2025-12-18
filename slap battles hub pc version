@@ -19,7 +19,6 @@ local text8 = Instance.new("TextLabel", frame)
 local text9 = Instance.new("TextLabel", frame)
 local text10 = Instance.new("TextLabel", frame)
 local text11 = Instance.new("TextLabel", frame)
-local text12 = Instance.new("TextLabel", frame)
 local text13 = Instance.new("TextLabel", frame)
 local text14 = Instance.new("TextLabel", frame)
 local button = Instance.new("TextButton", frame)
@@ -173,15 +172,7 @@ text11.TextSize = 20
 text11.TextColor3 = Color3.fromRGB(255,0,0)
 text11.Visible = false
 
-text12.Size = UDim2.new(0.8,0,0.5,0)
-text12.Position = UDim2.new(0.5,-243,0.5,34)
-text12.Draggable = false
-text12.Active = false
-text12.Text = "70% skidded(chat gpt)  50% skidded (chat gpt)  30% skidded (chat gpt)"
-text12.BackgroundTransparency = 1
-text12.TextSize = 12
-text12.TextColor3 = Color3.fromRGB(0,0,255)
-text12.Visible = false
+
 
 button.Size = UDim2.new(0.16,0,0.3,0)
 button.Position = UDim2.new(0.5,-766,0.5,-144)
@@ -265,7 +256,7 @@ button8.TextSize = 15
 button8.Text = "Next page"
 
 button9.Size = UDim2.new(1,0,0.1,0)
-button9.Position = UDim2.new(0.5,-362,0.5,88)
+button9.Position = UDim2.new(0.5,-769,0.5,238)
 button9.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button9.TextColor3 = Color3.fromRGB(58,0,255)
 button9.Draggable = false
@@ -275,84 +266,76 @@ button9.Text = "Back 1 page"
 button9.Visible = false
 
 button10.Size = UDim2.new(0.16,0,0.3,0)
-button10.Position = UDim2.new(0.5,-356,0.5,-51)
-button10.BackgroundColor3 = Color3.fromRGB(85,170,255)
+button10.Position = UDim2.new(0.5,-766,0.5,-144)
+button10.BackgroundColor3 = Color3.fromRGB(85,170,-255)
 button10.TextColor3 = Color3.fromRGB(58,0,255)
 button10.Draggable = false
 button10.Active = true
 button10.TextSize = 10
-button10.Text = "slap farm hub"
-button10.Visible = false
+button10.Text = "Slap farm hub"
 
 button11.Size = UDim2.new(0.16,0,0.3,0)
-button11.Position = UDim2.new(0.5,-206,0.5,-51)
+button11.Position = UDim2.new(0.5,-414,0.5,-144)
 button11.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button11.TextColor3 = Color3.fromRGB(58,0,255)
 button11.Draggable = false
 button11.Active = true
 button11.TextSize = 10
-button11.Text = "slapple farm (Server hops)"
-button11.Visible = false
+button11.Text = "Slap farm (Server hops)"
 
 button12.Size = UDim2.new(0.16,0,0.3,0)
-button12.Position = UDim2.new(0.5,-56,0.5,-51)
+button12.Position = UDim2.new(0.5,-74,0.5,-144)
 button12.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button12.TextColor3 = Color3.fromRGB(58,0,255)
 button12.Draggable = false
 button12.Active = true
 button12.TextSize = 10
 button12.Text = "fe killerfish"
-button12.Visible = false
 
 button13.Size = UDim2.new(0.16,0,0.3,0)
-button13.Position = UDim2.new(0.5,100,0.5,-51)
+button13.Position = UDim2.new(0.5,264,0.5,-144)
 button13.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button13.TextColor3 = Color3.fromRGB(58,0,255)
 button13.Draggable = false
 button13.Active = true
 button13.TextSize = 10
-button13.Text = "slap royal (trash)"
-button13.Visible = false
+button13.Text = "slap royale (trash)"
 
 button14.Size = UDim2.new(0.16,0,0.3,0)
-button14.Position = UDim2.new(0.5,-356,0.5,17)
+button14.Position = UDim2.new(0.5,-765,0.5,78)
 button14.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button14.TextColor3 = Color3.fromRGB(58,0,255)
 button14.Draggable = false
 button14.Active = true
 button14.TextSize = 10
 button14.Text = "unlock all gloves"
-button14.Visible = false
 
 button15.Size = UDim2.new(0.16,0,0.3,0)
-button15.Position = UDim2.new(0.5,-206,0.5,17)
+button15.Position = UDim2.new(0.5,-422,0.5,78)
 button15.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button15.TextColor3 = Color3.fromRGB(58,0,255)
 button15.Draggable = false
 button15.Active = true
 button15.TextSize = 10
-button15.Text = "slap aura"
-button15.Visible = false
+button15.Text = "troll aura"
 
 button16.Size = UDim2.new(0.16,0,0.3,0)
-button16.Position = UDim2.new(0.5,-56,0.5,17)
+button16.Position = UDim2.new(0.5,-84,0.5,78)
 button16.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button16.TextColor3 = Color3.fromRGB(58,0,255)
 button16.Draggable = false
 button16.Active = true
 button16.TextSize = 10
-button16.Text = "all glove abillities"
-button16.Visible = false
+button16.Text = "all gloves abillitys"
 
 button17.Size = UDim2.new(0.16,0,0.3,0)
-button17.Position = UDim2.new(0.5,100,0.5,17)
+button17.Position = UDim2.new(0.5,261,0.5,78)
 button17.BackgroundColor3 = Color3.fromRGB(85,170,255)
 button17.TextColor3 = Color3.fromRGB(58,0,255)
 button17.Draggable = false
 button17.Active = true
 button17.TextSize = 10
-button17.Text = "all glove abillities (godmode)"
-button17.Visible = false
+button17.Text = "all glove abillitys (god mode)"
 
 onoffbutton.MouseButton1Click:Connect(function()
 	if frame.Visible == true then
@@ -430,7 +413,6 @@ text8.Visible = true
 text9.Visible = true
 text10.Visible = true
 text11.Visible = true
-text12.Visible = true
 button.Visible = false
 button1.Visible = false
 button2.Visible = false
@@ -463,7 +445,6 @@ text8.Visible = false
 text9.Visible = false
 text10.Visible = false
 text11.Visible = false
-text12.Visible = false
 button.Visible = true
 button1.Visible = true
 button2.Visible = true
