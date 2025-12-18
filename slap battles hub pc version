@@ -47,7 +47,7 @@ local button17 = Instance.new("TextButton", frame)
 
 
 onoffbutton.Size = UDim2.new(0.1,0,0.069,0)
-onoffbutton.Position = UDim2.new(0.5,357,0.5,-226)
+onoffbutton.Position = UDim2.new(0.5,772,0.5,-533)
 onoffbutton.BackgroundColor3 = Color3.fromRGB(85, 170, 255)
 onoffbutton.Draggable = false
 onoffbutton.Active = true
