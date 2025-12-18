@@ -1,0 +1,178 @@
+-- SERVICES
+local Players = game:GetService("Players")
+
+-- NOTIFICATION
+pcall(function()
+	game.StarterGui:SetCore("SendNotification", {
+		Title = "made by haxarebest1";
+		Text = "took me 10 years to make";
+		Duration = 5
+	})
+end)
+
+-- GUI
+local gui = Instance.new("ScreenGui")
+gui.Parent = Players.LocalPlayer:WaitForChild("PlayerGui")
+gui.ResetOnSpawn = false
+
+local onoffbutton = Instance.new("TextButton", gui)
+local frame = Instance.new("Frame", gui)
+
+-- TEXTS
+local text = Instance.new("TextLabel", frame)
+local text1 = Instance.new("TextLabel", frame)
+local text2 = Instance.new("TextLabel", frame)
+local text3 = Instance.new("TextLabel", frame)
+local text4 = Instance.new("TextLabel", frame)
+local text5 = Instance.new("TextLabel", frame)
+local text6 = Instance.new("TextLabel", frame)
+local text7 = Instance.new("TextLabel", frame)
+local text8 = Instance.new("TextLabel", frame)
+local text9 = Instance.new("TextLabel", frame)
+local text10 = Instance.new("TextLabel", frame)
+local text11 = Instance.new("TextLabel", frame)
+local text12 = Instance.new("TextLabel", frame)
+
+-- BUTTONS
+local button = Instance.new("TextButton", frame)
+local button1 = Instance.new("TextButton", frame)
+local button2 = Instance.new("TextButton", frame)
+local button3 = Instance.new("TextButton", frame)
+local button4 = Instance.new("TextButton", frame)
+local button5 = Instance.new("TextButton", frame)
+local button6 = Instance.new("TextButton", frame)
+local button7 = Instance.new("TextButton", frame)
+local button8 = Instance.new("TextButton", frame)
+local button9 = Instance.new("TextButton", frame)
+local button10 = Instance.new("TextButton", frame)
+local button11 = Instance.new("TextButton", frame)
+local button12 = Instance.new("TextButton", frame)
+local button13 = Instance.new("TextButton", frame)
+local button14 = Instance.new("TextButton", frame)
+local button15 = Instance.new("TextButton", frame)
+local button16 = Instance.new("TextButton", frame)
+local button17 = Instance.new("TextButton", frame)
+
+-- ON/OFF BUTTON
+onoffbutton.Size = UDim2.new(0.1,0,0.1,0)
+onoffbutton.Position = UDim2.new(0.5,357,0.5,-226)
+onoffbutton.BackgroundColor3 = Color3.fromRGB(85,170,255)
+onoffbutton.Text = "On/Off"
+onoffbutton.Active = true
+
+-- FRAME
+frame.Size = UDim2.new(0.8,0,0.5,0)
+frame.Position = UDim2.new(0.5,-350,0.5,-135)
+frame.BackgroundColor3 = Color3.fromRGB(105,105,105)
+frame.BorderSizePixel = 0
+frame.Visible = false
+frame.Active = true
+
+-- TOGGLE
+onoffbutton.Activated:Connect(function()
+	frame.Visible = not frame.Visible
+end)
+
+-- TEXT CONTENT (UNCHANGED)
+text.Text = "SLAP BATTLES FUCKER 5000"
+text.Position = UDim2.new(0.5,-288,0.5,-119)
+text.Size = UDim2.new(0.8,0,0.5,0)
+text.BackgroundTransparency = 1
+text.TextColor3 = Color3.fromRGB(255,0,0)
+text.TextSize = 20
+
+text1.Size = UDim2.new(0.001,0,1,0)
+text1.Position = UDim2.new(0.5,251,0.5,-87)
+text1.BackgroundTransparency = 0
+text1.Text = ""
+
+text2.Text = "Made by"
+text2.Position = UDim2.new(0.5,10,0.5,-122)
+text2.TextColor3 = Color3.fromRGB(0,255,0)
+text2.BackgroundTransparency = 1
+
+text3.Text = "Haxarebest1"
+text3.Position = UDim2.new(0.5,15,0.5,-97)
+text3.TextColor3 = Color3.fromRGB(255,0,0)
+text3.BackgroundTransparency = 1
+
+text4.Text = "ENJOY"
+text4.Position = UDim2.new(0.5,17,0.5,-65)
+text4.TextColor3 = Color3.fromRGB(0,0,255)
+text4.BackgroundTransparency = 1
+
+text5.Text = "THE"
+text5.Position = UDim2.new(0.5,16,0.5,-29)
+text5.TextColor3 = Color3.fromRGB(0,0,255)
+text5.BackgroundTransparency = 1
+
+text6.Text = "FUCKING"
+text6.Position = UDim2.new(0.5,15,0.5,-2)
+text6.TextColor3 = Color3.fromRGB(255,0,0)
+text6.BackgroundTransparency = 1
+
+text7.Text = "SCRIPT"
+text7.Position = UDim2.new(0.5,17,0.5,25)
+text7.TextColor3 = Color3.fromRGB(0,0,255)
+text7.BackgroundTransparency = 1
+
+text8.Text = "EVERYTHING"
+text8.Visible = false
+text9.Text = "HERE"
+text9.Visible = false
+text10.Text = "IS"
+text10.Visible = false
+text11.Text = "SKIDDED!"
+text11.Visible = false
+text12.Text = "70% skidded(chat gpt)"
+text12.Visible = false
+
+-- BUTTON TEXT + POSITIONS (UNCHANGED)
+button.Text = "my antivoid"
+button1.Text = "tp antivoid"
+button2.Text = "plank builder hub"
+button3.Text = "fe pp default"
+button4.Text = "fe fort spawn trapper"
+button5.Text = "fe extended pp V2"
+button6.Text = "Glove expander"
+button7.Text = "pusher spawn killer"
+button8.Text = "Next page"
+button9.Text = "Back 1 page"
+button9.Visible = false
+button10.Text = "slap farm hub"
+button11.Text = "slapple farm"
+button12.Text = "fe killerfish"
+button13.Text = "slap royal"
+button14.Text = "unlock all gloves"
+button15.Text = "slap aura"
+button16.Text = "all glove abilities"
+button17.Text = "all glove abilities (god)"
+
+-- PAGE SWITCH (FIXED)
+button8.Activated:Connect(function()
+	text.Visible=false;text1.Visible=false;text2.Visible=false;text3.Visible=false
+	text4.Visible=false;text5.Visible=false;text6.Visible=false;text7.Visible=false
+
+	text8.Visible=true;text9.Visible=true;text10.Visible=true;text11.Visible=true;text12.Visible=true
+
+	button.Visible=false;button1.Visible=false;button2.Visible=false;button3.Visible=false
+	button4.Visible=false;button5.Visible=false;button6.Visible=false;button7.Visible=false
+
+	button9.Visible=true
+	button10.Visible=true;button11.Visible=true;button12.Visible=true;button13.Visible=true
+	button14.Visible=true;button15.Visible=true;button16.Visible=true;button17.Visible=true
+end)
+
+button9.Activated:Connect(function()
+	text.Visible=true;text1.Visible=true;text2.Visible=true;text3.Visible=true
+	text4.Visible=true;text5.Visible=true;text6.Visible=true;text7.Visible=true
+
+	text8.Visible=false;text9.Visible=false;text10.Visible=false;text11.Visible=false;text12.Visible=false
+
+	button.Visible=true;button1.Visible=true;button2.Visible=true;button3.Visible=true
+	button4.Visible=true;button5.Visible=true;button6.Visible=true;button7.Visible=true
+
+	button9.Visible=false
+	button10.Visible=false;button11.Visible=false;button12.Visible=false;button13.Visible=false
+	button14.Visible=false;button15.Visible=false;button16.Visible=false;button17.Visible=false
+end)
