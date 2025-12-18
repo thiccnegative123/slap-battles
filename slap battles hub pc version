@@ -54,7 +54,7 @@ onoffbutton.Active = true
 onoffbutton.Text = "On/Off"
 
 frame.Size = UDim2.new(0.8,0,0.5,0)
-frame.Position = UDim2.new(0.5,-350,0.5,-135)
+frame.Position = UDim2.new(0.5,-759,0.5,-235)
 frame.BackgroundColor3 = Color3.fromRGB(105,105,105)
 frame.Draggable = false
 frame.Active = true
@@ -62,12 +62,12 @@ frame.BorderSizePixel = 0
 frame.Visible = false
 
 text.Size = UDim2.new(0.8,0,0.5,0)
-text.Position = UDim2.new(0.5,-288,0.5,-119)
+text.Position = UDim2.new(0.5,-605,0.5,-315)
 text.Draggable = false
 text.Active = false
 text.Text = "SLAP BATTLES FUCKER 5000"
 text.BackgroundTransparency = 1
-text.TextSize = 20
+text.TextSize = 80
 text.TextColor3 = Color3.fromRGB(255,0,0)
 
 text1.Size = UDim2.new(0.001,0,1,0)
