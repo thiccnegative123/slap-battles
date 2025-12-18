@@ -71,7 +71,7 @@ text.TextSize = 80
 text.TextColor3 = Color3.fromRGB(255,0,0)
 
 text1.Size = UDim2.new(0.001,0,1,0)
-text1.Position = UDim2.new(0.5,251,0.5,-87)
+text1.Position = UDim2.new(0.5,557,0.5,-238)
 text1.Draggable = false
 text1.Active = false
 text1.Text = ""
