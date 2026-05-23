@@ -4,6 +4,9 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = 5
     })
 
+local cube = game.workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"]
+cube.CanTouch = false
+
 local function block1()
 local part1 = Instance.new("Part")
 part1.Anchored = true
