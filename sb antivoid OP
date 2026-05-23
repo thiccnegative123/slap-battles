@@ -1,6 +1,13 @@
 game.StarterGui:SetCore("SendNotification", {
     Title = "1000 LINE CODE ANTIVOID";
-    Text = "Made by Haxarebest1";
+    Text = "Made by Haxarebest2";
+    Duration = 5
+    })
+
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "cube of death dosnt kill";
+    Text = "Made by Haxarebest2";
     Duration = 5
     })
 
