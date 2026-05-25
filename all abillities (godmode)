@@ -2,7 +2,7 @@ print("these are all the abillities: \n pusher \n za hando \n tycoon \n fort \n 
 
 game.StarterGui:SetCore("SendNotification", {
     Title = "CHECK CONSOLE FOR GLOVE ABILITIES (whoever looks at the script GO FUVK YOURSELF)";
-    Text = "Made by Haxarebest1";
+    Text = "Made by Haxarebest2";
     Duration = 5
     })
 
