@@ -281,7 +281,7 @@ button11.TextColor3 = Color3.fromRGB(58,0,255)
 button11.Draggable = false
 button11.Active = true
 button11.TextSize = 10
-button11.Text = "MY slapple farm"
+button11.Text = "MY OP SLAP FARM USE SNOW"
 
 button12.Size = UDim2.new(0.16,0,0.3,0)
 button12.Position = UDim2.new(0.5,-74,0.5,-144)
@@ -290,7 +290,7 @@ button12.TextColor3 = Color3.fromRGB(58,0,255)
 button12.Draggable = false
 button12.Active = true
 button12.TextSize = 10
-button12.Text = "snow farm"
+button12.Text = "MY OP SLAP COPY"
 
 button13.Size = UDim2.new(0.16,0,0.3,0)
 button13.Position = UDim2.new(0.5,264,0.5,-144)
@@ -490,7 +490,11 @@ for _, obj in ipairs(slapplesFolder:GetChildren()) do
 	end)
 end
 
-wait(0.5)
+wait(1)
+
+_G.SnowFarm = true _G.FarmSlapsSnowFarm = 50 _G.WaitRegisterSnowFarm = 2 loadstring(game:HttpGet('https://raw.githubusercontent.com/Pro666Pro/OpenSourceScripts/refs/heads/main/SlapFarmGui/Versions/(v4.3).luau'))()
+
+wait(1)
 
 -- serverhop
 local HttpService = game:GetService("HttpService")
