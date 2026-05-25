@@ -1,7 +1,7 @@
 print("these are the abilities: \ndiamond\n zzzz\n pusher\n ghost \n swapper\n fort\n tycoon\n za hando\n brick\ngold\nreplica\nreverse\nmail\nmr\nspace\nretro\nscythe\nglovel\nadmin")
 game.StarterGui:SetCore("SendNotification", {
     Title = "check console for the abilities";
-    Text = "Made by Haxarebest1";
+    Text = "Made by Haxarebest2";
     Duration = 5
 })
 local on = 1
