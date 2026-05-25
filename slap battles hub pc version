@@ -470,6 +470,11 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/Pro666Pro/slapfarmgui
 end)
 
 button11.MouseButton1Click:Connect(function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = "made by haxarebest2";
+    Text = "free sample moment";
+    Duration = 5
+    })
 local portal = workspace.Lobby.Teleport1
 
 local player = game.Players.LocalPlayer
@@ -548,6 +553,11 @@ end
 end)
 
 button12.MouseButton1Click:Connect(function()
+game.StarterGui:SetCore("SendNotification", {
+    Title = "made by haxarebest2";
+    Text = "succesfully copied";
+    Duration = 5
+    })
 setclipboard([[
 local portal = workspace.Lobby.Teleport1
 
