@@ -1,3 +1,9 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "be a enderman";
+    Text = "Made by Haxarebest2";
+    Duration = 5
+    })
+
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRoot = character:WaitForChild("HumanoidRootPart")
