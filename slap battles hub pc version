@@ -308,7 +308,7 @@ button14.TextColor3 = Color3.fromRGB(58,0,255)
 button14.Draggable = false
 button14.Active = true
 button14.TextSize = 10
-button14.Text = "unlock all gloves"
+button14.Text = "hitbox expander"
 
 button15.Size = UDim2.new(0.16,0,0.3,0)
 button15.Position = UDim2.new(0.5,-422,0.5,78)
@@ -650,7 +650,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/Ver-Sv/BlurHubFull/re
 end)
 
 button14.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/IncognitoScripts/SlapBattles/refs/heads/main/InstantGloves"))()
+loadstring(game:HttpGet("https://pastebin.com/raw/LWuVzYJY"))()
 end)
 
 button15.MouseButton1Click:Connect(function()
