@@ -15,6 +15,7 @@ reverse
 mail
 mr
 space
+offense
 retro
 scythe
 glovel
@@ -79,6 +80,7 @@ local lol5 = 1
 local lol6 = 1
 local lol7 = 1
 local lol8 = 1
+local lol9 = 1
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -136,6 +138,7 @@ fort
 tycoon
 za hando
 brick
+offense
 gold
 replica
 reverse
@@ -213,6 +216,24 @@ end},
     toggleKeyAbility("za hando", function()
         game:GetService("ReplicatedStorage").Erase:FireServer()
     end)
+end},
+
+{name = "offense", action = function()
+    toggleKeyAbility("offense", function()
+       game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
+    end)
+end},
+
+{name = "offense (spamm)", action = function()
+    lol7 = 1
+while lol9 == 1 do
+wait()
+       game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
+     end
+end},
+
+{name = "offense (stop spamm)", action = function()
+    lol9 = 0
 end},
 
 {name = "brick (use it in arena)", action = function()
