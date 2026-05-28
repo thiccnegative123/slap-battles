@@ -13,6 +13,7 @@ gold
 replica
 reverse
 mail
+pineapple
 mr
 space
 offense
@@ -81,6 +82,7 @@ local lol6 = 1
 local lol7 = 1
 local lol8 = 1
 local lol9 = 1
+local lol10 = 1
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -143,6 +145,7 @@ gold
 replica
 reverse
 mail
+pineapple
 mr
 defense
 space
@@ -235,6 +238,26 @@ end},
 {name = "offense (stop spamm)", action = function()
     lol9 = 0
 end},
+
+{name = "pineapple", action = function()
+     toggleKeyAbility("pineapple", function()
+     game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+     end)
+end},
+
+{name = "pineapple (spamm)", action = function()
+    lol10 = 1
+while lol10 == 1 do
+wait()
+         game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+     end
+end},
+
+{name = "pineapple (stop spamm)", action = function()
+lol10 = 0
+    
+end},
+
 
 {name = "brick (use it in arena)", action = function()
     toggleKeyAbility("brick", function()
