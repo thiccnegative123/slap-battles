@@ -225,7 +225,7 @@ end},
 end},
 
 {name = "offense (spamm)", action = function()
-    lol7 = 1
+    lol9 = 1
 while lol9 == 1 do
 wait()
        game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
