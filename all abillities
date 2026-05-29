@@ -13,10 +13,12 @@ gold
 replica
 reverse
 mail
+G-X
 pineapple
 mr
 space
 offense
+paint
 retro
 scythe
 glovel
@@ -83,6 +85,10 @@ local lol7 = 1
 local lol8 = 1
 local lol9 = 1
 local lol10 = 1
+local lol11 = 1
+local lol12 = 1
+local lol13 = 1
+local lol14 = 1
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -143,6 +149,8 @@ brick
 offense
 gold
 replica
+G-X
+paint
 reverse
 mail
 pineapple
@@ -183,6 +191,108 @@ end},
     toggleKeyAbility("MR", function()
         game:GetService("ReplicatedStorage").Spherify:FireServer()
     end)
+end},
+
+{name = "G-X speed", action = function()
+    toggleKeyAbility("G-X speed", function()
+       game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
+    end)
+end},
+
+{name = "G-X OP", action = function()
+    toggleKeyAbility("G-X OP", function()
+     
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+
+local nearestPlayer = nil
+local shortestDistance = math.huge
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        local targetHRP = player.Character.HumanoidRootPart
+        local distance = (HumanoidRootPart.Position - targetHRP.Position).Magnitude
+
+        if distance < shortestDistance then
+            shortestDistance = distance
+            nearestPlayer = player
+        end
+    end
+end
+
+if nearestPlayer then
+    ReplicatedStorage.Events.Opera:FireServer({
+        ["state"] = "overclock_slap",
+        ["victim"] = nearestPlayer,
+    })
+
+    print("Targeted:", nearestPlayer.Name)
+else
+    print("No nearby player found")
+end
+    end)
+end},
+
+{name = "G-X OP (spamm)", action = function()
+lol11 = 1
+    while lol11 == 1 do
+    wait()
+     
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+
+local nearestPlayer = nil
+local shortestDistance = math.huge
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+        local targetHRP = player.Character.HumanoidRootPart
+        local distance = (HumanoidRootPart.Position - targetHRP.Position).Magnitude
+
+        if distance < shortestDistance then
+            shortestDistance = distance
+            nearestPlayer = player
+        end
+    end
+end
+
+if nearestPlayer then
+    ReplicatedStorage.Events.Opera:FireServer({
+        ["state"] = "overclock_slap",
+        ["victim"] = nearestPlayer,
+    })
+
+    print("Targeted:", nearestPlayer.Name)
+else
+    print("No nearby player found")
+    end
+end
+end},
+
+{name = "G-X speed (spamm)", action = function()
+   lol12 = 1
+  
+   while lol12 == 1 do
+    wait()
+      game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
+      end
+end},
+
+{name = "G-X OP (stop)", action = function()
+   lol11 = 0
+   
+end},
+
+{name = "G-X speed (stop)", action = function()
+   lol12 = 0
 end},
 
 {name = "reverse", action = function()
@@ -282,6 +392,46 @@ end},
         game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
     end)
 end},
+
+{name = "paint brush", action = function()
+    toggleKeyAbility("paint brush", function()
+      game:GetService("ReplicatedStorage").Events.paint:FireServer()
+    end)
+end},
+
+{name = "paint shoot", action = function()
+    toggleKeyAbility("paint shoot", function()
+     game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+    end)
+end},
+
+{name = "paint brush (spamm)", action = function()
+ lol13 = 1
+ while lol13 == 1 do
+ wait()
+      game:GetService("ReplicatedStorage").Events.paint:FireServer()
+    end
+end},
+
+{name = "paint shoot (spamm)", action = function()
+    lol14 = 1
+    while lol14 == 1 do
+    wait()
+     game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+    end
+end},
+
+{name = "paint shoot (stop)", action = function()
+    lol14 = 0
+   
+end},
+
+{name = "paint brush (stop)", action = function()
+ lol13 = 0
+
+end},
+
+
 
 {name = "retro rocket", action = function()
     toggleKeyAbility("retro rocket", function()
