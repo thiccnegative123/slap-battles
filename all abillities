@@ -12,6 +12,9 @@ brick
 gold
 replica
 reverse
+fan
+bind
+frostbite
 mail
 G-X
 pineapple
@@ -89,6 +92,10 @@ local lol11 = 1
 local lol12 = 1
 local lol13 = 1
 local lol14 = 1
+local lol15 = 1
+local lol16 = 1
+local lol17 = 1
+local lol18 = 1
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -157,6 +164,9 @@ pineapple
 mr
 defense
 space
+fan
+frostbite
+bind
 retro
 scythe
 glovel
@@ -346,10 +356,229 @@ end},
     end)
 end},
 
+{name = "fan", action = function()
+    toggleKeyAbility("fan", function()
+       game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+    end)
+end},
+
+{name = "fan (spamm)", action = function()
+    lol15 = 1
+    while lol15 == 1 do
+    wait()
+       game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+    end
+end},
+
+{name = "fan (stop spamm)", action = function()
+    lol15 = 0
+end},
+
+
+
+
+
+
+
+{name = "bind", action = function()
+    toggleKeyAbility("bind", function()
+    local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local localPlayer = Players.LocalPlayer
+
+local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+
+local PREDICT_DISTANCE = 3
+
+local nearestPlayer
+local shortestDistance = math.huge
+
+-- find nearest player
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= localPlayer then
+        local targetChar = player.Character
+        local targetRoot = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
+
+        if targetRoot then
+            local distance = (rootPart.Position - targetRoot.Position).Magnitude
+
+            if distance < shortestDistance then
+                shortestDistance = distance
+                nearestPlayer = player
+            end
+        end
+    end
+end
+
+if nearestPlayer and nearestPlayer.Character then
+    local targetChar = nearestPlayer.Character
+    local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
+
+    if targetRoot then
+
+        -- movement-based prediction (better than LookVector alone)
+        local velocity = targetRoot.AssemblyLinearVelocity
+        local moveDir
+
+        if velocity.Magnitude > 1 then
+            moveDir = velocity.Unit
+        else
+            moveDir = targetRoot.CFrame.LookVector
+        end
+
+        -- predict 3 studs ahead of movement
+        local predictedPos = targetRoot.Position + (moveDir * PREDICT_DISTANCE)
+
+        -- origin at predicted position
+        local originCFrame = CFrame.lookAt(predictedPos, targetRoot.Position)
+
+        ReplicatedStorage.GeneralAbility:FireServer(
+            "default",
+            {
+                origin = originCFrame,
+                goal = targetRoot.CFrame
+            }
+        )
+    end
+end
+    end)
+end},
+
+{name = "bind (spamm)", action = function()
+    lol16 = 1
+    while lol16 == 1 do
+    wait()
+    local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local localPlayer = Players.LocalPlayer
+
+local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+
+local PREDICT_DISTANCE = 3
+
+local nearestPlayer
+local shortestDistance = math.huge
+
+-- find nearest player
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= localPlayer then
+        local targetChar = player.Character
+        local targetRoot = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
+
+        if targetRoot then
+            local distance = (rootPart.Position - targetRoot.Position).Magnitude
+
+            if distance < shortestDistance then
+                shortestDistance = distance
+                nearestPlayer = player
+            end
+        end
+    end
+end
+
+if nearestPlayer and nearestPlayer.Character then
+    local targetChar = nearestPlayer.Character
+    local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
+
+    if targetRoot then
+
+        -- movement-based prediction (better than LookVector alone)
+        local velocity = targetRoot.AssemblyLinearVelocity
+        local moveDir
+
+        if velocity.Magnitude > 1 then
+            moveDir = velocity.Unit
+        else
+            moveDir = targetRoot.CFrame.LookVector
+        end
+
+        -- predict 3 studs ahead of movement
+        local predictedPos = targetRoot.Position + (moveDir * PREDICT_DISTANCE)
+
+        -- origin at predicted position
+        local originCFrame = CFrame.lookAt(predictedPos, targetRoot.Position)
+
+        ReplicatedStorage.GeneralAbility:FireServer(
+            "default",
+            {
+                origin = originCFrame,
+                goal = targetRoot.CFrame
+            }
+        )
+    end
+end
+    end
+end},
+
+{name = "bind (stop spamm)", action = function()
+   lol16 = 0
+end},
+
+{name = "bind ultimate", action = function()
+    toggleKeyAbility("bind ultimate", function()
+        game:GetService("ReplicatedStorage").GeneralAbility:FireServer(
+            "ultimate",
+            {
+                goal = CFrame.new(-66.8487549, -5.17287636, -14.4855118, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
+                origin = CFrame.new(12.1765127, -5.17286968, -26.9356937, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
+            }
+        )
+    end)
+end},
+
+{name = "bind ultimate (spamm)", action = function()
+    lol17 = 1
+
+    while lol17 == 1 do
+        wait()
+
+        game:GetService("ReplicatedStorage").GeneralAbility:FireServer(
+            "ultimate",
+            {
+                goal = CFrame.new(-66.8487549, -5.17287636, -14.4855118, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
+                origin = CFrame.new(12.1765127, -5.17286968, -26.9356937, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
+            }
+        )
+    end
+end},
+
+{name = "bind ultimate (stop spamm)", action = function()
+lol17 = 0
+end},
+
 {name = "space sound", action = function()
     toggleKeyAbility("space sound", function()
         game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
     end)
+end},
+
+{name = "frostbite", action = function()
+    toggleKeyAbility("frostbite", function()
+       game:GetService("ReplicatedStorage").GeneralAbility:FireServer(table.unpack({
+    [1] = 0.3,
+    [2] = 64.46875,
+}))
+    end)
+end},
+
+{name = "frostbite (spamm)", action = function()
+lol18 = 1
+while lol18 == 1 do
+wait()
+       game:GetService("ReplicatedStorage").GeneralAbility:FireServer(table.unpack({
+    [1] = 0.3,
+    [2] = 64.46875,
+}))
+    end
+end},
+
+{name = "frostbite (stop spamm)", action = function()
+lol18 = 0
+
 end},
 
 {name = "paint brush", action = function()
