@@ -335,7 +335,7 @@ button17.TextColor3 = Color3.fromRGB(58,0,255)
 button17.Draggable = false
 button17.Active = true
 button17.TextSize = 10
-button17.Text = "all glove abillitys (god mode)"
+button17.Text = "get gloves for free abillity"
 
 onoffbutton.MouseButton1Click:Connect(function()
 	if frame.Visible == true then
@@ -662,5 +662,5 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap
 end)
 
 button17.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/all%20abillities%20(godmode)"))();
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IncognitoScripts/SlapBattles/main/BadgesHub", true))()
 end)
