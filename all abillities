@@ -199,7 +199,7 @@ end},
     end)
 end},
 
-{name = "G-X OP", action = function()
+{name = "G-X punch", action = function()
     toggleKeyAbility("G-X OP", function()
      
 local Players = game:GetService("Players")
@@ -237,45 +237,7 @@ end
     end)
 end},
 
-{name = "G-X OP (spamm)", action = function()
-lol11 = 1
-    while lol11 == 1 do
-    wait()
-     
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local LocalPlayer = Players.LocalPlayer
-local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
-
-local nearestPlayer = nil
-local shortestDistance = math.huge
-
-for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-        local targetHRP = player.Character.HumanoidRootPart
-        local distance = (HumanoidRootPart.Position - targetHRP.Position).Magnitude
-
-        if distance < shortestDistance then
-            shortestDistance = distance
-            nearestPlayer = player
-        end
-    end
-end
-
-if nearestPlayer then
-    ReplicatedStorage.Events.Opera:FireServer({
-        ["state"] = "overclock_slap",
-        ["victim"] = nearestPlayer,
-    })
-
-    print("Targeted:", nearestPlayer.Name)
-else
-    print("No nearby player found")
-    end
-end
-end},
 
 {name = "G-X speed (spamm)", action = function()
    lol12 = 1
@@ -286,10 +248,7 @@ end},
       end
 end},
 
-{name = "G-X OP (stop)", action = function()
-   lol11 = 0
-   
-end},
+
 
 {name = "G-X speed (stop)", action = function()
    lol12 = 0
