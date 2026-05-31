@@ -449,7 +449,7 @@ end},
 {name = "bind (spamm)", action = function()
     lol16 = 1
     while lol16 == 1 do
-    wait()
+    wait(2)
     local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
