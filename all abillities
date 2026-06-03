@@ -382,7 +382,7 @@ end},
 
 {name = "bind", action = function()
     toggleKeyAbility("bind", function()
-    local Players = game:GetService("Players")
+     local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local localPlayer = Players.LocalPlayer
@@ -390,7 +390,30 @@ local localPlayer = Players.LocalPlayer
 local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 local rootPart = character:WaitForChild("HumanoidRootPart")
 
-local PREDICT_DISTANCE = 3
+local RunService = game:GetService("RunService")
+local lastPos = nil
+
+RunService.Heartbeat:Connect(function(dt)
+    if not targetRoot then return end
+
+    local newPos = targetRoot.Position
+
+    if lastPos then
+        local rawVel = (newPos - lastPos) / math.max(dt, 0.016)
+
+        -- feed into your prediction logic here
+    end
+
+    lastPos = newPos
+end)
+
+local speed = 0
+
+if typeof(horizontalVel) == "Vector3" then
+    speed = horizontalVel.Magnitude
+end
+
+local PREDICT_DISTANCE = math.clamp(speed * 0.18, 2.5, 6)
 
 local nearestPlayer
 local shortestDistance = math.huge
@@ -449,8 +472,8 @@ end},
 {name = "bind (spamm)", action = function()
     lol16 = 1
     while lol16 == 1 do
-    wait(2)
-    local Players = game:GetService("Players")
+    wait(1.8)
+     local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local localPlayer = Players.LocalPlayer
@@ -458,7 +481,30 @@ local localPlayer = Players.LocalPlayer
 local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
 local rootPart = character:WaitForChild("HumanoidRootPart")
 
-local PREDICT_DISTANCE = 3
+local RunService = game:GetService("RunService")
+local lastPos = nil
+
+RunService.Heartbeat:Connect(function(dt)
+    if not targetRoot then return end
+
+    local newPos = targetRoot.Position
+
+    if lastPos then
+        local rawVel = (newPos - lastPos) / math.max(dt, 0.016)
+
+        -- feed into your prediction logic here
+    end
+
+    lastPos = newPos
+end)
+
+local speed = 0
+
+if typeof(horizontalVel) == "Vector3" then
+    speed = horizontalVel.Magnitude
+end
+
+local PREDICT_DISTANCE = math.clamp(speed * 0.18, 2.5, 6)
 
 local nearestPlayer
 local shortestDistance = math.huge
