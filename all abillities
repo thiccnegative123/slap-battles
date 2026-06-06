@@ -15,8 +15,11 @@ reverse
 fan
 bind
 frostbite
+error sound (all gloves)
+prop spam (all gloves)
+piano spawn (all gloves)
 mail
-G-X
+G-X (all gloves)
 pineapple
 mr
 space
@@ -96,6 +99,9 @@ local lol15 = 1
 local lol16 = 1
 local lol17 = 1
 local lol18 = 1
+local lol19 = 1
+local lol20 = 1
+local lol21 = 1
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -151,12 +157,15 @@ ghost
 swapper
 fort
 tycoon
+error sound spamm (all gloves)
+prop spam (all gloves)
+piano spawn (all gloves)
 za hando
 brick
 offense
 gold
 replica
-G-X
+G-X (all gloves)
 paint
 reverse
 mail
@@ -179,6 +188,52 @@ end},
     toggleKeyAbility("zzzzzzz", function()
         game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
     end)
+end},
+
+{name = "error spam", action = function()
+    lol19 = 1
+    while lol19 == 1 do
+    wait()
+        game.ReplicatedStorage.ErrorDeath:FireServer()
+        end
+   
+end},
+
+{name = "error spam stopper", action = function()
+lol19 = 0
+end},
+
+
+
+{name = "prop spam", action = function()
+    lol20 = 1
+    while lol20 == 1 do
+    wait()
+        game:GetService("ReplicatedStorage").Prop:FireServer()
+        end
+   
+end},
+
+{name = "prop spam stopper", action = function()
+lol20 = 0
+end},
+
+{name = "piano spawn", action = function()
+    toggleKeyAbility("piano spawn", function()
+     game.ReplicatedStorage.Piano:FireServer()
+    end)
+end},
+
+{name = "piano spam", action = function()
+lol21 = 1
+while lol21 == 1 do
+  game.ReplicatedStorage.Piano:FireServer()
+end
+end},
+
+{name = "piano spam stopper", action = function()
+lol21 = 0
+
 end},
 
 {name = "mail", action = function()
