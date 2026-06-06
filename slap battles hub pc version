@@ -281,7 +281,7 @@ button11.TextColor3 = Color3.fromRGB(58,0,255)
 button11.Draggable = false
 button11.Active = true
 button11.TextSize = 10
-button11.Text = "MY OP SLAP FARM USE SNOW"
+button11.Text = "spawn funny ufo"
 
 button12.Size = UDim2.new(0.16,0,0.3,0)
 button12.Position = UDim2.new(0.5,-74,0.5,-144)
@@ -290,7 +290,7 @@ button12.TextColor3 = Color3.fromRGB(58,0,255)
 button12.Draggable = false
 button12.Active = true
 button12.TextSize = 10
-button12.Text = "MY OP SLAP COPY"
+button12.Text = "MY OP SLAP FARM COPY"
 
 button13.Size = UDim2.new(0.16,0,0.3,0)
 button13.Position = UDim2.new(0.5,264,0.5,-144)
@@ -470,86 +470,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/Pro666Pro/slapfarmgui
 end)
 
 button11.MouseButton1Click:Connect(function()
-game.StarterGui:SetCore("SendNotification", {
-    Title = "made by haxarebest2";
-    Text = "free sample moment";
-    Duration = 5
-    })
-local portal = workspace.Lobby.Teleport1
-
-local player = game.Players.LocalPlayer
-local character = player.Character or player.CharacterAdded:Wait()
-local hrp = character:WaitForChild("HumanoidRootPart")
-
--- teleport to portal
-hrp.CFrame = portal.CFrame
-
-wait(0.5)
-
--- bring slapples
-local slapplesFolder = workspace.Arena.island5.Slapples
-
-for _, obj in ipairs(slapplesFolder:GetChildren()) do
-	pcall(function()
-		obj:PivotTo(hrp.CFrame)
-	end)
-end
-
-wait(1)
-
-_G.SnowFarm = true _G.FarmSlapsSnowFarm = 50 _G.WaitRegisterSnowFarm = 2 loadstring(game:HttpGet('https://raw.githubusercontent.com/Pro666Pro/OpenSourceScripts/refs/heads/main/SlapFarmGui/Versions/(v4.3).luau'))()
-
-wait(1)
-
--- serverhop
-local HttpService = game:GetService("HttpService")
-local TeleportService = game:GetService("TeleportService")
-
-local placeId = game.PlaceId
-
-local visitedServers = {}
-visitedServers[game.JobId] = true
-
-while true do
-	local success, servers = pcall(function()
-		return HttpService:JSONDecode(
-			game:HttpGet(
-				"https://games.roblox.com/v1/games/" ..
-				placeId ..
-				"/servers/Public?sortOrder=Asc&limit=100"
-			)
-		)
-	end)
-
-	if success and servers and servers.data then
-		for _, server in ipairs(servers.data) do
-			local id = server.id
-
-			if server.playing < server.maxPlayers
-			and id ~= game.JobId
-			and not visitedServers[id] then
-
-				visitedServers[id] = true
-
-				local tpSuccess, tpError = pcall(function()
-					TeleportService:TeleportToPlaceInstance(
-						placeId,
-						id,
-						player
-					)
-				end)
-
-				if tpSuccess then
-					wait(10)
-				else
-					warn(tpError)
-				end
-			end
-		end
-	end
-
-	wait(2)
-end
+loadstring(game:HttpGet('https://pastefy.app/FvkMGkUs/raw'))()
 end)
 
 button12.MouseButton1Click:Connect(function()
