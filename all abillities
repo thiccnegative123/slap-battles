@@ -227,6 +227,7 @@ end},
 {name = "piano spam", action = function()
 lol21 = 1
 while lol21 == 1 do
+wait()
   game.ReplicatedStorage.Piano:FireServer()
 end
 end},
