@@ -299,7 +299,7 @@ button13.TextColor3 = Color3.fromRGB(58,0,255)
 button13.Draggable = false
 button13.Active = true
 button13.TextSize = 10
-button13.Text = "slap royale (trash)"
+button13.Text = "slap royale"
 
 button14.Size = UDim2.new(0.16,0,0.3,0)
 button14.Position = UDim2.new(0.5,-765,0.5,78)
@@ -567,7 +567,7 @@ print("Script copied to clipboard!")
 end)
 
 button13.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/Ver-Sv/BlurHubFull/refs/heads/main/BlurHubControl"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/interscripting/OPSlapRoyale/main/OPSlapRoyale"))()
 end)
 
 button14.MouseButton1Click:Connect(function()
