@@ -317,7 +317,7 @@ button15.TextColor3 = Color3.fromRGB(58,0,255)
 button15.Draggable = false
 button15.Active = true
 button15.TextSize = 10
-button15.Text = "troll aura"
+button15.Text = "MY troll aura"
 
 button16.Size = UDim2.new(0.16,0,0.3,0)
 button16.Position = UDim2.new(0.5,-84,0.5,78)
@@ -326,7 +326,7 @@ button16.TextColor3 = Color3.fromRGB(58,0,255)
 button16.Draggable = false
 button16.Active = true
 button16.TextSize = 10
-button16.Text = "all gloves abillitys"
+button16.Text = "MY all gloves abillitys"
 
 button17.Size = UDim2.new(0.16,0,0.3,0)
 button17.Position = UDim2.new(0.5,261,0.5,78)
