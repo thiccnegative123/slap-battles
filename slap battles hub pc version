@@ -1,3 +1,4 @@
+
 game.StarterGui:SetCore("SendNotification", {
     Title = "made by haxarebest2";
     Text = "took me 10 years to make";
@@ -67,7 +68,22 @@ text.Active = false
 text.Text = "SLAP BATTLES FUCKER 5000"
 text.BackgroundTransparency = 1
 text.TextSize = 80
+
+task.spawn(function()
+while true do
+wait(0.5)
 text.TextColor3 = Color3.fromRGB(255,0,0)
+wait(0.5)
+text.TextColor3 = Color3.fromRGB(0,255,0)
+wait(0.5)
+text.TextColor3 = Color3.fromRGB(0,0,255)
+wait(0.5)
+text.TextColor3 = Color3.fromRGB(255,242,0)
+wait(0.5)
+text.TextColor3 = Color3.fromRGB(0,255,242)
+
+end
+end)
 
 text1.Size = UDim2.new(0.001,0,1,0)
 text1.Position = UDim2.new(0.5,557,0.5,-238)
