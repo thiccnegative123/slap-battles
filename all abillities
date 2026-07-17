@@ -104,6 +104,7 @@ local lol19 = 1
 local lol20 = 1
 local lol21 = 1
 local lol22 = 1
+local lol23 = 1
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -534,7 +535,68 @@ end},
     lol22 = 0
 end},
 
+{name = "camera shoot v2", action = function()
+    toggleKeyAbility("camera shoot v2", function()
+    
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
+local LocalPlayer = Players.LocalPlayer
+local Camera = workspace.CurrentCamera
+local CameraEvent = ReplicatedStorage.Events.camera
+
+local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local root = character:WaitForChild("HumanoidRootPart")
+
+-- Start inside your character
+local spawnPos = root.Position
+
+-- Use the direction your camera is facing
+local lookDirection = Camera.CFrame.LookVector
+
+CameraEvent:FireServer({
+    cf = CFrame.lookAt(
+        spawnPos,
+        spawnPos + lookDirection
+    ),
+})
+    end)
+end},
+
+{name = "camera shoot v2 (spamm)", action = function()
+ lol23 = 1
+ while lol23 == 1 do
+ wait()
+      
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local LocalPlayer = Players.LocalPlayer
+local Camera = workspace.CurrentCamera
+local CameraEvent = ReplicatedStorage.Events.camera
+
+local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local root = character:WaitForChild("HumanoidRootPart")
+
+-- Start inside your character
+local spawnPos = root.Position
+
+-- Use the direction your camera is facing
+local lookDirection = Camera.CFrame.LookVector
+
+CameraEvent:FireServer({
+    cf = CFrame.lookAt(
+        spawnPos,
+        spawnPos + lookDirection
+    ),
+})
+    end
+end},
+
+
+{name = "camera shoot v2 (stop spamm)", action = function()
+   lol23 = 0
+end},
 
 
 
