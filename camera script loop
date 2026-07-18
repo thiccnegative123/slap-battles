@@ -8,7 +8,7 @@ local CameraEvent = ReplicatedStorage:WaitForChild("Events"):WaitForChild("camer
 
 -- GUI
 local gui = Instance.new("ScreenGui")
-gui.Name = "TargetGui"
+gui.Name = "loop TargetGui"
 gui.ResetOnSpawn = false
 gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
@@ -16,7 +16,7 @@ gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0,260,0,170)
 frame.Position = UDim2.new(0.5,-130,0.75,0)
-frame.BackgroundColor3 = Color3.fromRGB(30,30,35)
+frame.BackgroundColor3 = Color3.fromRGB(255,0,0)
 frame.BorderSizePixel = 0
 frame.Parent = gui
 
@@ -70,7 +70,7 @@ end)
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1,0,0,35)
 title.BackgroundTransparency = 1
-title.Text = "Target Player"
+title.Text = "Loop Target Player"
 title.TextColor3 = Color3.fromRGB(255,255,255)
 title.Font = Enum.Font.GothamBold
 title.TextSize = 18
