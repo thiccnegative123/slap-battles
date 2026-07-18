@@ -214,7 +214,7 @@ frontButton.MouseButton1Click:Connect(function()
 
 
 	task.spawn(function()
-		startLoop(-10,function()
+		startLoop(-12,function()
 			return frontLoop
 		end)
 	end)
@@ -235,7 +235,7 @@ backButton.MouseButton1Click:Connect(function()
 
 	-- disable other loop
 	frontLoop = false
-	frontButton.Text = "Front 8"
+	frontButton.Text = "Front 12"
 
 
 	backLoop = true
