@@ -233,7 +233,7 @@ button4.TextColor3 = Color3.fromRGB(58,0,255)
 button4.Draggable = false
 button4.Active = true
 button4.TextSize = 10
-button4.Text = "not mine KICK ALL ZA HANDO"
+button4.Text = "camera gui op"
 
 button5.Size = UDim2.new(0.16,0,0.3,0)
 button5.Position = UDim2.new(0.5,-422,0.5,78)
@@ -390,7 +390,7 @@ end
 end)
 
 button4.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://pastefy.app/ieh2dBM0/raw", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/camera%20gui%20op"))()
 end)
 
 button5.MouseButton1Click:Connect(function()
