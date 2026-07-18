@@ -1,0 +1,64 @@
+local portal = game.Workspace.Lobby.Teleport2
+local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
+local UFO = game.workspace["Debug Room"].MerryGoRound.Seat
+
+local gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+local frame = Instance.new("Frame", gui)
+local button1 = Instance.new("TextButton", frame)
+local button2 = Instance.new("TextButton", frame)
+local button3 = Instance.new("TextButton", frame)
+local text = Instance.new("TextLabel", frame)
+local text1 = Instance.new("TextLabel", frame)
+
+frame.Size = UDim2.new(0, 500, 0, 200)
+frame.Position = UDim2.new(0.5, -960, 0.5, 275)
+frame.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+frame.Draggable = true
+frame.Active = true
+
+button1.Size = UDim2.new(0,120,0,50)
+button1.Position = UDim2.new(0,8,0,93)
+button1.Draggable = false
+button1.Active = true
+button1.Text = "Goto tp device"
+
+button2.Size = UDim2.new(0,120,0,50)
+button2.Position = UDim2.new(0,188,0,93)
+button2.Draggable = false
+button2.Active = true
+button2.Text = "bring UFO lobby"
+
+button3.Size = UDim2.new(0,120,0,50)
+button3.Position = UDim2.new(0,342,0,93)
+button3.Draggable = false
+button3.Active = true
+button3.Text = "bring UFO arena"
+
+text.Size = UDim2.new(0,120,0,50)
+text.Position = UDim2.new(0,187,0,10)
+text.Draggable = false
+text.Active = false
+text.BackgroundTransparency = 1
+text.Text = "GODMODE GIVER 5000"
+text.TextSize = 32
+
+text1.Size = UDim2.new(0,120,0,50)
+text1.Position = UDim2.new(0,190,0,148)
+text1.Draggable = false
+text1.Active = false
+text1.BackgroundTransparency = 1
+text1.Text = "MADE BY HAXAREBEST2"
+text1.TextSize = 30
+
+
+button1.MouseButton1Click:Connect(function()
+hrp.CFrame = UFO.CFrame
+end)
+
+button2.MouseButton1Click:Connect(function()
+UFO.CFrame = portal.CFrame * CFrame.new(12,0,-6)
+end)
+
+button3.MouseButton1Click:Connect(function()
+UFO.CFrame = CFrame.new(6.67934132, -5.17286825, -5.85364246, -0.546968997, 5.14109324e-08, 0.837152839, 2.75757159e-08, 1, -4.33945502e-08, -0.837152839, -6.50384802e-10, -0.546968997)
+end)
