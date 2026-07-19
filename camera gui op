@@ -40,14 +40,19 @@ button.MouseButton1Click:Connect(function()
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local UserInputService = game:GetService("UserInputService")
+local StarterGui = game:GetService("StarterGui")
 
 local LocalPlayer = Players.LocalPlayer
 local CameraEvent = ReplicatedStorage:WaitForChild("Events"):WaitForChild("camera")
 
+-- Declare toggle states
+local frontActive = false
+local backActive = false
+
 
 -- GUI
 local gui = Instance.new("ScreenGui")
-gui.Name = "loop TargetGui"
+gui.Name = "TargetGui"
 gui.ResetOnSpawn = false
 gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
@@ -55,7 +60,7 @@ gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 local frame = Instance.new("Frame")
 frame.Size = UDim2.new(0,260,0,170)
 frame.Position = UDim2.new(0.5,-130,0.75,0)
-frame.BackgroundColor3 = Color3.fromRGB(255,0,0)
+frame.BackgroundColor3 = Color3.fromRGB(30,30,35)
 frame.BorderSizePixel = 0
 frame.Parent = gui
 
@@ -109,7 +114,7 @@ end)
 local title = Instance.new("TextLabel")
 title.Size = UDim2.new(1,0,0,35)
 title.BackgroundTransparency = 1
-title.Text = "Loop Target Player"
+title.Text = "Target Player"
 title.TextColor3 = Color3.fromRGB(255,255,255)
 title.Font = Enum.Font.GothamBold
 title.TextSize = 18
@@ -172,7 +177,7 @@ local backButton = createButton(
 
 
 
--- Find player using partial name (returns table of players)
+-- Find players using partial name (returns table of players)
 local function findPlayers(input)
 	input = string.lower(input)
 	local matches = {}
@@ -219,46 +224,28 @@ end
 
 
 
--- LOOP SYSTEM
-
-local frontLoop = false
-local backLoop = false
-
-
-local function startLoop(offset, check)
-
-	while check() do
-		targetPlayer(offset)
-		task.wait()
-	end
-end
-
-
-
 frontButton.MouseButton1Click:Connect(function()
 
-	-- toggle off
-	if frontLoop then
-		frontLoop = false
+	frontActive = not frontActive
+	backActive = false
+
+	if frontActive then
+		StarterGui:SetCore("SendNotification", {
+			Title = "Target",
+			Text = "press q to fire",
+			Duration = 3
+		})
+		frontButton.Text = "Front ON"
+	else
+		StarterGui:SetCore("SendNotification", {
+			Title = "Target",
+			Text = "Front mode deactivated!",
+			Duration = 3
+		})
 		frontButton.Text = "Front 8"
-		return
 	end
 
-
-	-- disable other loop
-	backLoop = false
-	backButton.Text = "Behind 7"
-
-
-	frontLoop = true
-	frontButton.Text = "Stop Front"
-
-
-	task.spawn(function()
-		startLoop(-12,function()
-			return frontLoop
-		end)
-	end)
+	backButton.Text = "Behind 8"
 
 end)
 
@@ -266,28 +253,44 @@ end)
 
 backButton.MouseButton1Click:Connect(function()
 
-	-- toggle off
-	if backLoop then
-		backLoop = false
+	backActive = not backActive
+	frontActive = false
+
+	if backActive then
+		StarterGui:SetCore("SendNotification", {
+			Title = "Target",
+			Text = "press q to fire",
+			Duration = 3
+		})
+		backButton.Text = "Behind ON"
+	else
+		StarterGui:SetCore("SendNotification", {
+			Title = "Target",
+			Text = "Behind mode deactivated!",
+			Duration = 3
+		})
 		backButton.Text = "Behind 8"
-		return
 	end
 
+	frontButton.Text = "Front 8"
 
-	-- disable other loop
-	frontLoop = false
-	frontButton.Text = "Front 12"
+end)
 
+UserInputService.InputBegan:Connect(function(input, processed)
 
-	backLoop = true
-	backButton.Text = "Stop Behind"
+	if processed then return end
 
+	if input.KeyCode == Enum.KeyCode.Q then
+		
+		if frontActive then
+			targetPlayer(-10)
+		end
 
-	task.spawn(function()
-		startLoop(8,function()
-			return backLoop
-		end)
-	end)
+		if backActive then
+			targetPlayer(8)
+		end
+		
+	end
 
 end)
 end)
