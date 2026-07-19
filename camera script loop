@@ -216,7 +216,7 @@ frontButton.MouseButton1Click:Connect(function()
 
 
 	task.spawn(function()
-		startLoop(-12,function()
+		startLoop(-14,function()
 			return frontLoop
 		end)
 	end)
