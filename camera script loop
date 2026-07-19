@@ -83,7 +83,7 @@ local box = Instance.new("TextBox")
 box.Size = UDim2.new(0.85,0,0,35)
 box.Position = UDim2.new(0.075,0,0.25,0)
 box.BackgroundColor3 = Color3.fromRGB(50,50,60)
-box.PlaceholderText = "Username..."
+box.PlaceholderText = "Username... (type 'all' for everyone)"
 box.Text = ""
 box.TextColor3 = Color3.fromRGB(255,255,255)
 box.Font = Enum.Font.Gotham
@@ -133,44 +133,48 @@ local backButton = createButton(
 
 
 
--- Find player using partial name
-local function findPlayer(input)
-
+-- Find player using partial name (returns table of players)
+local function findPlayers(input)
 	input = string.lower(input)
+	local matches = {}
 
-	for _,player in ipairs(Players:GetPlayers()) do
-		
+	if input == "all" then
+		for _, player in ipairs(Players:GetPlayers()) do
+			if player ~= LocalPlayer then
+				table.insert(matches, player)
+			end
+		end
+		return matches
+	end
+
+	for _, player in ipairs(Players:GetPlayers()) do
 		if player ~= LocalPlayer then
-			
 			local username = string.lower(player.Name)
-
-			if string.sub(username,1,#input) == input then
-				return player
+			if string.sub(username, 1, #input) == input then
+				table.insert(matches, player)
+				break
 			end
 		end
 	end
 
-	return nil
+	return matches
 end
 
 
 
--- Target function
+-- Target function - now handles multiple targets
 local function targetPlayer(offset)
+	local targets = findPlayers(box.Text)
 
-	local target = findPlayer(box.Text)
+	for _, target in ipairs(targets) do
+		if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+			local hrp = target.Character.HumanoidRootPart
+			local position = hrp.CFrame * CFrame.new(0, 0, offset)
 
-	if target
-	and target.Character
-	and target.Character:FindFirstChild("HumanoidRootPart") then
-		
-		local hrp = target.Character.HumanoidRootPart
-
-		local position = hrp.CFrame * CFrame.new(0,0,offset)
-
-		CameraEvent:FireServer({
-			cf = position
-		})
+			CameraEvent:FireServer({
+				cf = position
+			})
+		end
 	end
 end
 
@@ -185,9 +189,7 @@ local backLoop = false
 local function startLoop(offset, check)
 
 	while check() do
-		
 		targetPlayer(offset)
-
 		task.wait()
 	end
 end
