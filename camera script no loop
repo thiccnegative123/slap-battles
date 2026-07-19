@@ -244,7 +244,7 @@ UserInputService.InputBegan:Connect(function(input, processed)
 	if input.KeyCode == Enum.KeyCode.Q then
 		
 		if frontActive then
-			targetPlayer(-8)
+			targetPlayer(-10)
 		end
 
 		if backActive then
