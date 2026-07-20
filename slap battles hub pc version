@@ -4,6 +4,10 @@ game.StarterGui:SetCore("SendNotification", {
     Text = "took me 10 years to make";
     Duration = 5
     })
+
+local brazil = game.Workspace.Lobby.brazil
+brazil:Destroy()
+
 local gui = Instance.new("ScreenGui", Game.Players.LocalPlayer.PlayerGui)
 gui.ResetOnSpawn = false
 local onoffbutton = Instance.new("TextButton", gui)
