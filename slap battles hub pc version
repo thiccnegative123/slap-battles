@@ -291,7 +291,7 @@ button10.TextColor3 = Color3.fromRGB(58,0,255)
 button10.Draggable = false
 button10.Active = true
 button10.TextSize = 10
-button10.Text = "Slap farm hub"
+button10.Text = "badge hub v2"
 
 button11.Size = UDim2.new(0.16,0,0.3,0)
 button11.Position = UDim2.new(0.5,-414,0.5,-144)
@@ -486,7 +486,7 @@ button17.Visible = false
 end)
 
 button10.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/Pro666Pro/slapfarmgui/main/main.lua'))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/my%20badge%20giver"))()
 end)
 
 button11.MouseButton1Click:Connect(function()
