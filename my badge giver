@@ -1,0 +1,64 @@
+local portal = game.Workspace.Lobby.Teleport2
+local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
+local UFO = game.workspace["Debug Room"].MerryGoRound.Seat
+
+local gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+local frame = Instance.new("Frame", gui)
+local button1 = Instance.new("TextButton", frame)
+local button2 = Instance.new("TextButton", frame)
+local button3 = Instance.new("TextButton", frame)
+local text = Instance.new("TextLabel", frame)
+local text1 = Instance.new("TextLabel", frame)
+
+frame.Size = UDim2.new(0, 500, 0, 200)
+frame.Position = UDim2.new(0.5, 457, 0.5, 283)
+frame.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
+frame.Draggable = true
+frame.Active = true
+
+button1.Size = UDim2.new(0,120,0,50)
+button1.Position = UDim2.new(0,8,0,93)
+button1.Draggable = false
+button1.Active = true
+button1.Text = "get eggler"
+
+button2.Size = UDim2.new(0,120,0,50)
+button2.Position = UDim2.new(0,188,0,93)
+button2.Draggable = false
+button2.Active = true
+button2.Text = "get g-x"
+
+button3.Size = UDim2.new(0,120,0,50)
+button3.Position = UDim2.new(0,342,0,93)
+button3.Draggable = false
+button3.Active = true
+button3.Text = "get doorkeeper"
+
+text.Size = UDim2.new(0,120,0,50)
+text.Position = UDim2.new(0,187,0,10)
+text.Draggable = false
+text.Active = false
+text.BackgroundTransparency = 1
+text.Text = "GLOVE GIVER 5000"
+text.TextSize = 32
+
+text1.Size = UDim2.new(0,120,0,50)
+text1.Position = UDim2.new(0,190,0,148)
+text1.Draggable = false
+text1.Active = false
+text1.BackgroundTransparency = 1
+text1.Text = "GUI MADE BY HAXAREBEST2"
+text1.TextSize = 25.5
+
+
+button1.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://pastefy.app/Fi5D2Me6/raw'))()
+end)
+
+button2.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://pastefy.app/hy4al8Ya/raw'))()
+end)
+
+button3.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://pastefy.app/zbj5RgPl/raw'))()
+end)
