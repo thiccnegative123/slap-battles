@@ -5,8 +5,7 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = 5
     })
 
-local brazil = game.Workspace.Lobby.brazil
-brazil:Destroy()
+
 
 local gui = Instance.new("ScreenGui", Game.Players.LocalPlayer.PlayerGui)
 gui.ResetOnSpawn = false
@@ -606,3 +605,6 @@ end)
 button17.MouseButton1Click:Connect(function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/IncognitoScripts/SlapBattles/main/BadgesHub", true))()
 end)
+
+local brazil = game.Workspace.Lobby.brazil
+brazil:Destroy()
