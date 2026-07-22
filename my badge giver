@@ -1,6 +1,6 @@
-local portal = game.Workspace.Lobby.Teleport2
+
 local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
-local UFO = game.workspace["Debug Room"].MerryGoRound.Seat
+
 
 local gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
 local frame = Instance.new("Frame", gui)
