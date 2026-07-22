@@ -218,7 +218,7 @@ button2.TextColor3 = Color3.fromRGB(58,0,255)
 button2.Draggable = false
 button2.Active = true
 button2.TextSize = 10
-button2.Text = "plank builder hub"
+button2.Text = "eggler kick"
 
 button3.Size = UDim2.new(0.16,0,0.3,0)
 button3.Position = UDim2.new(0.5,264,0.5,-144)
@@ -374,12 +374,7 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap
 end)
 
 button2.MouseButton1Click:Connect(function()
-game.StarterGui:SetCore("SendNotification", {
-    Title = "enjoy the build";
-    Text = "Made by Haxarebest1";
-    Duration = 5
-    })
-loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/plank%20build%20hub"))();
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/eggler%20kicker"))()
 end)
 
 button3.MouseButton1Click:Connect(function()
