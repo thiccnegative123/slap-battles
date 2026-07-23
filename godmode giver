@@ -3,6 +3,7 @@ local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
 local UFO = game.workspace["Debug Room"].MerryGoRound.Seat
 
 local gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+gui.ResetOnSpawn = false
 local frame = Instance.new("Frame", gui)
 local button1 = Instance.new("TextButton", frame)
 local button2 = Instance.new("TextButton", frame)
