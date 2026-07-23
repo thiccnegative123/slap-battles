@@ -7,6 +7,13 @@ local button1 = Instance.new("TextButton", frame)
 local button2 = Instance.new("TextButton", frame)
 local button3 = Instance.new("TextButton", frame)
 local button4 = Instance.new("TextButton", frame)
+local button5 = Instance.new("TextButton", frame)
+local button6 = Instance.new("TextButton", frame)
+local button7 = Instance.new("TextButton", frame)
+local nb = Instance.new("TextButton", frame)
+local bb = Instance.new("TextButton", frame)
+
+
 local text = Instance.new("TextLabel", frame)
 local text1 = Instance.new("TextLabel", frame)
 
@@ -40,6 +47,40 @@ button4.Draggable = false
 button4.Active = true
 button4.Text = "copy script"
 
+button5.Size = UDim2.new(0,120,0,50)
+button5.Position = UDim2.new(0,8,0,93)
+button5.Draggable = false
+button5.Active = true
+button5.Text = "get recall"
+button5.Visible = false
+
+button6.Size = UDim2.new(0,120,0,50)
+button6.Position = UDim2.new(0,188,0,93)
+button6.Draggable = false
+button6.Active = true
+button6.Text = "get lotus"
+button6.Visible = false
+
+button7.Size = UDim2.new(0,120,0,50)
+button7.Position = UDim2.new(0,342,0,93)
+button7.Draggable = false
+button7.Active = true
+button7.Text = "get camera"
+button7.Visible = false
+
+nb.Size = UDim2.new(0,70,0,20)
+nb.Position = UDim2.new(0,431,0,180)
+nb.Draggable = false
+nb.Active = true
+nb.Text = ">"
+
+bb.Size = UDim2.new(0,70,0,20)
+bb.Position = UDim2.new(0,1,0,181)
+bb.Draggable = false
+bb.Active = true
+bb.Text = "<"
+bb.Visible = false
+
 text.Size = UDim2.new(0,120,0,50)
 text.Position = UDim2.new(0,187,0,10)
 text.Draggable = false
@@ -70,68 +111,218 @@ loadstring(game:HttpGet('https://pastefy.app/zbj5RgPl/raw'))()
 end)
 
 button4.MouseButton1Click:Connect(function()
-setclipboard([[
-local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
+setclipboard([[loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/my%20badge%20giver"))()]])
 
-
-local gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
-local frame = Instance.new("Frame", gui)
-local button1 = Instance.new("TextButton", frame)
-local button2 = Instance.new("TextButton", frame)
-local button3 = Instance.new("TextButton", frame)
-local text = Instance.new("TextLabel", frame)
-local text1 = Instance.new("TextLabel", frame)
-
-frame.Size = UDim2.new(0, 500, 0, 200)
-frame.Position = UDim2.new(0.5, 457, 0.5, 283)
-frame.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
-frame.Draggable = true
-frame.Active = true
-
-button1.Size = UDim2.new(0,120,0,50)
-button1.Position = UDim2.new(0,8,0,93)
-button1.Draggable = false
-button1.Active = true
-button1.Text = "get eggler"
-
-button2.Size = UDim2.new(0,120,0,50)
-button2.Position = UDim2.new(0,188,0,93)
-button2.Draggable = false
-button2.Active = true
-button2.Text = "get g-x"
-
-button3.Size = UDim2.new(0,120,0,50)
-button3.Position = UDim2.new(0,342,0,93)
-button3.Draggable = false
-button3.Active = true
-button3.Text = "get doorkeeper"
-
-text.Size = UDim2.new(0,120,0,50)
-text.Position = UDim2.new(0,187,0,10)
-text.Draggable = false
-text.Active = false
-text.BackgroundTransparency = 1
-text.Text = "GLOVE GIVER 5000"
-text.TextSize = 32
-
-text1.Size = UDim2.new(0,120,0,50)
-text1.Position = UDim2.new(0,190,0,148)
-text1.Draggable = false
-text1.Active = false
-text1.BackgroundTransparency = 1
-text1.Text = "GUI MADE BY HAXAREBEST2"
-text1.TextSize = 25.5
-
-
-button1.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://pastefy.app/Fi5D2Me6/raw'))()
 end)
 
-button2.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://pastefy.app/hy4al8Ya/raw'))()
+button5.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/nerna-coder/Recall/refs/heads/main/slap-battlea.lua'))()
+
 end)
 
-button3.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://pastefy.app/zbj5RgPl/raw'))()
-end)]])
+button6.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://pastefy.app/Ds8bqkE9/raw'))()
+
+end)
+
+button7.MouseButton1Click:Connect(function()
+local Players      = game:GetService("Players")
+local RS           = game:GetService("ReplicatedStorage")
+local VIM          = game:GetService("VirtualInputManager")
+
+local player       = Players.LocalPlayer
+local char         = player.Character or player.CharacterAdded:Wait()
+local hrp          = char:WaitForChild("HumanoidRootPart")
+local humanoid     = char:WaitForChild("Humanoid")
+local camRemotes   = RS.Assets.Obtainments.Camera.Remotes
+local isPhotoValid = camRemotes.IsPhotoValid
+
+local LOG = "[📷 CamBot]"
+
+
+local function tp(pos)
+    hrp.CFrame = CFrame.new(pos + Vector3.new(0, 4, 0))
+    task.wait(0.35)
+end
+
+local function pressQ()
+    VIM:SendKeyEvent(true,  Enum.KeyCode.Q, false, game)
+    task.wait(0.15)
+    VIM:SendKeyEvent(false, Enum.KeyCode.Q, false, game)
+    task.wait(0.5)
+end
+
+local function waitFor(condition, timeout)
+    local t = tick()
+    repeat task.wait(0.25) until condition() or tick() - t > (timeout or 15)
+    return condition()
+end
+
+
+print(LOG, "Activating glove ability (Q) for invisibility...")
+pressQ()
+
+
+local CAMERA_SPAWN = Vector3.new(-385.063934, 52.0801315, 2.81142139)
+print(LOG, "Heading to camera spawn at Slapple Island...")
+tp(CAMERA_SPAWN)
+
+
+print(LOG, "Waiting for CameraModel to appear in workspace...")
+local cameraModel = nil
+
+local gotIt = waitFor(function()
+    for _, v in ipairs(workspace:GetDescendants()) do
+        if v.Name == "CameraModel" and v:IsA("Model") then
+            cameraModel = v
+            return true
+        end
+    end
+end, 0.4)
+
+if not gotIt or not cameraModel then
+    warn(LOG, "CameraModel not found yet, pressing Q again and retrying...")
+    pressQ()
+    tp(CAMERA_SPAWN)
+    waitFor(function()
+        for _, v in ipairs(workspace:GetDescendants()) do
+            if v.Name == "CameraModel" and v:IsA("Model") then
+                cameraModel = v
+                return true
+            end
+        end
+    end, 0.4)
+end
+
+if cameraModel then
+    print(LOG, "CameraModel found! Picking up...")
+    local camPartPos = cameraModel.PrimaryPart and cameraModel.PrimaryPart.Position
+        or cameraModel:GetPivot().Position
+    tp(camPartPos)
+
+    local prompt = cameraModel:FindFirstChildWhichIsA("ProximityPrompt", true)
+    if prompt then
+        fireproximityprompt(prompt)
+        print(LOG, "Fired pickup prompt!")
+    else
+        warn(LOG, "No ProximityPrompt on camera model")
+    end
+else
+    warn(LOG, "CameraModel never spawned. Continuing with direct remote...")
+end
+
+task.wait(1.5)
+
+
+local camTool = player.Backpack:FindFirstChild("Camera")
+    or (char and char:FindFirstChild("Camera"))
+
+if camTool then
+    print(LOG, "Equipping camera tool...")
+    humanoid:EquipTool(camTool)
+    task.wait(1.2)
+else
+    warn(LOG, "Camera not in backpack — continuing with direct remote invocation")
+end
+
+
+local PNG_SPOTS = {
+    { "1 – Cannon Island",           Vector3.new( 316.721,  31.268,  188.642), Vector3.new( 0.996, 0, -0.087) },
+    { "2 – Chain Obby to Slapple",   Vector3.new(-128.993,  -1.786,  125.199), Vector3.new( 0.705, 0, -0.709) },
+    { "3 – Moai Island Statue",      Vector3.new(-274.513, -19.490,  -10.172), Vector3.new(-0.714, 0,  0.700) },
+    { "4 – Slapple Island Big Tree", Vector3.new(-425.410,  56.777,  -23.400), Vector3.new( 0,     0,  1    ) },
+    { "5 – East Island Tree",        Vector3.new(  -8.155,  -2.694, -208.862), Vector3.new(-0.985, 0, -0.174) },
+    { "6 – The Fort",                Vector3.new( 242.086, -10.646,  -25.781), Vector3.new( 0.445, 0,  0.895) },
+    { "7 – Chain (Default↔Normal)",  Vector3.new( 116.677,  -2.879,    1.637), Vector3.new(-0.991, 0, -0.131) },
+}
+
+local function photographPart(part, lookVec)
+    local standPos = part.Position + lookVec * 7
+    tp(standPos)
+
+    workspace.CurrentCamera.CFrame = CFrame.lookAt(
+        standPos + Vector3.new(0, 2, 0),
+        part.Position
+    )
+    task.wait(0.25)
+
+    local ok, result = pcall(function()
+        return isPhotoValid:InvokeServer(part)
+    end)
+
+    if ok and result then
+        part:Destroy()
+        return true
+    elseif ok then
+        warn(LOG, "Server returned false for part", part.Name, "— trying simulate click")
+        VIM:SendMouseButtonEvent(0, 0, 0, true,  game, 1)
+        task.wait(0.05)
+        VIM:SendMouseButtonEvent(0, 0, 0, false, game, 1)
+        task.wait(0.4)
+        return false
+    else
+        warn(LOG, "  InvokeServer error:", result)
+        return false
+    end
+end
+
+local folder = workspace:FindFirstChild("Camera_Obtainment_PNGS")
+if not folder then
+    error(LOG .. " Camera_Obtainment_PNGS folder missing — join a match first!")
+end
+
+print(LOG, "Starting photo run (7 shots)...")
+local taken = 0
+
+for i, spot in ipairs(PNG_SPOTS) do
+    local name, targetPos, lookVec = spot[1], spot[2], spot[3]
+
+    local matchedPart = nil
+    for _, p in ipairs(folder:GetChildren()) do
+        if p:IsA("BasePart") and (p.Position - targetPos).Magnitude < 2 then
+            matchedPart = p
+            break
+        end
+    end
+
+    if not matchedPart then
+        print(LOG, string.format("  ⚠️  Part %d (%s) not found — may already be done", i, name))
+        continue
+    end
+
+    print(LOG, string.format("📸 Shot %d/7 — %s", i, name))
+    local success = photographPart(matchedPart, lookVec)
+    if success then
+        taken += 1
+        print(LOG, string.format("  ✅ %d down!", taken))
+    end
+    task.wait(0.5)
+end
+
+print(LOG, string.format("🎉 Done! %d/7 photos taken.", taken))
+
+end)
+
+
+
+nb.MouseButton1Click:Connect(function()
+button1.Visible = false
+button2.Visible = false
+button3.Visible = false
+nb.Visible = false
+button5.Visible = true
+button6.Visible = true
+button7.Visible = true
+bb.Visible = true
+end)
+
+bb.MouseButton1Click:Connect(function()
+button1.Visible = true
+button2.Visible = true
+button3.Visible = true
+nb.Visible = true
+button5.Visible = false
+button6.Visible = false
+button7.Visible = false
+bb.Visible = false
 end)
