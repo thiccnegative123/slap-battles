@@ -12,6 +12,7 @@ brick
 gold
 replica
 camera (all gloves)(op)
+pool noodle(all gloves)
 reverse
 fan
 bind
@@ -105,6 +106,7 @@ local lol20 = 1
 local lol21 = 1
 local lol22 = 1
 local lol23 = 1
+local lol24 = 1
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -169,6 +171,7 @@ camera (all gloves)(op)
 offense
 gold
 replica
+pool noodle (all gloves)
 G-X (all gloves)
 paint
 reverse
@@ -376,6 +379,18 @@ end},
 
 {name = "offense (stop spamm)", action = function()
     lol9 = 0
+end},
+
+{name = "noodle (spamm)", action = function()
+    lol24 = 1
+while lol24 == 1 do
+wait()
+       game:GetService("ReplicatedStorage").GeneralAbility:FireServer("pool_noodle")
+     end
+end},
+
+{name = "noodle (stop spamm)", action = function()
+    lol24 = 0
 end},
 
 {name = "pineapple", action = function()
