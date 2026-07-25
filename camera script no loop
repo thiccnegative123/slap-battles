@@ -143,6 +143,7 @@ local function findPlayers(input)
 	input = string.lower(input)
 	local matches = {}
 
+	-- Type "all" to target everyone except yourself
 	if input == "all" then
 		for _, player in ipairs(Players:GetPlayers()) do
 			if player ~= LocalPlayer then
@@ -152,6 +153,13 @@ local function findPlayers(input)
 		return matches
 	end
 
+	-- Type "me" to target yourself
+	if input == "me" then
+		table.insert(matches, LocalPlayer)
+		return matches
+	end
+
+	-- Partial name match (first matching player only)
 	for _, player in ipairs(Players:GetPlayers()) do
 		if player ~= LocalPlayer then
 			local username = string.lower(player.Name)
