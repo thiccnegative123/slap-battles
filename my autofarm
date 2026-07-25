@@ -1,0 +1,159 @@
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TeleportService = game:GetService("TeleportService")
+local HttpService = game:GetService("HttpService")
+
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local hrp = character:WaitForChild("HumanoidRootPart")
+
+-- Slap counter
+local slapCount = 0
+local maxSlaps = 60
+
+-- Server hop function - targets 7 player servers
+local function serverHop()
+    print("Server hopping after " .. slapCount .. " slaps...")
+    
+    local placeId = game.PlaceId
+    
+    pcall(function()
+        local serversUrl = "https://games.roblox.com/v1/games/" .. placeId .. "/servers/Public?sortOrder=Asc&limit=100"
+        local response = game:HttpGet(serversUrl)
+        local data = HttpService:JSONDecode(response)
+        
+        if data and data.data then
+            -- Find servers with exactly 7 players
+            local sevenPlayerServers = {}
+            
+            for _, server in ipairs(data.data) do
+                if server.id ~= game.JobId and server.playing == 3 then
+                    table.insert(sevenPlayerServers, server)
+                end
+            end
+            
+            -- Join a random 7-player server
+            if #sevenPlayerServers > 0 then
+                local randomServer = sevenPlayerServers[math.random(1, #sevenPlayerServers)]
+                print("Joining server with " .. randomServer.playing .. " players")
+                TeleportService:TeleportToPlaceInstance(placeId, randomServer.id)
+            else
+                -- Fallback: try to find any server with 7 players (check more servers)
+                print("No 7-player servers found in first 100, trying fallback...")
+                TeleportService:Teleport(placeId) -- Random server as fallback
+            end
+        else
+            TeleportService:Teleport(placeId)
+        end
+    end)
+end
+
+-- ============================================
+-- INITIAL SETUP
+-- ============================================
+
+-- Teleport to portal
+local portal = workspace.Lobby.Teleport1
+hrp.CFrame = portal.CFrame
+wait(0.5)
+
+-- Bring slapples
+local slapplesFolder = workspace.Arena.island5.Slapples
+for _, obj in ipairs(slapplesFolder:GetChildren()) do
+    pcall(function()
+        obj:PivotTo(hrp.CFrame)
+    end)
+end
+
+wait(0.4)
+
+-- ============================================
+-- KILL AURA (with slap counter)
+-- ============================================
+task.spawn(function()
+    local function getNearestPlayer()
+        local nearest = nil
+        local minDistance = math.huge
+        
+        for _, otherPlayer in ipairs(Players:GetPlayers()) do
+            if otherPlayer ~= player and otherPlayer.Character then
+                local otherHrp = otherPlayer.Character:FindFirstChild("HumanoidRootPart")
+                local otherHumanoid = otherPlayer.Character:FindFirstChild("Humanoid")
+                
+                if otherHrp and otherHumanoid and otherHumanoid.Health > 0 then
+                    local distance = (hrp.Position - otherHrp.Position).Magnitude
+                    
+                    if distance < minDistance then
+                        minDistance = distance
+                        nearest = otherPlayer
+                    end
+                end
+            end
+        end
+        
+        return nearest
+    end
+
+    local function getTargetLimb(char)
+        local limbs = {"Right Arm", "Left Arm", "RightUpperArm", "LeftUpperArm", "Torso", "UpperTorso", "HumanoidRootPart"}
+        
+        for _, limbName in ipairs(limbs) do
+            local limb = char:FindFirstChild(limbName)
+            if limb then return limb end
+        end
+        
+        return char:FindFirstChildOfClass("Part") or char:FindFirstChildOfClass("MeshPart")
+    end
+
+    while true do
+        if slapCount >= maxSlaps then
+            serverHop()
+            return
+        end
+        
+        local targetPlayer = getNearestPlayer()
+        
+        if targetPlayer and targetPlayer.Character then
+            local targetLimb = getTargetLimb(targetPlayer.Character)
+            if targetLimb then
+                ReplicatedStorage.DualHit:FireServer(targetLimb)
+                slapCount = slapCount + 1
+                print("Slap #" .. slapCount .. " / " .. maxSlaps)
+            end
+        end
+        
+        task.wait(0.04)
+    end
+end)
+
+-- ============================================
+-- TELEPORT LOOP
+-- ============================================
+
+hrp.CFrame = CFrame.new(portal.Position + Vector3.new(0, 5, 0))
+print("Teleported to portal")
+task.wait(0.3)
+
+while true do
+    if slapCount >= maxSlaps then
+        task.wait(1)
+        continue
+    end
+    
+    for _, targetPlayer in ipairs(Players:GetPlayers()) do
+        if targetPlayer ~= player then
+            if targetPlayer.Character then
+                local targetHrp = targetPlayer.Character:FindFirstChild("HumanoidRootPart")
+                
+                if targetHrp then
+                    hrp.CFrame = CFrame.new(targetHrp.Position + Vector3.new(0, 3, 0))
+                    print("Teleported to: " .. targetPlayer.Name)
+                end
+            end
+            
+            task.wait(0.3)
+        end
+    end
+    
+    task.wait(0.1)
+end
