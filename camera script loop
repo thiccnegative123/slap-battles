@@ -135,8 +135,14 @@ local backButton = createButton(
 
 -- Find player using partial name (returns table of players)
 local function findPlayers(input)
-	input = string.lower(input)
+	input = string.lower(input):gsub("^%s+", ""):gsub("%s+$", "")  -- trim spaces just in case
 	local matches = {}
+
+	-- Type "me" to target yourself (checked FIRST, returns immediately)
+	if input == "me" then
+		table.insert(matches, LocalPlayer)
+		return matches
+	end
 
 	-- Type "all" to target everyone except yourself
 	if input == "all" then
@@ -148,13 +154,12 @@ local function findPlayers(input)
 		return matches
 	end
 
-	-- Type "me" to target yourself
-	if input == "me" then
-		table.insert(matches, LocalPlayer)
+	-- Skip empty input
+	if #input == 0 then
 		return matches
 	end
 
-	-- Partial name match (first matching player only)
+	-- Partial name match (first matching player only, excludes LocalPlayer)
 	for _, player in ipairs(Players:GetPlayers()) do
 		if player ~= LocalPlayer then
 			local username = string.lower(player.Name)
