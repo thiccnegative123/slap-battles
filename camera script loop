@@ -138,6 +138,7 @@ local function findPlayers(input)
 	input = string.lower(input)
 	local matches = {}
 
+	-- Type "all" to target everyone except yourself
 	if input == "all" then
 		for _, player in ipairs(Players:GetPlayers()) do
 			if player ~= LocalPlayer then
@@ -147,6 +148,13 @@ local function findPlayers(input)
 		return matches
 	end
 
+	-- Type "me" to target yourself
+	if input == "me" then
+		table.insert(matches, LocalPlayer)
+		return matches
+	end
+
+	-- Partial name match (first matching player only)
 	for _, player in ipairs(Players:GetPlayers()) do
 		if player ~= LocalPlayer then
 			local username = string.lower(player.Name)
@@ -208,7 +216,7 @@ frontButton.MouseButton1Click:Connect(function()
 
 	-- disable other loop
 	backLoop = false
-	backButton.Text = "Behind 7"
+	backButton.Text = "Behind 8"
 
 
 	frontLoop = true
@@ -237,7 +245,7 @@ backButton.MouseButton1Click:Connect(function()
 
 	-- disable other loop
 	frontLoop = false
-	frontButton.Text = "Front 12"
+	frontButton.Text = "Front 8"
 
 
 	backLoop = true
