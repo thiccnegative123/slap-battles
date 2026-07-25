@@ -4,17 +4,7 @@ game.StarterGui:SetCore("SendNotification", {
     Duration = 5
     })
 
-game.StarterGui:SetCore("SendNotification", {
-    Title = "made by haxarebest2";
-    Text = "MAKE SURE TO USE DUAL";
-    Duration = 5
-    })
 
-game.StarterGui:SetCore("SendNotification", {
-    Title = "made by haxarebest2";
-    Text = "MAKE SURE TO USE DUAL";
-    Duration = 5
-    })
 
 
 
