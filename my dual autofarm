@@ -1,3 +1,23 @@
+game.StarterGui:SetCore("SendNotification", {
+    Title = "made by haxarebest2";
+    Text = "MAKE SURE TO USE DUAL";
+    Duration = 5
+    })
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "made by haxarebest2";
+    Text = "MAKE SURE TO USE DUAL";
+    Duration = 5
+    })
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "made by haxarebest2";
+    Text = "MAKE SURE TO USE DUAL";
+    Duration = 5
+    })
+
+
+
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local TeleportService = game:GetService("TeleportService")
