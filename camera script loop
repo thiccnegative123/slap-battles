@@ -14,8 +14,8 @@ gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
 
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 280, 0, 220)
-frame.Position = UDim2.new(0.5, -140, 0.75, 0)
+frame.Size = UDim2.new(0, 300, 0, 260)
+frame.Position = UDim2.new(0.5, -150, 0.75, 0)
 frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 frame.BorderSizePixel = 0
 frame.Parent = gui
@@ -78,7 +78,7 @@ title.Parent = frame
 -- Username box
 local box = Instance.new("TextBox")
 box.Size = UDim2.new(0.85, 0, 0, 35)
-box.Position = UDim2.new(0.075, 0, 0.18, 0)
+box.Position = UDim2.new(0.075, 0, 0.14, 0)
 box.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
 box.PlaceholderText = "Username... (type 'all' for everyone)"
 box.Text = ""
@@ -114,56 +114,70 @@ end
 
 
 
+-- Front button (top left)
 local frontButton = createButton(
 	"Front 8",
-	UDim2.new(0.07, 0, 0.45, 0)
+	UDim2.new(0.07, 0, 0.38, 0)
 )
 
 
+-- Back button (top right)
 local backButton = createButton(
 	"Behind 8",
-	UDim2.new(0.53, 0, 0.45, 0)
+	UDim2.new(0.53, 0, 0.38, 0)
 )
 
--- Orbit button (centered below)
+-- Orbit button (middle left)
 local orbitButton = createButton(
 	"Orbit",
-	UDim2.new(0.3, 0, 0.72, 0),
-	UDim2.new(0.4, 0, 0, 35)
+	UDim2.new(0.07, 0, 0.62, 0)
+)
+
+-- Linespamm button (middle right)
+local linespammButton = createButton(
+	"Linespamm",
+	UDim2.new(0.53, 0, 0.62, 0)
 )
 
 
 
--- Orbit positions - camera circles around player looking AWAY from them
--- Direction: Front → Front-Right → Right → Back-Right → Back → Back-Left → Left → Front-Left
+-- Orbit positions
 local orbitPositions = {
-	{pos = Vector3.new(0, 0, -14), name = "Front"},         -- Front
-	{pos = Vector3.new(10, 0, -10), name = "Front-Right"},  -- Front-Right
-	{pos = Vector3.new(14, 0, 0), name = "Right"},          -- Right
-	{pos = Vector3.new(8, 0, 6), name = "Back-Right"},       -- Back-Right
-	{pos = Vector3.new(0, 0, 8), name = "Back"},            -- Back
-	{pos = Vector3.new(-8, 0, 6), name = "Back-Left"},      -- Back-Left
-	{pos = Vector3.new(-14, 0, 0), name = "Left"},          -- Left
-	{pos = Vector3.new(-10, 0, -10), name = "Front-Left"},  -- Front-Left
+	{pos = Vector3.new(0, 0, -14), name = "Front"},
+	{pos = Vector3.new(10, 0, -10), name = "Front-Right"},
+	{pos = Vector3.new(14, 0, 0), name = "Right"},
+	{pos = Vector3.new(8, 0, 6), name = "Back-Right"},
+	{pos = Vector3.new(0, 0, 8), name = "Back"},
+	{pos = Vector3.new(-8, 0, 6), name = "Back-Left"},
+	{pos = Vector3.new(-14, 0, 0), name = "Left"},
+	{pos = Vector3.new(-10, 0, -10), name = "Front-Left"},
+}
+
+-- Linespamm positions - 5 lines CLOSER TOGETHER
+local linespammPositions = {
+	Vector3.new(-20, 0, -14),  -- Far Left
+	Vector3.new(-10, 0, -14),  -- Left
+	Vector3.new(0, 0, -14),    -- Center
+	Vector3.new(10, 0, -14),   -- Right
+	Vector3.new(20, 0, -14),   -- Far Right
 }
 
 local orbitLoop = false
+local linespammLoop = false
 local currentOrbitIndex = 1
 
 
 
--- Find player using partial name (returns table of players)
+-- Find player using partial name
 local function findPlayers(input)
 	input = string.lower(input):gsub("^%s+", ""):gsub("%s+$", "")
 	local matches = {}
 
-	-- Type "me" to target yourself (checked FIRST, returns immediately)
 	if input == "me" then
 		table.insert(matches, LocalPlayer)
 		return matches
 	end
 
-	-- Type "all" to target everyone except yourself
 	if input == "all" then
 		for _, player in ipairs(Players:GetPlayers()) do
 			if player ~= LocalPlayer then
@@ -173,12 +187,10 @@ local function findPlayers(input)
 		return matches
 	end
 
-	-- Skip empty input
 	if #input == 0 then
 		return matches
 	end
 
-	-- Partial name match (first matching player only, excludes LocalPlayer)
 	for _, player in ipairs(Players:GetPlayers()) do
 		if player ~= LocalPlayer then
 			local username = string.lower(player.Name)
@@ -194,19 +206,39 @@ end
 
 
 
--- Target function - handles front/back offsets
+-- Target function
 local function targetPlayer(offset)
 	local targets = findPlayers(box.Text)
 
 	for _, target in ipairs(targets) do
 		if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
 			local hrp = target.Character.HumanoidRootPart
-			-- Position offset relative to player
 			local position = hrp.CFrame * CFrame.new(0, 0, offset)
 
 			CameraEvent:FireServer({
 				cf = position
 			})
+		end
+	end
+end
+
+
+
+-- Linespamm function
+local function targetLinespamm()
+	local targets = findPlayers(box.Text)
+
+	for _, target in ipairs(targets) do
+		if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+			local hrp = target.Character.HumanoidRootPart
+			
+			for _, offset in ipairs(linespammPositions) do
+				local position = hrp.CFrame * CFrame.new(offset.X, offset.Y, offset.Z)
+				
+				CameraEvent:FireServer({
+					cf = position
+				})
+			end
 		end
 	end
 end
@@ -236,11 +268,9 @@ local function startOrbitLoop(check)
 			if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
 				local hrp = target.Character.HumanoidRootPart
 				
-				-- Calculate position around player
 				local offset = currentPos.pos
 				local cameraPos = hrp.Position + (hrp.CFrame.RightVector * offset.X) + (hrp.CFrame.UpVector * offset.Y) + (hrp.CFrame.LookVector * offset.Z)
 				
-				-- Create CFrame that looks AWAY from the player (opposite direction)
 				local direction = (cameraPos - hrp.Position).Unit
 				local lookAwayCF = CFrame.new(cameraPos, cameraPos + direction)
 
@@ -250,14 +280,10 @@ local function startOrbitLoop(check)
 			end
 		end
 		
-		-- Update button text to show current position
 		orbitButton.Text = "Orbit: " .. currentPos.name
-		
-		-- AS FAST AS POSSIBLE - no delay between positions
 		task.wait()
 		
 		if check() then
-			-- Go through table in reverse (opposite direction around player)
 			currentOrbitIndex = currentOrbitIndex - 1
 			if currentOrbitIndex < 1 then
 				currentOrbitIndex = #orbitPositions
@@ -268,20 +294,28 @@ local function startOrbitLoop(check)
 end
 
 
+local function startLinespammLoop(check)
+	while check() do
+		targetLinespamm()
+		task.wait()
+	end
+end
+
+
 
 frontButton.MouseButton1Click:Connect(function()
-	-- toggle off
 	if frontLoop then
 		frontLoop = false
 		frontButton.Text = "Front 8"
 		return
 	end
 
-	-- disable other loops
 	backLoop = false
 	orbitLoop = false
+	linespammLoop = false
 	backButton.Text = "Behind 8"
 	orbitButton.Text = "Orbit"
+	linespammButton.Text = "Linespamm"
 
 	frontLoop = true
 	frontButton.Text = "Stop Front"
@@ -296,18 +330,18 @@ end)
 
 
 backButton.MouseButton1Click:Connect(function()
-	-- toggle off
 	if backLoop then
 		backLoop = false
 		backButton.Text = "Behind 8"
 		return
 	end
 
-	-- disable other loops
 	frontLoop = false
 	orbitLoop = false
+	linespammLoop = false
 	frontButton.Text = "Front 8"
 	orbitButton.Text = "Orbit"
+	linespammButton.Text = "Linespamm"
 
 	backLoop = true
 	backButton.Text = "Stop Behind"
@@ -322,18 +356,18 @@ end)
 
 
 orbitButton.MouseButton1Click:Connect(function()
-	-- toggle off
 	if orbitLoop then
 		orbitLoop = false
 		orbitButton.Text = "Orbit"
 		return
 	end
 
-	-- disable other loops
 	frontLoop = false
 	backLoop = false
+	linespammLoop = false
 	frontButton.Text = "Front 8"
 	backButton.Text = "Behind 8"
+	linespammButton.Text = "Linespamm"
 
 	orbitLoop = true
 	currentOrbitIndex = 1
@@ -342,6 +376,32 @@ orbitButton.MouseButton1Click:Connect(function()
 	task.spawn(function()
 		startOrbitLoop(function()
 			return orbitLoop
+		end)
+	end)
+end)
+
+
+
+linespammButton.MouseButton1Click:Connect(function()
+	if linespammLoop then
+		linespammLoop = false
+		linespammButton.Text = "Linespamm"
+		return
+	end
+
+	frontLoop = false
+	backLoop = false
+	orbitLoop = false
+	frontButton.Text = "Front 8"
+	backButton.Text = "Behind 8"
+	orbitButton.Text = "Orbit"
+
+	linespammLoop = true
+	linespammButton.Text = "Stop Spam"
+
+	task.spawn(function()
+		startLinespammLoop(function()
+			return linespammLoop
 		end)
 	end)
 end)
