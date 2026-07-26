@@ -10,6 +10,7 @@ local CameraEvent = ReplicatedStorage:WaitForChild("Events"):WaitForChild("camer
 local frontActive = false
 local backActive = false
 local orbitActive = false
+local linespammActive = false
 
 
 -- GUI
@@ -20,8 +21,8 @@ gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
 
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 280, 0, 220)
-frame.Position = UDim2.new(0.5, -140, 0.75, 0)
+frame.Size = UDim2.new(0, 300, 0, 260)  -- Taller for 4 buttons
+frame.Position = UDim2.new(0.5, -150, 0.75, 0)
 frame.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
 frame.BorderSizePixel = 0
 frame.Parent = gui
@@ -87,7 +88,7 @@ title.Parent = frame
 -- Username box
 local box = Instance.new("TextBox")
 box.Size = UDim2.new(0.85, 0, 0, 35)
-box.Position = UDim2.new(0.075, 0, 0.18, 0)
+box.Position = UDim2.new(0.075, 0, 0.14, 0)
 box.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
 box.PlaceholderText = "Username... (type 'all' for everyone)"
 box.Text = ""
@@ -128,22 +129,28 @@ end
 -- Front button (top left)
 local frontButton = createButton(
 	"Front 8",
-	UDim2.new(0.07, 0, 0.45, 0)
+	UDim2.new(0.07, 0, 0.38, 0)
 )
 
 
 -- Back button (top right)
 local backButton = createButton(
 	"Behind 8",
-	UDim2.new(0.53, 0, 0.45, 0)
+	UDim2.new(0.53, 0, 0.38, 0)
 )
 
 
--- Orbit button (bottom center)
+-- Orbit button (bottom left)
 local orbitButton = createButton(
 	"Orbit",
-	UDim2.new(0.3, 0, 0.72, 0),
-	UDim2.new(0.4, 0, 0, 35)
+	UDim2.new(0.07, 0, 0.62, 0)
+)
+
+
+-- Linespamm button (bottom right) - NEW
+local linespammButton = createButton(
+	"Linespamm",
+	UDim2.new(0.53, 0, 0.62, 0)
 )
 
 
@@ -215,6 +222,15 @@ local allDirections = {
 	Vector3.new(-10, 0, -10),   -- Front-Left
 }
 
+-- Linespamm positions - 5 lines spread left/right
+local linespammPositions = {
+	Vector3.new(-20, 0, -14),  -- Far Left
+	Vector3.new(-10, 0, -14),  -- Left
+	Vector3.new(0, 0, -14),    -- Center
+	Vector3.new(10, 0, -14),   -- Right
+	Vector3.new(20, 0, -14),   -- Far Right
+}
+
 -- Fire in all directions at once - camera looks AWAY from player
 local function targetAllDirections()
 	local targets = findPlayers(box.Text)
@@ -242,12 +258,33 @@ local function targetAllDirections()
 	end
 end
 
+-- Fire linespamm - 5 lines spread out
+local function targetLinespamm()
+	local targets = findPlayers(box.Text)
+
+	for _, target in ipairs(targets) do
+		if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+			local hrp = target.Character.HumanoidRootPart
+			
+			-- Fire all 5 lines
+			for _, offset in ipairs(linespammPositions) do
+				local position = hrp.CFrame * CFrame.new(offset.X, offset.Y, offset.Z)
+				
+				CameraEvent:FireServer({
+					cf = position
+				})
+			end
+		end
+	end
+end
+
 
 
 frontButton.MouseButton1Click:Connect(function()
 	frontActive = not frontActive
 	backActive = false
 	orbitActive = false
+	linespammActive = false
 
 	if frontActive then
 		StarterGui:SetCore("SendNotification", {
@@ -258,6 +295,7 @@ frontButton.MouseButton1Click:Connect(function()
 		frontButton.Text = "Front ON"
 		backButton.Text = "Behind 8"
 		orbitButton.Text = "Orbit"
+		linespammButton.Text = "Linespamm"
 	else
 		StarterGui:SetCore("SendNotification", {
 			Title = "Target",
@@ -274,6 +312,7 @@ backButton.MouseButton1Click:Connect(function()
 	backActive = not backActive
 	frontActive = false
 	orbitActive = false
+	linespammActive = false
 
 	if backActive then
 		StarterGui:SetCore("SendNotification", {
@@ -284,6 +323,7 @@ backButton.MouseButton1Click:Connect(function()
 		backButton.Text = "Behind ON"
 		frontButton.Text = "Front 8"
 		orbitButton.Text = "Orbit"
+		linespammButton.Text = "Linespamm"
 	else
 		StarterGui:SetCore("SendNotification", {
 			Title = "Target",
@@ -300,6 +340,7 @@ orbitButton.MouseButton1Click:Connect(function()
 	orbitActive = not orbitActive
 	frontActive = false
 	backActive = false
+	linespammActive = false
 
 	if orbitActive then
 		StarterGui:SetCore("SendNotification", {
@@ -310,6 +351,7 @@ orbitButton.MouseButton1Click:Connect(function()
 		orbitButton.Text = "Orbit ON"
 		frontButton.Text = "Front 8"
 		backButton.Text = "Behind 8"
+		linespammButton.Text = "Linespamm"
 	else
 		StarterGui:SetCore("SendNotification", {
 			Title = "Target",
@@ -317,6 +359,34 @@ orbitButton.MouseButton1Click:Connect(function()
 			Duration = 2
 		})
 		orbitButton.Text = "Orbit"
+	end
+end)
+
+
+
+linespammButton.MouseButton1Click:Connect(function()
+	linespammActive = not linespammActive
+	frontActive = false
+	backActive = false
+	orbitActive = false
+
+	if linespammActive then
+		StarterGui:SetCore("SendNotification", {
+			Title = "Target",
+			Text = "Linespamm mode - press Q to fire 5 lines",
+			Duration = 3
+		})
+		linespammButton.Text = "Linespamm ON"
+		frontButton.Text = "Front 8"
+		backButton.Text = "Behind 8"
+		orbitButton.Text = "Orbit"
+	else
+		StarterGui:SetCore("SendNotification", {
+			Title = "Target",
+			Text = "Linespamm mode off!",
+			Duration = 2
+		})
+		linespammButton.Text = "Linespamm"
 	end
 end)
 
@@ -345,6 +415,13 @@ UserInputService.InputBegan:Connect(function(input, processed)
 			StarterGui:SetCore("SendNotification", {
 				Title = "Target",
 				Text = "Fired all directions!",
+				Duration = 1
+			})
+		elseif linespammActive then
+			targetLinespamm()
+			StarterGui:SetCore("SendNotification", {
+				Title = "Target",
+				Text = "Fired 5 lines!",
 				Duration = 1
 			})
 		end
