@@ -21,7 +21,7 @@ gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
 
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0, 300, 0, 260)  -- Taller for 4 buttons
+frame.Size = UDim2.new(0, 300, 0, 260)
 frame.Position = UDim2.new(0.5, -150, 0.75, 0)
 frame.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
 frame.BorderSizePixel = 0
@@ -57,11 +57,8 @@ end)
 
 
 UserInputService.InputChanged:Connect(function(input)
-
 	if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-		
 		local delta = input.Position - dragStart
-		
 		frame.Position = UDim2.new(
 			startPosition.X.Scale,
 			startPosition.X.Offset + delta.X,
@@ -115,11 +112,9 @@ local function createButton(text, pos, size)
 	button.TextSize = 13
 	button.Parent = frame
 
-
 	local c = Instance.new("UICorner")
 	c.CornerRadius = UDim.new(0, 8)
 	c.Parent = button
-
 
 	return button
 end
@@ -147,7 +142,7 @@ local orbitButton = createButton(
 )
 
 
--- Linespamm button (bottom right) - NEW
+-- Linespamm button (bottom right)
 local linespammButton = createButton(
 	"Linespamm",
 	UDim2.new(0.53, 0, 0.62, 0)
@@ -160,7 +155,6 @@ local function findPlayers(input)
 	input = string.lower(input)
 	local matches = {}
 
-	-- Type "all" to target everyone except yourself
 	if input == "all" then
 		for _, player in ipairs(Players:GetPlayers()) do
 			if player ~= LocalPlayer then
@@ -170,13 +164,11 @@ local function findPlayers(input)
 		return matches
 	end
 
-	-- Type "me" to target yourself
 	if input == "me" then
 		table.insert(matches, LocalPlayer)
 		return matches
 	end
 
-	-- Partial name match (first matching player only)
 	for _, player in ipairs(Players:GetPlayers()) do
 		if player ~= LocalPlayer then
 			local username = string.lower(player.Name)
@@ -210,19 +202,19 @@ end
 
 
 
--- All directions (orbit) positions - UNIFORM 19 stud radius (centered on player)
+-- All directions (orbit) - EXACTLY 1 circle, 8 points at 19 stud radius
 local allDirections = {
-	Vector3.new(0, 0, -19),          -- Front
-	Vector3.new(13.44, 0, -13.44),   -- Front-Right
-	Vector3.new(19, 0, 0),           -- Right
-	Vector3.new(13.44, 0, 13.44),    -- Back-Right
-	Vector3.new(0, 0, 19),           -- Back
-	Vector3.new(-13.44, 0, 13.44),   -- Back-Left
-	Vector3.new(-19, 0, 0),          -- Left
-	Vector3.new(-13.44, 0, -13.44),  -- Front-Left
+	Vector3.new(0, 0, -19),          -- Front (0°)
+	Vector3.new(13.44, 0, -13.44),   -- Front-Right (45°)
+	Vector3.new(19, 0, 0),           -- Right (90°)
+	Vector3.new(13.44, 0, 13.44),    -- Back-Right (135°)
+	Vector3.new(0, 0, 19),           -- Back (180°)
+	Vector3.new(-13.44, 0, 13.44),   -- Back-Left (225°)
+	Vector3.new(-19, 0, 0),          -- Left (270°)
+	Vector3.new(-13.44, 0, -13.44),  -- Front-Left (315°)
 }
 
--- Linespamm positions - 5 lines spread left/right (unchanged)
+-- Linespamm positions - 5 lines spread left/right
 local linespammPositions = {
 	Vector3.new(-20, 0, -14),  -- Far Left
 	Vector3.new(-10, 0, -14),  -- Left
@@ -239,15 +231,11 @@ local function targetAllDirections()
 		if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
 			local hrp = target.Character.HumanoidRootPart
 			
-			-- Fire all 8 positions
 			for _, offset in ipairs(allDirections) do
-				-- Calculate world position
 				local cameraPos = hrp.Position + (hrp.CFrame.RightVector * offset.X) + (hrp.CFrame.UpVector * offset.Y) + (hrp.CFrame.LookVector * offset.Z)
 				
-				-- Calculate direction AWAY from player
 				local direction = (cameraPos - hrp.Position).Unit
 				
-				-- Create CFrame that looks AWAY from player
 				local lookAwayCF = CFrame.new(cameraPos, cameraPos + direction)
 
 				CameraEvent:FireServer({
@@ -266,7 +254,6 @@ local function targetLinespamm()
 		if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
 			local hrp = target.Character.HumanoidRootPart
 			
-			-- Fire all 5 lines
 			for _, offset in ipairs(linespammPositions) do
 				local position = hrp.CFrame * CFrame.new(offset.X, offset.Y, offset.Z)
 				
