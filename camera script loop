@@ -141,16 +141,16 @@ local linespammButton = createButton(
 
 
 
--- Orbit positions - 5 studs further away
+-- Orbit positions - UNIFORM 19 stud radius (centered on player, 5 studs further)
 local orbitPositions = {
 	{pos = Vector3.new(0, 0, -19), name = "Front"},
-	{pos = Vector3.new(13.54, 0, -13.54), name = "Front-Right"},
+	{pos = Vector3.new(13.44, 0, -13.44), name = "Front-Right"},
 	{pos = Vector3.new(19, 0, 0), name = "Right"},
-	{pos = Vector3.new(12, 0, 9), name = "Back-Right"},
-	{pos = Vector3.new(0, 0, 13), name = "Back"},
-	{pos = Vector3.new(-12, 0, 9), name = "Back-Left"},
+	{pos = Vector3.new(13.44, 0, 13.44), name = "Back-Right"},
+	{pos = Vector3.new(0, 0, 19), name = "Back"},
+	{pos = Vector3.new(-13.44, 0, 13.44), name = "Back-Left"},
 	{pos = Vector3.new(-19, 0, 0), name = "Left"},
-	{pos = Vector3.new(-13.54, 0, -13.54), name = "Front-Left"},
+	{pos = Vector3.new(-13.44, 0, -13.44), name = "Front-Left"},
 }
 
 -- Linespamm positions - 5 lines CLOSER TOGETHER
@@ -404,4 +404,4 @@ linespammButton.MouseButton1Click:Connect(function()
 			return linespammLoop
 		end)
 	end)
-end)
+end) 
