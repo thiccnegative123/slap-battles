@@ -14,15 +14,15 @@ gui.Parent = LocalPlayer:WaitForChild("PlayerGui")
 
 
 local frame = Instance.new("Frame")
-frame.Size = UDim2.new(0,260,0,170)
-frame.Position = UDim2.new(0.5,-130,0.75,0)
-frame.BackgroundColor3 = Color3.fromRGB(255,0,0)
+frame.Size = UDim2.new(0, 280, 0, 220)
+frame.Position = UDim2.new(0.5, -140, 0.75, 0)
+frame.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
 frame.BorderSizePixel = 0
 frame.Parent = gui
 
 
 local corner = Instance.new("UICorner")
-corner.CornerRadius = UDim.new(0,12)
+corner.CornerRadius = UDim.new(0, 12)
 corner.Parent = frame
 
 
@@ -50,11 +50,8 @@ end)
 
 
 UserInputService.InputChanged:Connect(function(input)
-
 	if dragging and input.UserInputType == Enum.UserInputType.MouseMovement then
-		
 		local delta = input.Position - dragStart
-		
 		frame.Position = UDim2.new(
 			startPosition.X.Scale,
 			startPosition.X.Offset + delta.X,
@@ -68,10 +65,10 @@ end)
 
 -- Title
 local title = Instance.new("TextLabel")
-title.Size = UDim2.new(1,0,0,35)
+title.Size = UDim2.new(1, 0, 0, 35)
 title.BackgroundTransparency = 1
 title.Text = "Loop Target Player"
-title.TextColor3 = Color3.fromRGB(255,255,255)
+title.TextColor3 = Color3.fromRGB(255, 255, 255)
 title.Font = Enum.Font.GothamBold
 title.TextSize = 18
 title.Parent = frame
@@ -80,40 +77,37 @@ title.Parent = frame
 
 -- Username box
 local box = Instance.new("TextBox")
-box.Size = UDim2.new(0.85,0,0,35)
-box.Position = UDim2.new(0.075,0,0.25,0)
-box.BackgroundColor3 = Color3.fromRGB(50,50,60)
+box.Size = UDim2.new(0.85, 0, 0, 35)
+box.Position = UDim2.new(0.075, 0, 0.18, 0)
+box.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
 box.PlaceholderText = "Username... (type 'all' for everyone)"
 box.Text = ""
-box.TextColor3 = Color3.fromRGB(255,255,255)
+box.TextColor3 = Color3.fromRGB(255, 255, 255)
 box.Font = Enum.Font.Gotham
 box.TextSize = 14
 box.Parent = frame
 
 
 local boxCorner = Instance.new("UICorner")
-boxCorner.CornerRadius = UDim.new(0,8)
+boxCorner.CornerRadius = UDim.new(0, 8)
 boxCorner.Parent = box
 
 
 
-local function createButton(text,pos)
-
+local function createButton(text, pos, size)
 	local button = Instance.new("TextButton")
-	button.Size = UDim2.new(0.4,0,0,35)
+	button.Size = size or UDim2.new(0.4, 0, 0, 35)
 	button.Position = pos
-	button.BackgroundColor3 = Color3.fromRGB(70,120,255)
+	button.BackgroundColor3 = Color3.fromRGB(70, 120, 255)
 	button.Text = text
-	button.TextColor3 = Color3.fromRGB(255,255,255)
+	button.TextColor3 = Color3.fromRGB(255, 255, 255)
 	button.Font = Enum.Font.GothamBold
 	button.TextSize = 13
 	button.Parent = frame
 
-
 	local c = Instance.new("UICorner")
-	c.CornerRadius = UDim.new(0,8)
+	c.CornerRadius = UDim.new(0, 8)
 	c.Parent = button
-
 
 	return button
 end
@@ -122,20 +116,45 @@ end
 
 local frontButton = createButton(
 	"Front 8",
-	UDim2.new(0.07,0,0.7,0)
+	UDim2.new(0.07, 0, 0.45, 0)
 )
 
 
 local backButton = createButton(
 	"Behind 8",
-	UDim2.new(0.53,0,0.7,0)
+	UDim2.new(0.53, 0, 0.45, 0)
 )
+
+-- Orbit button (centered below)
+local orbitButton = createButton(
+	"Orbit",
+	UDim2.new(0.3, 0, 0.72, 0),
+	UDim2.new(0.4, 0, 0, 35)
+)
+
+
+
+-- Orbit positions - camera circles around player looking AWAY from them
+-- Direction: Front → Front-Right → Right → Back-Right → Back → Back-Left → Left → Front-Left
+local orbitPositions = {
+	{pos = Vector3.new(0, 0, -14), name = "Front"},         -- Front
+	{pos = Vector3.new(10, 0, -10), name = "Front-Right"},  -- Front-Right
+	{pos = Vector3.new(14, 0, 0), name = "Right"},          -- Right
+	{pos = Vector3.new(8, 0, 6), name = "Back-Right"},       -- Back-Right
+	{pos = Vector3.new(0, 0, 8), name = "Back"},            -- Back
+	{pos = Vector3.new(-8, 0, 6), name = "Back-Left"},      -- Back-Left
+	{pos = Vector3.new(-14, 0, 0), name = "Left"},          -- Left
+	{pos = Vector3.new(-10, 0, -10), name = "Front-Left"},  -- Front-Left
+}
+
+local orbitLoop = false
+local currentOrbitIndex = 1
 
 
 
 -- Find player using partial name (returns table of players)
 local function findPlayers(input)
-	input = string.lower(input):gsub("^%s+", ""):gsub("%s+$", "")  -- trim spaces just in case
+	input = string.lower(input):gsub("^%s+", ""):gsub("%s+$", "")
 	local matches = {}
 
 	-- Type "me" to target yourself (checked FIRST, returns immediately)
@@ -175,13 +194,14 @@ end
 
 
 
--- Target function - now handles multiple targets
+-- Target function - handles front/back offsets
 local function targetPlayer(offset)
 	local targets = findPlayers(box.Text)
 
 	for _, target in ipairs(targets) do
 		if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
 			local hrp = target.Character.HumanoidRootPart
+			-- Position offset relative to player
 			local position = hrp.CFrame * CFrame.new(0, 0, offset)
 
 			CameraEvent:FireServer({
@@ -200,7 +220,6 @@ local backLoop = false
 
 
 local function startLoop(offset, check)
-
 	while check() do
 		targetPlayer(offset)
 		task.wait()
@@ -208,9 +227,49 @@ local function startLoop(offset, check)
 end
 
 
+local function startOrbitLoop(check)
+	while check() do
+		local targets = findPlayers(box.Text)
+		local currentPos = orbitPositions[currentOrbitIndex]
+		
+		for _, target in ipairs(targets) do
+			if target.Character and target.Character:FindFirstChild("HumanoidRootPart") then
+				local hrp = target.Character.HumanoidRootPart
+				
+				-- Calculate position around player
+				local offset = currentPos.pos
+				local cameraPos = hrp.Position + (hrp.CFrame.RightVector * offset.X) + (hrp.CFrame.UpVector * offset.Y) + (hrp.CFrame.LookVector * offset.Z)
+				
+				-- Create CFrame that looks AWAY from the player (opposite direction)
+				local direction = (cameraPos - hrp.Position).Unit
+				local lookAwayCF = CFrame.new(cameraPos, cameraPos + direction)
+
+				CameraEvent:FireServer({
+					cf = lookAwayCF
+				})
+			end
+		end
+		
+		-- Update button text to show current position
+		orbitButton.Text = "Orbit: " .. currentPos.name
+		
+		-- AS FAST AS POSSIBLE - no delay between positions
+		task.wait()
+		
+		if check() then
+			-- Go through table in reverse (opposite direction around player)
+			currentOrbitIndex = currentOrbitIndex - 1
+			if currentOrbitIndex < 1 then
+				currentOrbitIndex = #orbitPositions
+			end
+		end
+	end
+	orbitButton.Text = "Orbit"
+end
+
+
 
 frontButton.MouseButton1Click:Connect(function()
-
 	-- toggle off
 	if frontLoop then
 		frontLoop = false
@@ -218,28 +277,25 @@ frontButton.MouseButton1Click:Connect(function()
 		return
 	end
 
-
-	-- disable other loop
+	-- disable other loops
 	backLoop = false
+	orbitLoop = false
 	backButton.Text = "Behind 8"
-
+	orbitButton.Text = "Orbit"
 
 	frontLoop = true
 	frontButton.Text = "Stop Front"
 
-
 	task.spawn(function()
-		startLoop(-14,function()
+		startLoop(-14, function()
 			return frontLoop
 		end)
 	end)
-
 end)
 
 
 
 backButton.MouseButton1Click:Connect(function()
-
 	-- toggle off
 	if backLoop then
 		backLoop = false
@@ -247,20 +303,45 @@ backButton.MouseButton1Click:Connect(function()
 		return
 	end
 
-
-	-- disable other loop
+	-- disable other loops
 	frontLoop = false
+	orbitLoop = false
 	frontButton.Text = "Front 8"
-
+	orbitButton.Text = "Orbit"
 
 	backLoop = true
 	backButton.Text = "Stop Behind"
 
-
 	task.spawn(function()
-		startLoop(8,function()
+		startLoop(8, function()
 			return backLoop
 		end)
 	end)
+end)
 
+
+
+orbitButton.MouseButton1Click:Connect(function()
+	-- toggle off
+	if orbitLoop then
+		orbitLoop = false
+		orbitButton.Text = "Orbit"
+		return
+	end
+
+	-- disable other loops
+	frontLoop = false
+	backLoop = false
+	frontButton.Text = "Front 8"
+	backButton.Text = "Behind 8"
+
+	orbitLoop = true
+	currentOrbitIndex = 1
+	orbitButton.Text = "Orbit: Front"
+
+	task.spawn(function()
+		startOrbitLoop(function()
+			return orbitLoop
+		end)
+	end)
 end)
