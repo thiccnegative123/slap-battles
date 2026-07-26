@@ -210,19 +210,19 @@ end
 
 
 
--- All directions (orbit) positions
+-- All directions (orbit) positions - UNIFORM 19 stud radius (centered on player)
 local allDirections = {
-	Vector3.new(0, 0, -14),     -- Front
-	Vector3.new(10, 0, -10),    -- Front-Right
-	Vector3.new(14, 0, 0),      -- Right
-	Vector3.new(8, 0, 6),       -- Back-Right
-	Vector3.new(0, 0, 8),       -- Back
-	Vector3.new(-8, 0, 6),      -- Back-Left
-	Vector3.new(-14, 0, 0),     -- Left
-	Vector3.new(-10, 0, -10),   -- Front-Left
+	Vector3.new(0, 0, -19),          -- Front
+	Vector3.new(13.44, 0, -13.44),   -- Front-Right
+	Vector3.new(19, 0, 0),           -- Right
+	Vector3.new(13.44, 0, 13.44),    -- Back-Right
+	Vector3.new(0, 0, 19),           -- Back
+	Vector3.new(-13.44, 0, 13.44),   -- Back-Left
+	Vector3.new(-19, 0, 0),          -- Left
+	Vector3.new(-13.44, 0, -13.44),  -- Front-Left
 }
 
--- Linespamm positions - 5 lines spread left/right
+-- Linespamm positions - 5 lines spread left/right (unchanged)
 local linespammPositions = {
 	Vector3.new(-20, 0, -14),  -- Far Left
 	Vector3.new(-10, 0, -14),  -- Left
