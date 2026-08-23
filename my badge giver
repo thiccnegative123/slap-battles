@@ -263,7 +263,7 @@ button25.Size = UDim2.new(0, btnW, 0, btnH)
 button25.Position = UDim2.new(0, btnX3, 0, btnY)
 button25.Draggable = false
 button25.Active = true
-button25.Text = ve"
+button25.Text = "ve"
 button25.Visible = false
 
 
@@ -329,7 +329,7 @@ button34.Size = UDim2.new(0, btnW, 0, btnH)
 button34.Position = UDim2.new(0, btnX3, 0, btnY)
 button34.Draggable = false
 button34.Active = true
-button34.Text = "get retlse
+button34.Text = "get retlse"
 
 
 button35.Size = UDim2.new(0, btnW, 0, btnH)
