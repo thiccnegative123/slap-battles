@@ -1,8 +1,12 @@
-local hrp = game.Players.LocalPlayer.Character.HumanoidRootPart
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local hrp = Character:WaitForChild("HumanoidRootPart")
 
 
-local gui = Instance.new("ScreenGui", game.Players.LocalPlayer.PlayerGui)
+local gui = Instance.new("ScreenGui", LocalPlayer.PlayerGui)
 local frame = Instance.new("Frame", gui)
+
 local button1 = Instance.new("TextButton", frame)
 local button2 = Instance.new("TextButton", frame)
 local button3 = Instance.new("TextButton", frame)
@@ -10,6 +14,38 @@ local button4 = Instance.new("TextButton", frame)
 local button5 = Instance.new("TextButton", frame)
 local button6 = Instance.new("TextButton", frame)
 local button7 = Instance.new("TextButton", frame)
+local button8 = Instance.new("TextButton", frame)
+local button9 = Instance.new("TextButton", frame)
+local button10 = Instance.new("TextButton", frame)
+local button11 = Instance.new("TextButton", frame)
+local button12 = Instance.new("TextButton", frame)
+local button13 = Instance.new("TextButton", frame)
+local button14 = Instance.new("TextButton", frame)
+local button15 = Instance.new("TextButton", frame)
+local button16 = Instance.new("TextButton", frame)
+local button17 = Instance.new("TextButton", frame)
+local button18 = Instance.new("TextButton", frame)
+local button19 = Instance.new("TextButton", frame)
+local button20 = Instance.new("TextButton", frame)
+local button21 = Instance.new("TextButton", frame)
+local button22 = Instance.new("TextButton", frame)
+local button23 = Instance.new("TextButton", frame)
+local button24 = Instance.new("TextButton", frame)
+local button25 = Instance.new("TextButton", frame)
+local button26 = Instance.new("TextButton", frame)
+local button27 = Instance.new("TextButton", frame)
+local button28 = Instance.new("TextButton", frame)
+local button29 = Instance.new("TextButton", frame)
+local button30 = Instance.new("TextButton", frame)
+local button31 = Instance.new("TextButton", frame)
+local button32 = Instance.new("TextButton", frame)
+local button33 = Instance.new("TextButton", frame)
+local button34 = Instance.new("TextButton", frame)
+local button35 = Instance.new("TextButton", frame)
+local button36 = Instance.new("TextButton", frame)
+local button37 = Instance.new("TextButton", frame)
+local button38 = Instance.new("TextButton", frame)
+
 local nb = Instance.new("TextButton", frame)
 local bb = Instance.new("TextButton", frame)
 
@@ -17,174 +53,464 @@ local bb = Instance.new("TextButton", frame)
 local text = Instance.new("TextLabel", frame)
 local text1 = Instance.new("TextLabel", frame)
 
-frame.Size = UDim2.new(0, 500, 0, 200)
-frame.Position = UDim2.new(0.5, 457, 0.5, 283)
+-- Mobile check
+local UserInputService = game:GetService("UserInputService")
+local isMobile = UserInputService.TouchEnabled and not UserInputService.KeyboardEnabled
+
+-- Frame setup
+if isMobile then
+    frame.Size = UDim2.new(0, 500, 0, 350)
+    frame.Position = UDim2.new(0.5, -250, 0.5, -175)
+else
+    frame.Size = UDim2.new(0, 500, 0, 200)
+    frame.Position = UDim2.new(0.5, -250, 0.5, -100)
+end
 frame.BackgroundColor3 = Color3.fromRGB(0, 0, 255)
 frame.Draggable = true
 frame.Active = true
 
-button1.Size = UDim2.new(0,120,0,50)
-button1.Position = UDim2.new(0,8,0,93)
+-- Button sizes
+local btnW = 120
+local btnH = 50
+local btnX1 = 8
+local btnX2 = 188
+local btnX3 = 342
+local btnY = 93
+
+if isMobile then
+    btnW = 140
+    btnH = 60
+    btnX1 = 15
+    btnX2 = 180
+    btnX3 = 345
+    btnY = 100
+end
+
+
+button1.Size = UDim2.new(0, btnW, 0, btnH)
+button1.Position = UDim2.new(0, btnX1, 0, btnY)
 button1.Draggable = false
 button1.Active = true
 button1.Text = "get eggler"
 
-button2.Size = UDim2.new(0,120,0,50)
-button2.Position = UDim2.new(0,188,0,93)
+button2.Size = UDim2.new(0, btnW, 0, btnH)
+button2.Position = UDim2.new(0, btnX2, 0, btnY)
 button2.Draggable = false
 button2.Active = true
 button2.Text = "get g-x"
 
-button3.Size = UDim2.new(0,120,0,50)
-button3.Position = UDim2.new(0,342,0,93)
+button3.Size = UDim2.new(0, btnW, 0, btnH)
+button3.Position = UDim2.new(0, btnX3, 0, btnY)
 button3.Draggable = false
 button3.Active = true
 button3.Text = "get doorkeeper"
 
-button4.Size = UDim2.new(0,120,0,30)
-button4.Position = UDim2.new(0,191,0,54)
+
+button4.Size = UDim2.new(0, btnW, 0, 30)
+button4.Position = UDim2.new(0, btnX2, 0, 54)
 button4.Draggable = false
 button4.Active = true
 button4.Text = "copy script"
 
-button5.Size = UDim2.new(0,120,0,50)
-button5.Position = UDim2.new(0,8,0,93)
+
+button5.Size = UDim2.new(0, btnW, 0, btnH)
+button5.Position = UDim2.new(0, btnX1, 0, btnY)
 button5.Draggable = false
 button5.Active = true
 button5.Text = "get recall"
 button5.Visible = false
 
-button6.Size = UDim2.new(0,120,0,50)
-button6.Position = UDim2.new(0,188,0,93)
+button6.Size = UDim2.new(0, btnW, 0, btnH)
+button6.Position = UDim2.new(0, btnX2, 0, btnY)
 button6.Draggable = false
 button6.Active = true
 button6.Text = "get lotus"
 button6.Visible = false
 
-button7.Size = UDim2.new(0,120,0,50)
-button7.Position = UDim2.new(0,342,0,93)
+button7.Size = UDim2.new(0, btnW, 0, btnH)
+button7.Position = UDim2.new(0, btnX3, 0, btnY)
 button7.Draggable = false
 button7.Active = true
 button7.Text = "get camera"
 button7.Visible = false
 
-nb.Size = UDim2.new(0,70,0,20)
-nb.Position = UDim2.new(0,431,0,180)
+
+button8.Size = UDim2.new(0, btnW, 0, btnH)
+button8.Position = UDim2.new(0, btnX1, 0, btnY)
+button8.Draggable = false
+button8.Active = true
+button8.Text = "get conker"
+button8.Visible = false
+
+button9.Size = UDim2.new(0, btnW, 0, btnH)
+button9.Position = UDim2.new(0, btnX2, 0, btnY)
+button9.Draggable = false
+button9.Active = true
+button9.Text = "get sand"
+button9.Visible = false
+
+button10.Size = UDim2.new(0, btnW, 0, btnH)
+button10.Position = UDim2.new(0, btnX3, 0, btnY)
+button10.Draggable = false
+button10.Active = true
+button10.Text = "get reaper"
+button10.Visible = false
+
+
+button11.Size = UDim2.new(0, btnW, 0, btnH)
+button11.Position = UDim2.new(0, btnX1, 0, btnY)
+button11.Draggable = false
+button11.Active = true
+button11.Text = "get spectator"
+button11.Visible = false
+
+button12.Size = UDim2.new(0, btnW, 0, btnH)
+button12.Position = UDim2.new(0, btnX2, 0, btnY)
+button12.Draggable = false
+button12.Active = true
+button12.Text = "get swapper"
+button12.Visible = false
+
+button13.Size = UDim2.new(0, btnW, 0, btnH)
+button13.Position = UDim2.new(0, btnX3, 0, btnY)
+button13.Draggable = false
+button13.Active = true
+button13.Text = "get bull"
+button13.Visible = false
+
+
+button14.Size = UDim2.new(0, btnW, 0, btnH)
+button14.Position = UDim2.new(0, btnX1, 0, btnY)
+button14.Draggable = false
+button14.Active = true
+button14.Text = "get dice"
+button14.Visible = false
+
+button15.Size = UDim2.new(0, btnW, 0, btnH)
+button15.Position = UDim2.new(0, btnX2, 0, btnY)
+button15.Draggable = false
+button15.Active = true
+button15.Text = "get track"
+button15.Visible = false
+
+button16.Size = UDim2.new(0, btnW, 0, btnH)
+button16.Position = UDim2.new(0, btnX3, 0, btnY)
+button16.Draggable = false
+button16.Active = true
+button16.Text = "get tableflip"
+button16.Visible = false
+
+
+button17.Size = UDim2.new(0, btnW, 0, btnH)
+button17.Position = UDim2.new(0, btnX1, 0, btnY)
+button17.Draggable = false
+button17.Active = true
+button17.Text = "get boomerang"
+button17.Visible = false
+
+button18.Size = UDim2.new(0, btnW, 0, btnH)
+button18.Position = UDim2.new(0, btnX2, 0, btnY)
+button18.Draggable = false
+button18.Active = true
+button18.Text = "get fort"
+button18.Visible = false
+
+button19.Size = UDim2.new(0, btnW, 0, btnH)
+button19.Position = UDim2.new(0, btnX3, 0, btnY)
+button19.Draggable = false
+button19.Active = true
+button19.Text = "get defense"
+button19.Visible = false
+
+
+button20.Size = UDim2.new(0, btnW, 0, btnH)
+button20.Position = UDim2.new(0, btnX1, 0, btnY)
+button20.Draggable = false
+button20.Active = true
+button20.Text = "get sparky"
+button20.Visible = false
+
+button21.Size = UDim2.new(0, btnW, 0, btnH)
+button21.Position = UDim2.new(0, btnX2, 0, btnY)
+button21.Draggable = false
+button21.Active = true
+button21.Text = "get coil"
+button21.Visible = false
+
+button22.Size = UDim2.new(0, btnW, 0, btnH)
+button22.Position = UDim2.new(0, btnX3, 0, btnY)
+button22.Draggable = false
+button22.Active = true
+button22.Text = "get speedrun"
+button22.Visible = false
+
+
+button23.Size = UDim2.new(0, btnW, 0, btnH)
+button23.Position = UDim2.new(0, btnX1, 0, btnY)
+button23.Draggable = false
+button23.Active = true
+button23.Text = "get plague"
+button23.Visible = false
+
+button24.Size = UDim2.new(0, btnW, 0, btnH)
+button24.Position = UDim2.new(0, btnX2, 0, btnY)
+button24.Draggable = false
+button24.Active = true
+button24.Text = "get cloud"
+button24.Visible = false
+
+button25.Size = UDim2.new(0, btnW, 0, btnH)
+button25.Position = UDim2.new(0, btnX3, 0, btnY)
+button25.Draggable = false
+button25.Active = true
+button25.Text = "get sbeve"
+button25.Visible = false
+
+
+button26.Size = UDim2.new(0, btnW, 0, btnH)
+button26.Position = UDim2.new(0, btnX1, 0, btnY)
+button26.Draggable = false
+button26.Active = true
+button26.Text = "get stop"
+button26.Visible = false
+
+button27.Size = UDim2.new(0, btnW, 0, btnH)
+button27.Position = UDim2.new(0, btnX2, 0, btnY)
+button27.Draggable = false
+button27.Active = true
+button27.Text = "get hammer"
+button27.Visible = false
+
+button28.Size = UDim2.new(0, btnW, 0, btnH)
+button28.Position = UDim2.new(0, btnX3, 0, btnY)
+button28.Draggable = false
+button28.Active = true
+button28.Text = "get rock"
+button28.Visible = false
+
+
+button29.Size = UDim2.new(0, btnW, 0, btnH)
+button29.Position = UDim2.new(0, btnX1, 0, btnY)
+button29.Draggable = false
+button29.Active = true
+button29.Text = "get rob"
+button29.Visible = false
+
+button30.Size = UDim2.new(0, btnW, 0, btnH)
+button30.Position = UDim2.new(0, btnX2, 0, btnY)
+button30.Draggable = false
+button30.Active = true
+button30.Text = "get megarock"
+button30.Visible = false
+
+button31.Size = UDim2.new(0, btnW, 0, btnH)
+button31.Position = UDim2.new(0, btnX3, 0, btnY)
+button31.Draggable = false
+button31.Active = true
+button31.Text = "get ghostwalker"
+button31.Visible = false
+
+
+button32.Size = UDim2.new(0, btnW, 0, btnH)
+button32.Position = UDim2.new(0, btnX1, 0, btnY)
+button32.Draggable = false
+button32.Active = true
+button32.Text = "get admin"
+button32.Visible = false
+
+button33.Size = UDim2.new(0, btnW, 0, btnH)
+button33.Position = UDim2.new(0, btnX2, 0, btnY)
+button33.Draggable = false
+button33.Active = true
+button33.Text = "get phase"
+button33.Visible = false
+
+button34.Size = UDim2.new(0, btnW, 0, btnH)
+button34.Position = UDim2.new(0, btnX3, 0, btnY)
+button34.Draggable = false
+button34.Active = true
+button34.Text = "get retro"
+button34.Visible = false
+
+
+button35.Size = UDim2.new(0, btnW, 0, btnH)
+button35.Position = UDim2.new(0, btnX1, 0, btnY)
+button35.Draggable = false
+button35.Active = true
+button35.Text = "get error"
+button35.Visible = false
+
+button36.Size = UDim2.new(0, btnW, 0, btnH)
+button36.Position = UDim2.new(0, btnX2, 0, btnY)
+button36.Draggable = false
+button36.Active = true
+button36.Text = "get bob"
+button36.Visible = false
+
+button37.Size = UDim2.new(0, btnW, 0, btnH)
+button37.Position = UDim2.new(0, btnX3, 0, btnY)
+button37.Draggable = false
+button37.Active = true
+button37.Text = "get sentry"
+button37.Visible = false
+
+
+button38.Size = UDim2.new(0, btnW, 0, btnH)
+button38.Position = UDim2.new(0, btnX2, 0, btnY)
+button38.Draggable = false
+button38.Active = true
+button38.Text = "get kite"
+button38.Visible = false
+
+-- Navigation buttons
+local navY = isMobile and 280 or 180
+
+nb.Size = UDim2.new(0, 70, 0, 30)
+nb.Position = UDim2.new(0, 420, 0, navY)
 nb.Draggable = false
 nb.Active = true
 nb.Text = ">"
 
-bb.Size = UDim2.new(0,70,0,20)
-bb.Position = UDim2.new(0,1,0,181)
+bb.Size = UDim2.new(0, 70, 0, 30)
+bb.Position = UDim2.new(0, 10, 0, navY)
 bb.Draggable = false
 bb.Active = true
 bb.Text = "<"
 bb.Visible = false
 
-text.Size = UDim2.new(0,120,0,50)
-text.Position = UDim2.new(0,187,0,10)
+
+text.Size = UDim2.new(0, 200, 0, 50)
+text.Position = UDim2.new(0.5, -100, 0, 10)
 text.Draggable = false
 text.Active = false
 text.BackgroundTransparency = 1
 text.Text = "GLOVE GIVER 5000"
-text.TextSize = 32
+text.TextSize = isMobile and 36 or 32
 
-text1.Size = UDim2.new(0,120,0,50)
-text1.Position = UDim2.new(0,190,0,148)
+
+local creditY = isMobile and 270 or 148
+text1.Size = UDim2.new(0, 250, 0, 50)
+text1.Position = UDim2.new(0.5, -125, 0, creditY)
 text1.Draggable = false
 text1.Active = false
 text1.BackgroundTransparency = 1
 text1.Text = "GUI MADE BY HAXAREBEST2"
-text1.TextSize = 25.5
+text1.TextSize = isMobile and 28 or 25.5
+
+-- Page tracking
+local currentPage = 1
+local totalPages = 13
+
+local pageButtons = {
+    {button1, button2, button3},
+    {button5, button6, button7},
+    {button8, button9, button10},
+    {button11, button12, button13},
+    {button14, button15, button16},
+    {button17, button18, button19},
+    {button20, button21, button22},
+    {button23, button24, button25},
+    {button26, button27, button28},
+    {button29, button30, button31},
+    {button32, button33, button34},
+    {button35, button36, button37},
+    {button38, nil, nil}
+}
+
+-- Function to show specific page
+local function showPage(pageNum)
+    for i, btns in ipairs(pageButtons) do
+        local visible = (i == pageNum)
+        for _, btn in ipairs(btns) do
+            if btn then
+                btn.Visible = visible
+            end
+        end
+    end
+    
+    bb.Visible = (pageNum > 1)
+    nb.Visible = (pageNum < totalPages)
+    
+    currentPage = pageNum
+end
+
+-- Navigation button events
+nb.MouseButton1Click:Connect(function()
+    if currentPage < totalPages then
+        showPage(currentPage + 1)
+    end
+end)
+
+bb.MouseButton1Click:Connect(function()
+    if currentPage > 1 then
+        showPage(currentPage - 1)
+    end
+end)
 
 
 button1.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://pastefy.app/Fi5D2Me6/raw'))()
+    loadstring(game:HttpGet('https://pastefy.app/Fi5D2Me6/raw'))()
 end)
 
 button2.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://pastefy.app/hy4al8Ya/raw'))()
+    loadstring(game:HttpGet('https://pastefy.app/hy4al8Ya/raw'))()
 end)
 
 button3.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://pastefy.app/zbj5RgPl/raw'))()
+    loadstring(game:HttpGet('https://pastefy.app/zbj5RgPl/raw'))()
 end)
 
 button4.MouseButton1Click:Connect(function()
-setclipboard([[loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/my%20badge%20giver"))()]])
-
+    setclipboard([[loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/my%20badge%20giver"))()]])
 end)
 
 button5.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://raw.githubusercontent.com/nerna-coder/Recall/refs/heads/main/slap-battlea.lua'))()
-
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/nerna-coder/Recall/refs/heads/main/slap-battlea.lua'))()
 end)
 
 button6.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet('https://pastefy.app/Ds8bqkE9/raw'))()
-
+    loadstring(game:HttpGet('https://pastefy.app/Ds8bqkE9/raw'))()
 end)
 
 button7.MouseButton1Click:Connect(function()
-local Players      = game:GetService("Players")
-local RS           = game:GetService("ReplicatedStorage")
-local VIM          = game:GetService("VirtualInputManager")
-
-local player       = Players.LocalPlayer
-local char         = player.Character or player.CharacterAdded:Wait()
-local hrp          = char:WaitForChild("HumanoidRootPart")
-local humanoid     = char:WaitForChild("Humanoid")
-local camRemotes   = RS.Assets.Obtainments.Camera.Remotes
-local isPhotoValid = camRemotes.IsPhotoValid
-
-local LOG = "[📷 CamBot]"
-
-
-local function tp(pos)
-    hrp.CFrame = CFrame.new(pos + Vector3.new(0, 4, 0))
-    task.wait(0.35)
-end
-
-local function pressQ()
-    VIM:SendKeyEvent(true,  Enum.KeyCode.Q, false, game)
-    task.wait(0.15)
-    VIM:SendKeyEvent(false, Enum.KeyCode.Q, false, game)
-    task.wait(0.5)
-end
-
-local function waitFor(condition, timeout)
-    local t = tick()
-    repeat task.wait(0.25) until condition() or tick() - t > (timeout or 15)
-    return condition()
-end
-
-
-print(LOG, "Activating glove ability (Q) for invisibility...")
-pressQ()
-
-
-local CAMERA_SPAWN = Vector3.new(-385.063934, 52.0801315, 2.81142139)
-print(LOG, "Heading to camera spawn at Slapple Island...")
-tp(CAMERA_SPAWN)
-
-
-print(LOG, "Waiting for CameraModel to appear in workspace...")
-local cameraModel = nil
-
-local gotIt = waitFor(function()
-    for _, v in ipairs(workspace:GetDescendants()) do
-        if v.Name == "CameraModel" and v:IsA("Model") then
-            cameraModel = v
-            return true
-        end
+    local Players = game:GetService("Players")
+    local RS = game:GetService("ReplicatedStorage")
+    local VIM = game:GetService("VirtualInputManager")
+    local player = Players.LocalPlayer
+    local char = player.Character or player.CharacterAdded:Wait()
+    local hrp = char:WaitForChild("HumanoidRootPart")
+    local humanoid = char:WaitForChild("Humanoid")
+    local camRemotes = RS.Assets.Obtainments.Camera.Remotes
+    local isPhotoValid = camRemotes.IsPhotoValid
+    local LOG = "[📷 CamBot]"
+    
+    local function tp(pos)
+        hrp.CFrame = CFrame.new(pos + Vector3.new(0, 4, 0))
+        task.wait(0.35)
     end
-end, 0.4)
-
-if not gotIt or not cameraModel then
-    warn(LOG, "CameraModel not found yet, pressing Q again and retrying...")
+    
+    local function pressQ()
+        VIM:SendKeyEvent(true, Enum.KeyCode.Q, false, game)
+        task.wait(0.15)
+        VIM:SendKeyEvent(false, Enum.KeyCode.Q, false, game)
+        task.wait(0.5)
+    end
+    
+    local function waitFor(condition, timeout)
+        local t = tick()
+        repeat task.wait(0.25) until condition() or tick() - t > (timeout or 15)
+        return condition()
+    end
+    
+    print(LOG, "Activating glove ability (Q) for invisibility...")
     pressQ()
+    
+    local CAMERA_SPAWN = Vector3.new(-385.063934, 52.0801315, 2.81142139)
+    print(LOG, "Heading to camera spawn at Slapple Island...")
     tp(CAMERA_SPAWN)
-    waitFor(function()
+    
+    local cameraModel = nil
+    local gotIt = waitFor(function()
         for _, v in ipairs(workspace:GetDescendants()) do
             if v.Name == "CameraModel" and v:IsA("Model") then
                 cameraModel = v
@@ -192,137 +518,239 @@ if not gotIt or not cameraModel then
             end
         end
     end, 0.4)
-end
-
-if cameraModel then
-    print(LOG, "CameraModel found! Picking up...")
-    local camPartPos = cameraModel.PrimaryPart and cameraModel.PrimaryPart.Position
-        or cameraModel:GetPivot().Position
-    tp(camPartPos)
-
-    local prompt = cameraModel:FindFirstChildWhichIsA("ProximityPrompt", true)
-    if prompt then
-        fireproximityprompt(prompt)
-        print(LOG, "Fired pickup prompt!")
-    else
-        warn(LOG, "No ProximityPrompt on camera model")
+    
+    if not gotIt or not cameraModel then
+        warn(LOG, "CameraModel not found yet, pressing Q again and retrying...")
+        pressQ()
+        tp(CAMERA_SPAWN)
+        waitFor(function()
+            for _, v in ipairs(workspace:GetDescendants()) do
+                if v.Name == "CameraModel" and v:IsA("Model") then
+                    cameraModel = v
+                    return true
+                end
+            end
+        end, 0.4)
     end
-else
-    warn(LOG, "CameraModel never spawned. Continuing with direct remote...")
-end
-
-task.wait(1.5)
-
-
-local camTool = player.Backpack:FindFirstChild("Camera")
-    or (char and char:FindFirstChild("Camera"))
-
-if camTool then
-    print(LOG, "Equipping camera tool...")
-    humanoid:EquipTool(camTool)
-    task.wait(1.2)
-else
-    warn(LOG, "Camera not in backpack — continuing with direct remote invocation")
-end
-
-
-local PNG_SPOTS = {
-    { "1 – Cannon Island",           Vector3.new( 316.721,  31.268,  188.642), Vector3.new( 0.996, 0, -0.087) },
-    { "2 – Chain Obby to Slapple",   Vector3.new(-128.993,  -1.786,  125.199), Vector3.new( 0.705, 0, -0.709) },
-    { "3 – Moai Island Statue",      Vector3.new(-274.513, -19.490,  -10.172), Vector3.new(-0.714, 0,  0.700) },
-    { "4 – Slapple Island Big Tree", Vector3.new(-425.410,  56.777,  -23.400), Vector3.new( 0,     0,  1    ) },
-    { "5 – East Island Tree",        Vector3.new(  -8.155,  -2.694, -208.862), Vector3.new(-0.985, 0, -0.174) },
-    { "6 – The Fort",                Vector3.new( 242.086, -10.646,  -25.781), Vector3.new( 0.445, 0,  0.895) },
-    { "7 – Chain (Default↔Normal)",  Vector3.new( 116.677,  -2.879,    1.637), Vector3.new(-0.991, 0, -0.131) },
-}
-
-local function photographPart(part, lookVec)
-    local standPos = part.Position + lookVec * 7
-    tp(standPos)
-
-    workspace.CurrentCamera.CFrame = CFrame.lookAt(
-        standPos + Vector3.new(0, 2, 0),
-        part.Position
-    )
-    task.wait(0.25)
-
-    local ok, result = pcall(function()
-        return isPhotoValid:InvokeServer(part)
-    end)
-
-    if ok and result then
-        part:Destroy()
-        return true
-    elseif ok then
-        warn(LOG, "Server returned false for part", part.Name, "— trying simulate click")
-        VIM:SendMouseButtonEvent(0, 0, 0, true,  game, 1)
-        task.wait(0.05)
-        VIM:SendMouseButtonEvent(0, 0, 0, false, game, 1)
-        task.wait(0.4)
-        return false
+    
+    if cameraModel then
+        print(LOG, "CameraModel found! Picking up...")
+        local camPartPos = cameraModel.PrimaryPart and cameraModel.PrimaryPart.Position or cameraModel:GetPivot().Position
+        tp(camPartPos)
+        local prompt = cameraModel:FindFirstChildWhichIsA("ProximityPrompt", true)
+        if prompt then
+            fireproximityprompt(prompt)
+            print(LOG, "Fired pickup prompt!")
+        else
+            warn(LOG, "No ProximityPrompt on camera model")
+        end
     else
-        warn(LOG, "  InvokeServer error:", result)
-        return false
+        warn(LOG, "CameraModel never spawned. Continuing with direct remote...")
     end
-end
-
-local folder = workspace:FindFirstChild("Camera_Obtainment_PNGS")
-if not folder then
-    error(LOG .. " Camera_Obtainment_PNGS folder missing — join a match first!")
-end
-
-print(LOG, "Starting photo run (7 shots)...")
-local taken = 0
-
-for i, spot in ipairs(PNG_SPOTS) do
-    local name, targetPos, lookVec = spot[1], spot[2], spot[3]
-
-    local matchedPart = nil
-    for _, p in ipairs(folder:GetChildren()) do
-        if p:IsA("BasePart") and (p.Position - targetPos).Magnitude < 2 then
-            matchedPart = p
-            break
+    
+    task.wait(1.5)
+    
+    local camTool = player.Backpack:FindFirstChild("Camera") or (char and char:FindFirstChild("Camera"))
+    if camTool then
+        print(LOG, "Equipping camera tool...")
+        humanoid:EquipTool(camTool)
+        task.wait(1.2)
+    else
+        warn(LOG, "Camera not in backpack — continuing with direct remote invocation")
+    end
+    
+    local PNG_SPOTS = {
+        { "1 – Cannon Island", Vector3.new(316.721, 31.268, 188.642), Vector3.new(0.996, 0, -0.087) },
+        { "2 – Chain Obby to Slapple", Vector3.new(-128.993, -1.786, 125.199), Vector3.new(0.705, 0, -0.709) },
+        { "3 – Moai Island Statue", Vector3.new(-274.513, -19.490, -10.172), Vector3.new(-0.714, 0, 0.700) },
+        { "4 – Slapple Island Big Tree", Vector3.new(-425.410, 56.777, -23.400), Vector3.new(0, 0, 1) },
+        { "5 – East Island Tree", Vector3.new(-8.155, -2.694, -208.862), Vector3.new(-0.985, 0, -0.174) },
+        { "6 – The Fort", Vector3.new(242.086, -10.646, -25.781), Vector3.new(0.445, 0, 0.895) },
+        { "7 – Chain (Default↔Normal)", Vector3.new(116.677, -2.879, 1.637), Vector3.new(-0.991, 0, -0.131) },
+    }
+    
+    local function photographPart(part, lookVec)
+        local standPos = part.Position + lookVec * 7
+        tp(standPos)
+        workspace.CurrentCamera.CFrame = CFrame.lookAt(standPos + Vector3.new(0, 2, 0), part.Position)
+        task.wait(0.25)
+        
+        local ok, result = pcall(function()
+            return isPhotoValid:InvokeServer(part)
+        end)
+        
+        if ok and result then
+            part:Destroy()
+            return true
+        elseif ok then
+            warn(LOG, "Server returned false for part", part.Name, "— trying simulate click")
+            VIM:SendMouseButtonEvent(0, 0, 0, true, game, 1)
+            task.wait(0.05)
+            VIM:SendMouseButtonEvent(0, 0, 0, false, game, 1)
+            task.wait(0.4)
+            return false
+        else
+            warn(LOG, " InvokeServer error:", result)
+            return false
         end
     end
-
-    if not matchedPart then
-        print(LOG, string.format("  ⚠️  Part %d (%s) not found — may already be done", i, name))
-        continue
+    
+    local folder = workspace:FindFirstChild("Camera_Obtainment_PNGS")
+    if not folder then
+        error(LOG .. " Camera_Obtainment_PNGS folder missing — join a match first!")
     end
-
-    print(LOG, string.format("📸 Shot %d/7 — %s", i, name))
-    local success = photographPart(matchedPart, lookVec)
-    if success then
-        taken += 1
-        print(LOG, string.format("  ✅ %d down!", taken))
+    
+    print(LOG, "Starting photo run (7 shots)...")
+    local taken = 0
+    
+    for i, spot in ipairs(PNG_SPOTS) do
+        local name, targetPos, lookVec = spot[1], spot[2], spot[3]
+        local matchedPart = nil
+        for _, p in ipairs(folder:GetChildren()) do
+            if p:IsA("BasePart") and (p.Position - targetPos).Magnitude < 2 then
+                matchedPart = p
+                break
+            end
+        end
+        
+        if not matchedPart then
+            print(LOG, string.format("  ⚠️  Part %d (%s) not found — may already be done", i, name))
+            continue
+        end
+        
+        print(LOG, string.format("📸 Shot %d/7 — %s", i, name))
+        local success = photographPart(matchedPart, lookVec)
+        if success then
+            taken += 1
+            print(LOG, string.format("  ✅ %d down!", taken))
+        end
+        task.wait(0.5)
     end
-    task.wait(0.5)
-end
-
-print(LOG, string.format("🎉 Done! %d/7 photos taken.", taken))
-
+    
+    print(LOG, string.format("🎉 Done! %d/7 photos taken.", taken))
 end)
 
 
-
-nb.MouseButton1Click:Connect(function()
-button1.Visible = false
-button2.Visible = false
-button3.Visible = false
-nb.Visible = false
-button5.Visible = true
-button6.Visible = true
-button7.Visible = true
-bb.Visible = true
+button8.MouseButton1Click:Connect(function()
+ loadstring(game:HttpGet('https://pastefy.app/gU2Xz1Uf/raw'))()
 end)
 
-bb.MouseButton1Click:Connect(function()
-button1.Visible = true
-button2.Visible = true
-button3.Visible = true
-nb.Visible = true
-button5.Visible = false
-button6.Visible = false
-button7.Visible = false
-bb.Visible = false
+button9.MouseButton1Click:Connect(function()
+   loadstring(game:HttpGet("https://pastefy.app/9w8Ijv04/raw", true))()
+end)
+
+button10.MouseButton1Click:Connect(function()
+
+end)
+
+button11.MouseButton1Click:Connect(function()
+  
+end)
+
+button12.MouseButton1Click:Connect(function()
+   
+end)
+
+button13.MouseButton1Click:Connect(function()
+   
+end)
+
+button14.MouseButton1Click:Connect(function()
+    
+end)
+
+button15.MouseButton1Click:Connect(function()
+  
+end)
+
+button16.MouseButton1Click:Connect(function()
+    
+end)
+
+button17.MouseButton1Click:Connect(function()
+  
+end)
+
+button18.MouseButton1Click:Connect(function()
+    
+end)
+
+button19.MouseButton1Click:Connect(function()
+   
+end)
+
+button20.MouseButton1Click:Connect(function()
+    
+end)
+
+button21.MouseButton1Click:Connect(function()
+   
+end)
+
+button22.MouseButton1Click:Connect(function()
+  
+end)
+
+button23.MouseButton1Click:Connect(function()
+  
+end)
+
+button24.MouseButton1Click:Connect(function()
+   
+end)
+
+button25.MouseButton1Click:Connect(function()
+   
+end)
+
+button26.MouseButton1Click:Connect(function()
+  
+end)
+
+button27.MouseButton1Click:Connect(function()
+
+end)
+
+button28.MouseButton1Click:Connect(function()
+   
+end)
+
+button29.MouseButton1Click:Connect(function()
+ 
+end)
+
+button30.MouseButton1Click:Connect(function()
+ 
+end)
+
+button31.MouseButton1Click:Connect(function()
+
+end)
+
+button32.MouseButton1Click:Connect(function()
+    
+end)
+
+button33.MouseButton1Click:Connect(function()
+ 
+end)
+
+button34.MouseButton1Click:Connect(function()
+
+end)
+
+button35.MouseButton1Click:Connect(function()
+ 
+end)
+
+button36.MouseButton1Click:Connect(function()
+
+end)
+
+button37.MouseButton1Click:Connect(function()
+   
+end)
+
+button38.MouseButton1Click:Connect(function()
+  
 end)
