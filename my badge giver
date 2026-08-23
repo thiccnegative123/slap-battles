@@ -153,7 +153,7 @@ button10.Size = UDim2.new(0, btnW, 0, btnH)
 button10.Position = UDim2.new(0, btnX3, 0, btnY)
 button10.Draggable = false
 button10.Active = true
-button10.Text = "get reaper"
+button10.Text = "get "
 button10.Visible = false
 
 
@@ -161,21 +161,21 @@ button11.Size = UDim2.new(0, btnW, 0, btnH)
 button11.Position = UDim2.new(0, btnX1, 0, btnY)
 button11.Draggable = false
 button11.Active = true
-button11.Text = "get spectator"
+button11.Text = "get s"
 button11.Visible = false
 
 button12.Size = UDim2.new(0, btnW, 0, btnH)
 button12.Position = UDim2.new(0, btnX2, 0, btnY)
 button12.Draggable = false
 button12.Active = true
-button12.Text = "get swapper"
+button12.Text = "get er"
 button12.Visible = false
 
 button13.Size = UDim2.new(0, btnW, 0, btnH)
 button13.Position = UDim2.new(0, btnX3, 0, btnY)
 button13.Draggable = false
 button13.Active = true
-button13.Text = "get bull"
+button13.Text = "getll"
 button13.Visible = false
 
 
@@ -183,21 +183,21 @@ button14.Size = UDim2.new(0, btnW, 0, btnH)
 button14.Position = UDim2.new(0, btnX1, 0, btnY)
 button14.Draggable = false
 button14.Active = true
-button14.Text = "get dice"
+button14.Text = "get e"
 button14.Visible = false
 
 button15.Size = UDim2.new(0, btnW, 0, btnH)
 button15.Position = UDim2.new(0, btnX2, 0, btnY)
 button15.Draggable = false
 button15.Active = true
-button15.Text = "get track"
+button15.Text = "geck"
 button15.Visible = false
 
 button16.Size = UDim2.new(0, btnW, 0, btnH)
 button16.Position = UDim2.new(0, btnX3, 0, btnY)
 button16.Draggable = false
 button16.Active = true
-button16.Text = "get tableflip"
+button16.Text = "p"
 button16.Visible = false
 
 
@@ -205,21 +205,21 @@ button17.Size = UDim2.new(0, btnW, 0, btnH)
 button17.Position = UDim2.new(0, btnX1, 0, btnY)
 button17.Draggable = false
 button17.Active = true
-button17.Text = "get boomerang"
+button17.Text = "gerang"
 button17.Visible = false
 
 button18.Size = UDim2.new(0, btnW, 0, btnH)
 button18.Position = UDim2.new(0, btnX2, 0, btnY)
 button18.Draggable = false
 button18.Active = true
-button18.Text = "get fort"
+button18.Text = "grt"
 button18.Visible = false
 
 button19.Size = UDim2.new(0, btnW, 0, btnH)
 button19.Position = UDim2.new(0, btnX3, 0, btnY)
 button19.Draggable = false
 button19.Active = true
-button19.Text = "get defense"
+button19.Text = "get se"
 button19.Visible = false
 
 
@@ -227,21 +227,21 @@ button20.Size = UDim2.new(0, btnW, 0, btnH)
 button20.Position = UDim2.new(0, btnX1, 0, btnY)
 button20.Draggable = false
 button20.Active = true
-button20.Text = "get sparky"
+button20.Text = "y"
 button20.Visible = false
 
 button21.Size = UDim2.new(0, btnW, 0, btnH)
 button21.Position = UDim2.new(0, btnX2, 0, btnY)
 button21.Draggable = false
 button21.Active = true
-button21.Text = "get coil"
+button21.Text = "gel"
 button21.Visible = false
 
 button22.Size = UDim2.new(0, btnW, 0, btnH)
 button22.Position = UDim2.new(0, btnX3, 0, btnY)
 button22.Draggable = false
 button22.Active = true
-button22.Text = "get speedrun"
+button22.Text = "get n"
 button22.Visible = false
 
 
@@ -249,21 +249,21 @@ button23.Size = UDim2.new(0, btnW, 0, btnH)
 button23.Position = UDim2.new(0, btnX1, 0, btnY)
 button23.Draggable = false
 button23.Active = true
-button23.Text = "get plague"
+button23.Text = "get ue"
 button23.Visible = false
 
 button24.Size = UDim2.new(0, btnW, 0, btnH)
 button24.Position = UDim2.new(0, btnX2, 0, btnY)
 button24.Draggable = false
 button24.Active = true
-button24.Text = "get cloud"
+button24.Text = "gd"
 button24.Visible = false
 
 button25.Size = UDim2.new(0, btnW, 0, btnH)
 button25.Position = UDim2.new(0, btnX3, 0, btnY)
 button25.Draggable = false
 button25.Active = true
-button25.Text = "get sbeve"
+button25.Text = ve"
 button25.Visible = false
 
 
@@ -271,21 +271,21 @@ button26.Size = UDim2.new(0, btnW, 0, btnH)
 button26.Position = UDim2.new(0, btnX1, 0, btnY)
 button26.Draggable = false
 button26.Active = true
-button26.Text = "get stop"
+button26.Text = "get s"
 button26.Visible = false
 
 button27.Size = UDim2.new(0, btnW, 0, btnH)
 button27.Position = UDim2.new(0, btnX2, 0, btnY)
 button27.Draggable = false
 button27.Active = true
-button27.Text = "get hammer"
+button27.Text = "get er"
 button27.Visible = false
 
 button28.Size = UDim2.new(0, btnW, 0, btnH)
 button28.Position = UDim2.new(0, btnX3, 0, btnY)
 button28.Draggable = false
 button28.Active = true
-button28.Text = "get rock"
+button28.Text = "g"
 button28.Visible = false
 
 
@@ -293,21 +293,21 @@ button29.Size = UDim2.new(0, btnW, 0, btnH)
 button29.Position = UDim2.new(0, btnX1, 0, btnY)
 button29.Draggable = false
 button29.Active = true
-button29.Text = "get rob"
+button29.Text = "geb"
 button29.Visible = false
 
 button30.Size = UDim2.new(0, btnW, 0, btnH)
 button30.Position = UDim2.new(0, btnX2, 0, btnY)
 button30.Draggable = false
 button30.Active = true
-button30.Text = "get megarock"
+button30.Text = "get mk"
 button30.Visible = false
 
 button31.Size = UDim2.new(0, btnW, 0, btnH)
 button31.Position = UDim2.new(0, btnX3, 0, btnY)
 button31.Draggable = false
 button31.Active = true
-button31.Text = "get ghostwalker"
+button31.Text = "get ger"
 button31.Visible = false
 
 
@@ -315,43 +315,42 @@ button32.Size = UDim2.new(0, btnW, 0, btnH)
 button32.Position = UDim2.new(0, btnX1, 0, btnY)
 button32.Draggable = false
 button32.Active = true
-button32.Text = "get admin"
+button32.Text = "get a"
 button32.Visible = false
 
 button33.Size = UDim2.new(0, btnW, 0, btnH)
 button33.Position = UDim2.new(0, btnX2, 0, btnY)
 button33.Draggable = false
 button33.Active = true
-button33.Text = "get phase"
+button33.Text = "getse"
 button33.Visible = false
 
 button34.Size = UDim2.new(0, btnW, 0, btnH)
 button34.Position = UDim2.new(0, btnX3, 0, btnY)
 button34.Draggable = false
 button34.Active = true
-button34.Text = "get retro"
-button34.Visible = false
+button34.Text = "get retlse
 
 
 button35.Size = UDim2.new(0, btnW, 0, btnH)
 button35.Position = UDim2.new(0, btnX1, 0, btnY)
 button35.Draggable = false
 button35.Active = true
-button35.Text = "get error"
+button35.Text = "geor"
 button35.Visible = false
 
 button36.Size = UDim2.new(0, btnW, 0, btnH)
 button36.Position = UDim2.new(0, btnX2, 0, btnY)
 button36.Draggable = false
 button36.Active = true
-button36.Text = "get bob"
+button36.Text = "ob"
 button36.Visible = false
 
 button37.Size = UDim2.new(0, btnW, 0, btnH)
 button37.Position = UDim2.new(0, btnX3, 0, btnY)
 button37.Draggable = false
 button37.Active = true
-button37.Text = "get sentry"
+button37.Text = "gettry"
 button37.Visible = false
 
 
@@ -359,7 +358,7 @@ button38.Size = UDim2.new(0, btnW, 0, btnH)
 button38.Position = UDim2.new(0, btnX2, 0, btnY)
 button38.Draggable = false
 button38.Active = true
-button38.Text = "get kite"
+button38.Text = "get e"
 button38.Visible = false
 
 -- Navigation buttons
