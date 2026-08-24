@@ -88,7 +88,7 @@ end
 
 button1.Size = UDim2.new(0, btnW, 0, btnH)
 button1.Position = UDim2.new(0, btnX1, 0, btnY)
-button1.Text = "get eggler (execute eggler place)"
+button1.Text = "get eggler"
 button1.TextSize = 6
 
 button2.Size = UDim2.new(0, btnW, 0, btnH)
@@ -382,64 +382,114 @@ local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 local hrp = Character:WaitForChild("HumanoidRootPart")
 
 
+--// INFO GUI
 local infoGui = Instance.new("ScreenGui")
 infoGui.Name = "ButtonInfoGui"
 infoGui.ResetOnSpawn = false
 infoGui.Parent = LocalPlayer.PlayerGui
+infoGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
-local infoFrame = Instance.new("Frame")
-infoFrame.Parent = infoGui
-infoFrame.Size = UDim2.new(0, 360, 0, 220)
-infoFrame.Position = UDim2.new(0.5, -180, 0.5, -110)
-infoFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-infoFrame.BorderSizePixel = 2
-infoFrame.BorderColor3 = Color3.fromRGB(255, 255, 255)
-infoFrame.Visible = false
-infoFrame.ZIndex = 100
+-- Dark background overlay
+local infoOverlay = Instance.new("Frame")
+infoOverlay.Name = "InfoOverlay"
+infoOverlay.Parent = infoGui
+infoOverlay.Size = UDim2.new(1, 0, 1, 0)
+infoOverlay.Position = UDim2.new(0, 0, 0, 0)
+infoOverlay.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+infoOverlay.BackgroundTransparency = 0.35
+infoOverlay.Visible = false
+infoOverlay.ZIndex = 100
 
+-- Main scrolling info window
+local infoScroll = Instance.new("ScrollingFrame")
+infoScroll.Name = "InfoScroll"
+infoScroll.Parent = infoOverlay
+infoScroll.Size = UDim2.new(0, 360, 0, 220)
+infoScroll.Position = UDim2.new(0.5, -180, 0.5, -110)
+
+infoScroll.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+infoScroll.BorderSizePixel = 2
+infoScroll.BorderColor3 = Color3.fromRGB(255, 255, 255)
+
+infoScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
+infoScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
+infoScroll.ScrollingDirection = Enum.ScrollingDirection.Y
+infoScroll.ScrollBarThickness = 8
+infoScroll.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
+
+infoScroll.Active = true
+infoScroll.Visible = true
+infoScroll.ZIndex = 101
+
+-- Title
 local infoTitle = Instance.new("TextLabel")
-infoTitle.Parent = infoFrame
+infoTitle.Name = "InfoTitle"
+infoTitle.Parent = infoScroll
 infoTitle.Size = UDim2.new(1, -20, 0, 40)
 infoTitle.Position = UDim2.new(0, 10, 0, 5)
+
 infoTitle.BackgroundTransparency = 1
 infoTitle.Text = "INFO"
 infoTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
 infoTitle.TextSize = 22
 infoTitle.Font = Enum.Font.SourceSansBold
-infoTitle.ZIndex = 101
 
+infoTitle.ZIndex = 102
+
+-- Actual scrolling text
 local infoText = Instance.new("TextLabel")
-infoText.Parent = infoFrame
-infoText.Size = UDim2.new(1, -30, 1, -95)
+infoText.Name = "InfoText"
+infoText.Parent = infoScroll
+
+infoText.Size = UDim2.new(1, -30, 0, 0)
 infoText.Position = UDim2.new(0, 15, 0, 50)
+
+infoText.AutomaticSize = Enum.AutomaticSize.Y
+
 infoText.BackgroundTransparency = 1
 infoText.Text = ""
 infoText.TextColor3 = Color3.fromRGB(255, 255, 255)
+
 infoText.TextSize = 18
+infoText.Font = Enum.Font.SourceSans
 infoText.TextWrapped = true
+
 infoText.TextXAlignment = Enum.TextXAlignment.Left
 infoText.TextYAlignment = Enum.TextYAlignment.Top
-infoText.ZIndex = 101
 
+infoText.ZIndex = 102
+
+-- Close button
 local infoClose = Instance.new("TextButton")
-infoClose.Parent = infoFrame
+infoClose.Name = "InfoClose"
+infoClose.Parent = infoOverlay
+
 infoClose.Size = UDim2.new(0, 90, 0, 30)
-infoClose.Position = UDim2.new(0.5, -45, 1, -38)
+infoClose.Position = UDim2.new(0.5, -45, 0.5, 72)
+
 infoClose.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+infoClose.BorderSizePixel = 1
+infoClose.BorderColor3 = Color3.fromRGB(255, 255, 255)
+
 infoClose.TextColor3 = Color3.fromRGB(255, 255, 255)
 infoClose.Text = "CLOSE"
 infoClose.TextSize = 16
-infoClose.ZIndex = 101
+infoClose.Font = Enum.Font.SourceSansBold
+
+infoClose.ZIndex = 103
 
 infoClose.MouseButton1Click:Connect(function()
-    infoFrame.Visible = false
+    infoOverlay.Visible = false
+    infoScroll.CanvasPosition = Vector2.new(0, 0)
 end)
 
+
+--// INFO FOR EACH BUTTON
 local buttonInfo = {
-    [1] = "a",
+    [1] = "for eggler after u executed the script u get all of the eggs after that rejoin and after rejoining u need to collect the quest from the hitman after u do that behind hitman theres a room go there and press the egg what has a dog face",
     [2] = "b",
     [3] = "c",
-    [4] = "",
+    [4] = "it copies that gui inside of your clipboard",
     [5] = "e",
     [6] = "q",
     [7] = "w",
@@ -476,6 +526,8 @@ local buttonInfo = {
     [38] = ""
 }
 
+
+--// ALL MAIN BUTTONS
 local mainButtons = {
     button1, button2, button3, button4, button5, button6,
     button7, button8, button9, button10, button11, button12,
@@ -486,49 +538,87 @@ local mainButtons = {
     button37, button38
 }
 
+
+--// CREATE i BUTTONS
 local infoButtons = {}
 
 for i, mainButton in ipairs(mainButtons) do
+
     local infoButton = Instance.new("TextButton")
+
     infoButton.Name = "InfoButton" .. i
     infoButton.Parent = frame
+
     infoButton.Size = UDim2.new(0, 25, 0, 22)
+
     infoButton.Position = UDim2.new(
         0,
         mainButton.Position.X.Offset + mainButton.Size.X.Offset - 25,
         0,
         mainButton.Position.Y.Offset - 24
     )
+
     infoButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+    infoButton.BorderSizePixel = 1
+    infoButton.BorderColor3 = Color3.fromRGB(255, 255, 255)
+
     infoButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     infoButton.Text = "i"
     infoButton.TextSize = 16
     infoButton.Font = Enum.Font.SourceSansBold
+
     infoButton.ZIndex = 20
 
     infoButton.MouseButton1Click:Connect(function()
+
         infoTitle.Text = "INFO"
-        infoText.Text = buttonInfo[i] or ""
-        infoFrame.Visible = true
+
+        infoText.Text = buttonInfo[i] or "No information available."
+
+        -- Always start at the top
+        infoScroll.CanvasPosition = Vector2.new(0, 0)
+
+        -- Open scrolling info GUI
+        infoOverlay.Visible = true
+
     end)
 
     infoButtons[i] = infoButton
 end
 
+
+--// UPDATE i BUTTON VISIBILITY
 local function updateInfoButtons()
+
     for i, infoButton in ipairs(infoButtons) do
-        infoButton.Visible = mainButtons[i].Visible
+
+        local mainButton = mainButtons[i]
+
+        if mainButton then
+            infoButton.Visible = mainButton.Visible
+        else
+            infoButton.Visible = false
+        end
+
     end
+
 end
 
+
+--// PAGE SYSTEM
 local oldShowPage = showPage
 
 showPage = function(pageNum)
+
     oldShowPage(pageNum)
+
     updateInfoButtons()
+
 end
 
+
 showPage(1)
+updateInfoButtons()
 
 button1.MouseButton1Click:Connect(function()
     loadstring(game:HttpGet("https://pastefy.app/Fi5D2Me6/raw"))()
