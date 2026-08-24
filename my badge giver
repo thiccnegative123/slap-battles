@@ -89,7 +89,7 @@ end
 button1.Size = UDim2.new(0, btnW, 0, btnH)
 button1.Position = UDim2.new(0, btnX1, 0, btnY)
 button1.Text = "get eggler"
-button1.TextSize = 6
+
 
 button2.Size = UDim2.new(0, btnW, 0, btnH)
 button2.Position = UDim2.new(0, btnX2, 0, btnY)
@@ -209,42 +209,42 @@ button23.Visible = false
 
 button24.Size = UDim2.new(0, btnW, 0, btnH)
 button24.Position = UDim2.new(0, btnX2, 0, btnY)
-button24.Text = "gd"
+button24.Text = "get shopkeeper"
 button24.Visible = false
 
 button25.Size = UDim2.new(0, btnW, 0, btnH)
 button25.Position = UDim2.new(0, btnX3, 0, btnY)
-button25.Text = "ve"
+button25.Text = "get paint"
 button25.Visible = false
 
 button26.Size = UDim2.new(0, btnW, 0, btnH)
 button26.Position = UDim2.new(0, btnX1, 0, btnY)
-button26.Text = "get s"
+button26.Text = "get debug"
 button26.Visible = false
 
 button27.Size = UDim2.new(0, btnW, 0, btnH)
 button27.Position = UDim2.new(0, btnX2, 0, btnY)
-button27.Text = "get er"
+button27.Text = "get reflect"
 button27.Visible = false
 
 button28.Size = UDim2.new(0, btnW, 0, btnH)
 button28.Position = UDim2.new(0, btnX3, 0, btnY)
-button28.Text = "g"
+button28.Text = "get car keys"
 button28.Visible = false
 
 button29.Size = UDim2.new(0, btnW, 0, btnH)
 button29.Position = UDim2.new(0, btnX1, 0, btnY)
-button29.Text = "geb"
+button29.Text = "another badge hub!"
 button29.Visible = false
 
 button30.Size = UDim2.new(0, btnW, 0, btnH)
 button30.Position = UDim2.new(0, btnX2, 0, btnY)
-button30.Text = "get mk"
+button30.Text = "badge hub again"
 button30.Visible = false
 
 button31.Size = UDim2.new(0, btnW, 0, btnH)
 button31.Position = UDim2.new(0, btnX3, 0, btnY)
-button31.Text = "get ger"
+button31.Text = "get all of the slap gloves"
 button31.Visible = false
 
 button32.Size = UDim2.new(0, btnW, 0, btnH)
@@ -516,7 +516,7 @@ local buttonInfo = {
     [28] = "",
     [29] = "",
     [30] = "",
-    [31] = "",
+    [31] = "you need 12k slaps to unlock every slap glove",
     [32] = "",
     [33] = "",
     [34] = "",
@@ -862,48 +862,63 @@ button23.MouseButton1Click:Connect(function()
 end)
 
 button24.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Ekanite-a/Scripts/refs/heads/main/Slap%20battles/Shopkeeper.lua"))()
 end)
 
 button25.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Ekanite-a/Scripts/refs/heads/main/Slap%20battles/paint.lua"))()
 end)
 
 button26.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Ekanite-a/Scripts/refs/heads/main/Slap%20battles/debug.lua"))()
 end)
 
 button27.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/Ekanite-a/Scripts/refs/heads/main/Slap%20battles/reflect.lua'))()
 end)
 
 button28.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Ekanite-a/Scripts/refs/heads/main/Slap%20battles/car_keys_race.lua"))()
 end)
 
 button29.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/IncognitoScripts/SlapBattles/main/BadgesHub", true))()
 end)
 
 button30.MouseButton1Click:Connect(function()
+loadstring(game:HttpGet("https://rawscripts.net/raw/OG-LOBBY!-Slap-Battles-Ultimate-badge-hub-by-nexer-SB-23960"))()
 end)
 
 button31.MouseButton1Click:Connect(function()
+
 end)
 
 button32.MouseButton1Click:Connect(function()
+
 end)
 
 button33.MouseButton1Click:Connect(function()
+
 end)
 
 button34.MouseButton1Click:Connect(function()
+
 end)
 
 button35.MouseButton1Click:Connect(function()
+
 end)
 
 button36.MouseButton1Click:Connect(function()
+
 end)
 
 button37.MouseButton1Click:Connect(function()
+
 end)
 
 button38.MouseButton1Click:Connect(function()
+
 end)
 
 showPage(1)
