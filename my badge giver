@@ -472,7 +472,7 @@ infoClose.BorderSizePixel = 1
 infoClose.BorderColor3 = Color3.fromRGB(255, 255, 255)
 
 infoClose.TextColor3 = Color3.fromRGB(255, 255, 255)
-infoClose.Text = "CLOSE"
+infoClose.Text = "ok fuck you"
 infoClose.TextSize = 16
 infoClose.Font = Enum.Font.SourceSansBold
 
