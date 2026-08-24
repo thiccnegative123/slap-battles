@@ -486,15 +486,15 @@ end)
 
 --// INFO FOR EACH BUTTON
 local buttonInfo = {
-    [1] = "for eggler after u executed the script u get all of the eggs after that rejoin and after rejoining u need to collect the quest from the hitman after u do that behind hitman theres a room go there and press the egg what has a dog face",
-    [2] = "b",
-    [3] = "c",
+    [1] = "for eggler after u executed the script u get all of the eggs after that rejoin and after rejoining u need to collect the quest easter egg hunter from the hitman after u do that behind hitman theres a room go there and press the egg what has a dog face",
+    [2] = "get g-x glove with only 1 click! (you get teleported)",
+    [3] = "get doorkeeper with only 1 click too! (you also get teleported)",
     [4] = "it copies that gui inside of your clipboard",
-    [5] = "e",
-    [6] = "q",
-    [7] = "w",
-    [8] = "",
-    [9] = "",
+    [5] = "get recall with 1 click! (youll die for that glove)",
+    [6] = "get lotus with 1 click! (u get teleported)",
+    [7] = "get camera with 1 click! (you get teleported around the map for it)",
+    [8] = "get conker with 1 click (you get teleported)",
+    [9] = "get sand with 1 click! (you get teleported)",
     [10] = "",
     [11] = "",
     [12] = "",
