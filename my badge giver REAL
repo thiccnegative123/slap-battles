@@ -795,7 +795,7 @@ button11.MouseButton1Click:Connect(function()
 end)
 
 button12.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/kenzyqril-code/Slap-Battles-Script-By-Zyqril-/refs/heads/main/Slap%20Battles%20Official%20Script"))()
+   loadstring(game:HttpGet("https://pastefy.app/cdBGlJKO/raw"))()
 end)
 
 button13.MouseButton1Click:Connect(function()
