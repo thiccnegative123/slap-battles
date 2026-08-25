@@ -481,7 +481,7 @@ button17.Visible = false
 end)
 
 button10.MouseButton1Click:Connect(function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/my%20badge%20giver"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/my%20badge%20giver%20REAL"))()
 end)
 
 button11.MouseButton1Click:Connect(function()
