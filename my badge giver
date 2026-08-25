@@ -846,10 +846,23 @@ button21.MouseButton1Click:Connect(function()
 end)
 
 button22.MouseButton1Click:Connect(function()
-    loadstring(game:HttpGet("https://gist.githubusercontent.com/0-BaconScripter-0/d0f4f013c919c1dbb8dc59c49eae7723/raw/d582bd89b60c28f77a152660d4c877ee7aa2d0b9/SB%20Get%20Metaverse"))()
+   loadstring(game:HttpGet("https://pastefy.app/vdeEnvpe/raw"))()
 end)
 
 button23.MouseButton1Click:Connect(function()
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+
+player.DevEnableMouseLock = false
+player.CameraMode = Enum.CameraMode.Classic
+
+RunService:BindToRenderStep("ForceFreeMouse", Enum.RenderPriority.Last.Value, function()
+	UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+	UserInputService.MouseIconEnabled = true
+end)
     loadstring(game:HttpGet("https://gist.githubusercontent.com/0-BaconScripter-0/d0f4f013c919c1dbb8dc59c49eae7723/raw/d582bd89b60c28f77a152660d4c877ee7aa2d0b9/SB%20Get%20Metaverse"))()
 end)
 
