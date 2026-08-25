@@ -1,7 +1,3 @@
-
-
-
-
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
@@ -63,8 +59,10 @@ local text = Instance.new("TextLabel", frame)
 local text1 = Instance.new("TextLabel", frame)
 
 if isMobile then
-    frame.Size = UDim2.new(0, 500, 0, 350)
-    frame.Position = UDim2.new(0.5, -250, 0.5, -175)
+    -- HALVED: 500→250, 350→175
+    frame.Size = UDim2.new(0, 250, 0, 175)
+    -- HALVED centering offset: -250→-125, -175→-87.5
+    frame.Position = UDim2.new(0.5, -125, 0.5, -87.5)
 else
     frame.Size = UDim2.new(0, 500, 0, 200)
     frame.Position = UDim2.new(0.5, 100, 0.5, -100)
@@ -82,18 +80,18 @@ local btnX3 = 342
 local btnY = 93
 
 if isMobile then
-    btnW = 140
-    btnH = 60
-    btnX1 = 15
-    btnX2 = 180
-    btnX3 = 345
-    btnY = 100
+    -- HALVED: 140→70, 60→30, 15→8, 180→90, 345→172, 100→50
+    btnW = 70
+    btnH = 30
+    btnX1 = 8
+    btnX2 = 90
+    btnX3 = 172
+    btnY = 50
 end
 
 button1.Size = UDim2.new(0, btnW, 0, btnH)
 button1.Position = UDim2.new(0, btnX1, 0, btnY)
 button1.Text = "get eggler"
-
 
 button2.Size = UDim2.new(0, btnW, 0, btnH)
 button2.Position = UDim2.new(0, btnX2, 0, btnY)
@@ -103,7 +101,9 @@ button3.Size = UDim2.new(0, btnW, 0, btnH)
 button3.Position = UDim2.new(0, btnX3, 0, btnY)
 button3.Text = "get doorkeeper"
 
-button4.Size = UDim2.new(0, btnW, 0, 30)
+-- HALVED height for mobile: 30→15
+local btn4H = isMobile and 15 or 30
+button4.Size = UDim2.new(0, btnW, 0, btn4H)
 button4.Position = UDim2.new(0, btnX2, 0, 54)
 button4.Text = "copy script"
 
@@ -175,7 +175,7 @@ button17.Visible = false
 button18.Size = UDim2.new(0, btnW, 0, btnH)
 button18.Position = UDim2.new(0, btnX2, 0, btnY)
 button18.Text = "get dave"
-button18.TextSize = 7
+button18.TextSize = isMobile and 4 or 7
 button18.Visible = false
 
 button19.Size = UDim2.new(0, btnW, 0, btnH)
@@ -278,14 +278,16 @@ button38.Position = UDim2.new(0, btnX2, 0, btnY)
 button38.Text = "infinite yield"
 button38.Visible = false
 
-local navY = isMobile and 280 or 180
+-- HALVED: 280→140
+local navY = isMobile and 140 or 180
 
 nb.Size = UDim2.new(0, 70, 0, 30)
-nb.Position = UDim2.new(0, 420, 0, navY)
+-- HALVED for mobile: 420→170 (keeps same right-edge margin in the halved frame)
+nb.Position = UDim2.new(0, isMobile and 170 or 420, 0, navY)
 nb.Text = ">"
 
 bb.Size = UDim2.new(0, 70, 0, 30)
-bb.Position = UDim2.new(0, 10, 0, navY)
+bb.Position = UDim2.new(0, isMobile and 8 or 10, 0, navY)
 bb.Text = "<"
 bb.Visible = false
 
@@ -293,7 +295,8 @@ text.Size = UDim2.new(0, 200, 0, 50)
 text.Position = UDim2.new(0.5, -100, 0, 10)
 text.BackgroundTransparency = 1
 text.Text = "GLOVE GIVER 5000"
-text.TextSize = isMobile and 36 or 32
+-- HALVED: 36→18
+text.TextSize = isMobile and 18 or 32
 
 task.spawn(function()
     while true do
@@ -310,13 +313,15 @@ task.spawn(function()
     end
 end)
 
-local creditY = isMobile and 270 or 148
+-- HALVED: 270→135
+local creditY = isMobile and 135 or 148
 
 text1.Size = UDim2.new(0, 250, 0, 50)
 text1.Position = UDim2.new(0.5, -125, 0, creditY)
 text1.BackgroundTransparency = 1
 text1.Text = "GUI MADE BY HAXAREBEST2"
-text1.TextSize = isMobile and 28 or 25.5
+-- HALVED: 28→14
+text1.TextSize = isMobile and 14 or 25.5
 
 local currentPage = 1
 local totalPages = 13
@@ -377,7 +382,6 @@ local LocalPlayer = Players.LocalPlayer
 local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
 local hrp = Character:WaitForChild("HumanoidRootPart")
 
-
 --// INFO GUI
 local infoGui = Instance.new("ScreenGui")
 infoGui.Name = "ButtonInfoGui"
@@ -396,12 +400,15 @@ infoOverlay.BackgroundTransparency = 0.35
 infoOverlay.Visible = false
 infoOverlay.ZIndex = 100
 
--- Main scrolling info window
+-- HALVED mobile info scroll size: 360→180, 220→110
+local infoScrollW = isMobile and 180 or 360
+local infoScrollH = isMobile and 110 or 220
+
 local infoScroll = Instance.new("ScrollingFrame")
 infoScroll.Name = "InfoScroll"
 infoScroll.Parent = infoOverlay
-infoScroll.Size = UDim2.new(0, 360, 0, 220)
-infoScroll.Position = UDim2.new(0.5, -180, 0.5, -110)
+infoScroll.Size = UDim2.new(0, infoScrollW, 0, infoScrollH)
+infoScroll.Position = UDim2.new(0.5, -infoScrollW/2, 0.5, -infoScrollH/2)
 
 infoScroll.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 infoScroll.BorderSizePixel = 2
@@ -410,7 +417,7 @@ infoScroll.BorderColor3 = Color3.fromRGB(255, 255, 255)
 infoScroll.CanvasSize = UDim2.new(0, 0, 0, 0)
 infoScroll.AutomaticCanvasSize = Enum.AutomaticSize.Y
 infoScroll.ScrollingDirection = Enum.ScrollingDirection.Y
-infoScroll.ScrollBarThickness = 8
+infoScroll.ScrollBarThickness = isMobile and 4 or 8
 infoScroll.ScrollBarImageColor3 = Color3.fromRGB(255, 255, 255)
 
 infoScroll.Active = true
@@ -427,7 +434,8 @@ infoTitle.Position = UDim2.new(0, 10, 0, 5)
 infoTitle.BackgroundTransparency = 1
 infoTitle.Text = "INFO"
 infoTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-infoTitle.TextSize = 22
+-- HALVED: 22→12 on mobile
+infoTitle.TextSize = isMobile and 12 or 22
 infoTitle.Font = Enum.Font.SourceSansBold
 
 infoTitle.ZIndex = 102
@@ -446,7 +454,8 @@ infoText.BackgroundTransparency = 1
 infoText.Text = ""
 infoText.TextColor3 = Color3.fromRGB(255, 255, 255)
 
-infoText.TextSize = 18
+-- HALVED: 18→10 on mobile
+infoText.TextSize = isMobile and 10 or 18
 infoText.Font = Enum.Font.SourceSans
 infoText.TextWrapped = true
 
@@ -460,8 +469,10 @@ local infoClose = Instance.new("TextButton")
 infoClose.Name = "InfoClose"
 infoClose.Parent = infoOverlay
 
-infoClose.Size = UDim2.new(0, 90, 0, 30)
-infoClose.Position = UDim2.new(0.5, -45, 0.5, 72)
+-- HALVED for mobile: 90→45, 30→15
+infoClose.Size = UDim2.new(0, isMobile and 45 or 90, 0, isMobile and 15 or 30)
+-- HALVED centering for mobile: -45→-22, 72→36
+infoClose.Position = UDim2.new(0.5, isMobile and -22 or -45, 0.5, isMobile and 36 or 72)
 
 infoClose.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
 infoClose.BorderSizePixel = 1
@@ -469,7 +480,8 @@ infoClose.BorderColor3 = Color3.fromRGB(255, 255, 255)
 
 infoClose.TextColor3 = Color3.fromRGB(255, 255, 255)
 infoClose.Text = "ok fuck you"
-infoClose.TextSize = 16
+-- HALVED: 16→9 on mobile
+infoClose.TextSize = isMobile and 9 or 16
 infoClose.Font = Enum.Font.SourceSansBold
 
 infoClose.ZIndex = 103
@@ -478,7 +490,6 @@ infoClose.MouseButton1Click:Connect(function()
     infoOverlay.Visible = false
     infoScroll.CanvasPosition = Vector2.new(0, 0)
 end)
-
 
 --// INFO FOR EACH BUTTON
 local buttonInfo = {
@@ -522,7 +533,6 @@ local buttonInfo = {
     [38] = "admin script"
 }
 
-
 --// ALL MAIN BUTTONS
 local mainButtons = {
     button1, button2, button3, button4, button5, button6,
@@ -534,7 +544,6 @@ local mainButtons = {
     button37, button38
 }
 
-
 --// CREATE i BUTTONS
 local infoButtons = {}
 
@@ -545,13 +554,14 @@ for i, mainButton in ipairs(mainButtons) do
     infoButton.Name = "InfoButton" .. i
     infoButton.Parent = frame
 
-    infoButton.Size = UDim2.new(0, 25, 0, 22)
+    -- HALVED for mobile: 25→12, 22→11
+    infoButton.Size = UDim2.new(0, isMobile and 12 or 25, 0, isMobile and 11 or 22)
 
     infoButton.Position = UDim2.new(
         0,
-        mainButton.Position.X.Offset + mainButton.Size.X.Offset - 25,
+        mainButton.Position.X.Offset + mainButton.Size.X.Offset - (isMobile and 12 or 25),
         0,
-        mainButton.Position.Y.Offset - 24
+        mainButton.Position.Y.Offset - (isMobile and 11 or 24)
     )
 
     infoButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
@@ -560,58 +570,37 @@ for i, mainButton in ipairs(mainButtons) do
 
     infoButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     infoButton.Text = "i"
-    infoButton.TextSize = 16
+    -- HALVED: 16→9 on mobile
+    infoButton.TextSize = isMobile and 9 or 16
     infoButton.Font = Enum.Font.SourceSansBold
 
     infoButton.ZIndex = 20
 
     infoButton.MouseButton1Click:Connect(function()
-
         infoTitle.Text = "INFO"
-
         infoText.Text = buttonInfo[i] or "No information available."
-
-        -- Always start at the top
         infoScroll.CanvasPosition = Vector2.new(0, 0)
-
-        -- Open scrolling info GUI
         infoOverlay.Visible = true
-
     end)
 
     infoButtons[i] = infoButton
 end
 
-
 --// UPDATE i BUTTON VISIBILITY
 local function updateInfoButtons()
-
     for i, infoButton in ipairs(infoButtons) do
-
         local mainButton = mainButtons[i]
-
-        if mainButton then
-            infoButton.Visible = mainButton.Visible
-        else
-            infoButton.Visible = false
-        end
-
+        infoButton.Visible = mainButton and mainButton.Visible or false
     end
-
 end
-
 
 --// PAGE SYSTEM
 local oldShowPage = showPage
 
 showPage = function(pageNum)
-
     oldShowPage(pageNum)
-
     updateInfoButtons()
-
 end
-
 
 showPage(1)
 updateInfoButtons()
@@ -733,14 +722,11 @@ button7.MouseButton1Click:Connect(function()
 
     local function photographPart(part, lookVec)
         local standPos = part.Position + lookVec * 7
-
         tp(standPos)
-
         workspace.CurrentCamera.CFrame = CFrame.lookAt(
             standPos + Vector3.new(0, 2, 0),
             part.Position
         )
-
         task.wait(0.25)
 
         local ok, result = pcall(function()
@@ -782,12 +768,10 @@ button7.MouseButton1Click:Connect(function()
 
         if matchedPart then
             local success = photographPart(matchedPart, lookVec)
-
             if success then
                 taken += 1
             end
         end
-
         task.wait(0.5)
     end
 end)
@@ -919,15 +903,6 @@ end)
 
 showPage(1)
 updateInfoButtons()
-
-
-
-
-
-
-
-
-
 
 local success, err = pcall(function()
     local MarketplaceService = game:GetService("MarketplaceService")
