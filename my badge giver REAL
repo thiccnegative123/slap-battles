@@ -618,7 +618,7 @@ button3.MouseButton1Click:Connect(function()
 end)
 
 button4.MouseButton1Click:Connect(function()
-    setclipboard([[loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/my%20badge%20giver"))()]])
+    setclipboard([[loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/my%20badge%20giver%20REAL"))()]])
 end)
 
 button5.MouseButton1Click:Connect(function()
