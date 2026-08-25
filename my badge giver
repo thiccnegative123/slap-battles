@@ -130,7 +130,7 @@ button9.Visible = false
 
 button10.Size = UDim2.new(0, btnW, 0, btnH)
 button10.Position = UDim2.new(0, btnX3, 0, btnY)
-button10.Text = "get riftshot ( go to brazil)"
+button10.Text = "get riftshot"
 button10.Visible = false
 
 button11.Size = UDim2.new(0, btnW, 0, btnH)
@@ -140,20 +140,17 @@ button11.Visible = false
 
 button12.Size = UDim2.new(0, btnW, 0, btnH)
 button12.Position = UDim2.new(0, btnX2, 0, btnY)
-button12.Text = "pim bossfight (scroll down)"
-button12.TextSize = 7
+button12.Text = "pim bossfight"
 button12.Visible = false
 
 button13.Size = UDim2.new(0, btnW, 0, btnH)
 button13.Position = UDim2.new(0, btnX3, 0, btnY)
-button13.Text = "get avatar (avatar place)"
-button13.TextSize = 7
+button13.Text = "get avatar"
 button13.Visible = false
 
 button14.Size = UDim2.new(0, btnW, 0, btnH)
 button14.Position = UDim2.new(0, btnX1, 0, btnY)
-button14.Text = "get scythe (alchemist needed)"
-button14.TextSize = 7
+button14.Text = "get scythe"
 button14.Visible = false
 
 button15.Size = UDim2.new(0, btnW, 0, btnH)
@@ -163,43 +160,38 @@ button15.Visible = false
 
 button16.Size = UDim2.new(0, btnW, 0, btnH)
 button16.Position = UDim2.new(0, btnX3, 0, btnY)
-button16.Text = "get hexa (obby needed)"
+button16.Text = "get hexa"
 button16.Visible = false
 
 button17.Size = UDim2.new(0, btnW, 0, btnH)
 button17.Position = UDim2.new(0, btnX1, 0, btnY)
-button17.Text = "get mouse (el gato needed)"
-button17.TextSize = 7
+button17.Text = "get mouse "
 button17.Visible = false
 
 button18.Size = UDim2.new(0, btnW, 0, btnH)
 button18.Position = UDim2.new(0, btnX2, 0, btnY)
-button18.Text = "get dave (execute in bossfight)"
+button18.Text = "get dave"
 button18.TextSize = 7
 button18.Visible = false
 
 button19.Size = UDim2.new(0, btnW, 0, btnH)
 button19.Position = UDim2.new(0, btnX3, 0, btnY)
-button19.Text = "get mortis (execute in bossfight)"
-button19.TextSize = 7
+button19.Text = "get mortis"
 button19.Visible = false
 
 button20.Size = UDim2.new(0, btnW, 0, btnH)
 button20.Position = UDim2.new(0, btnX1, 0, btnY)
-button20.Text = "get penguin (go to portal)"
-button20.TextSize = 7
+button20.Text = "get penguin"
 button20.Visible = false
 
 button21.Size = UDim2.new(0, btnW, 0, btnH)
 button21.Position = UDim2.new(0, btnX2, 0, btnY)
-button21.Text = "get slender (26k slaps needed)"
-button21.TextSize = 7
+button21.Text = "get slender"
 button21.Visible = false
 
 button22.Size = UDim2.new(0, btnW, 0, btnH)
 button22.Position = UDim2.new(0, btnX3, 0, btnY)
-button22.Text = "get swordfighter (retro needed)"
-button22.TextSize = 7
+button22.Text = "get swordfighter"
 button22.Visible = false
 
 button23.Size = UDim2.new(0, btnW, 0, btnH)
@@ -249,37 +241,37 @@ button31.Visible = false
 
 button32.Size = UDim2.new(0, btnW, 0, btnH)
 button32.Position = UDim2.new(0, btnX1, 0, btnY)
-button32.Text = "get a"
+button32.Text = "get collector"
 button32.Visible = false
 
 button33.Size = UDim2.new(0, btnW, 0, btnH)
 button33.Position = UDim2.new(0, btnX2, 0, btnY)
-button33.Text = "getse"
+button33.Text = "get water"
 button33.Visible = false
 
 button34.Size = UDim2.new(0, btnW, 0, btnH)
 button34.Position = UDim2.new(0, btnX3, 0, btnY)
-button34.Text = "get retlse"
+button34.Text = "get slasher"
 button34.Visible = false
 
 button35.Size = UDim2.new(0, btnW, 0, btnH)
 button35.Position = UDim2.new(0, btnX1, 0, btnY)
-button35.Text = "geor"
+button35.Text = "mastery helper"
 button35.Visible = false
 
 button36.Size = UDim2.new(0, btnW, 0, btnH)
 button36.Position = UDim2.new(0, btnX2, 0, btnY)
-button36.Text = "ob"
+button36.Text = "get bob"
 button36.Visible = false
 
 button37.Size = UDim2.new(0, btnW, 0, btnH)
 button37.Position = UDim2.new(0, btnX3, 0, btnY)
-button37.Text = "gettry"
+button37.Text = "get rob"
 button37.Visible = false
 
 button38.Size = UDim2.new(0, btnW, 0, btnH)
 button38.Position = UDim2.new(0, btnX2, 0, btnY)
-button38.Text = "get e"
+button38.Text = "infinite yield"
 button38.Visible = false
 
 local navY = isMobile and 280 or 180
@@ -495,35 +487,35 @@ local buttonInfo = {
     [7] = "get camera with 1 click! (you get teleported around the map for it)",
     [8] = "get conker with 1 click (you get teleported)",
     [9] = "get sand with 1 click! (you get teleported)",
-    [10] = "",
-    [11] = "",
-    [12] = "",
-    [13] = "",
-    [14] = "",
-    [15] = "",
-    [16] = "",
-    [17] = "",
-    [18] = "",
-    [19] = "",
-    [20] = "",
-    [21] = "",
-    [22] = "",
-    [23] = "",
-    [24] = "",
-    [25] = "",
-    [26] = "",
-    [27] = "",
-    [28] = "",
-    [29] = "",
-    [30] = "",
-    [31] = "you need 12k slaps to unlock every slap glove",
-    [32] = "",
-    [33] = "",
-    [34] = "",
-    [35] = "",
-    [36] = "",
-    [37] = "",
-    [38] = ""
+    [10] = "go to brazill portal and then execute the script",
+    [11] = "after executing the plate glove script u need to wait a few mins to get the glove",
+    [12] = "after u executed it it will teleport u to the pim bossfight after u defeated easy mode youll get marewader and after u defeated hard mode youll get static glove",
+    [13] = "youll need to be in the",
+    [14] = "you need alchemist to get that glove",
+    [15] = "teleports you to the brazill portal and then gives you clock after u wait for like 1-2 mins",
+    [16] = "you need obby for that glove",
+    [17] = "you need the el gato glove",
+    [18] = "execute it in the dave bossfight",
+    [19] = "execute it in the bossfight",
+    [20] = "after executing the script it will teleport u in a room full of portals go inside of one and then execute the script",
+    [21] = "you need 26k slaps to get that glove",
+    [22] = "you need retro to get swordfighter glove",
+    [23] = "after u execute and teleport to the place youll have a script what will do everything for u you just need to click",
+    [24] = "execute the script and enjo the money in your virtuell bank account",
+    [25] = "go to the quest room where the htman is located then climb the ladder to go back for the lobby in the middle you find graffiti click it and youll get teleported i recommend using a speed script if this dosnt work or just use infinite yield located in the script",
+    [26] = "get debug with only 1 click",
+    [27] = "You need to have ended 4 others hitman tasks and reedem the shatered mirror task, then go to the reflect place and then execute it",
+    [28] = "This script won't teleport you to the race you need to execute it after the race beggins",
+    [29] = "this badge hub has some gloves to offer what isnt in this hub like: Iceskate, Lamp, Lag, Frostbite, Bind, Untiteled tag glove, Boxer, Fan, Hunter, Counter, Elude and Admin",
+    [30] = "This badge hub has some gloves to offer what isnt in this hub like: Jet, Phase, Glitch, Materialize, Siphon, Hammer, Rattlebones, Kinetic, Suction and Glovel",
+    [31] = "you need 12.75k slaps to unlock every slap glove",
+    [32] = "you need to be at the collector place for the script to run",
+    [33] = "you need alchemist for water",
+    [34] = "if the shitty button wont work u need to go there manuelly",
+    [35] = "it helps you get some masteries",
+    [36] = "you need counter and replica for bob glove",
+    [37] = "you need to be in the rob bossfight room then execute it",
+    [38] = "admin script"
 }
 
 
@@ -890,35 +882,35 @@ loadstring(game:HttpGet("https://rawscripts.net/raw/OG-LOBBY!-Slap-Battles-Ultim
 end)
 
 button31.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NewNexer/NexerHub/refs/heads/main/SB/SFs/netzachtheme"))()
 end)
 
 button32.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/0-BaconScripter-0/Script/refs/heads/main/Slap%20Battles/Collector"))()
 end)
 
 button33.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/nerna-coder/Auto_water/refs/heads/main/slap_battles.lua"))()
 end)
 
 button34.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://pastefy.app/udY8vRew/raw"))()
 end)
 
 button35.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NewNexer/NexerHub/refs/heads/main/SB/MH/Latest.lua"))()
 end)
 
 button36.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/NewNexer/NexerHub/refs/heads/main/SB/P/Autobob.luau"))()
 end)
 
 button37.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/Slap_Battles/main/Slap_Battles.lua"))()
 end)
 
 button38.MouseButton1Click:Connect(function()
-
+loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
 
 showPage(1)
