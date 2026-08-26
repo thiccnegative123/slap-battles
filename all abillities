@@ -11,11 +11,11 @@ za hando
 brick
 gold
 replica
-camera (all gloves)(op)
 pool noodle(all gloves)
 reverse
 fan
 bind
+wings(all gloves)
 frostbite
 error sound (all gloves)
 prop spam (all gloves)
@@ -36,9 +36,9 @@ what can i use (prints it again)
 ]])
 
 game.StarterGui:SetCore("SendNotification", {
-    Title = "check console for the abilities";
-    Text = "Made by Haxarebest2";
-    Duration = 5
+Title = "check console for the abilities";
+Text = "Made by Haxarebest2";
+Duration = 5
 })
 
 local UserInputService = game:GetService("UserInputService")
@@ -48,37 +48,37 @@ local selectedAbility = nil
 local selectedName = nil
 
 local function toggleKeyAbility(name, callback)
-    if selectedName == name then
-        selectedAbility = nil
-        selectedName = nil
+if selectedName == name then
+selectedAbility = nil
+selectedName = nil
 
-        game.StarterGui:SetCore("SendNotification", {
-            Title = "Ability Disabled";
-            Text = name .. " disabled";
-            Duration = 3
-        })
-
-        return
-    end
-
-    selectedAbility = callback
-    selectedName = name
-
-    game.StarterGui:SetCore("SendNotification", {
-        Title = "Ability Selected";
-        Text = "Press q to use " .. name;
-        Duration = 5
+game.StarterGui:SetCore("SendNotification", {
+        Title = "Ability Disabled";
+        Text = name .. " disabled";
+        Duration = 3
     })
+
+    return
+end
+
+selectedAbility = callback
+selectedName = name
+
+game.StarterGui:SetCore("SendNotification", {
+    Title = "Ability Selected";
+    Text = "Press q to use " .. name;
+    Duration = 5
+})
 end
 
 UserInputService.InputBegan:Connect(function(input, gameProcessed)
-    if gameProcessed then return end
+if gameProcessed then return end
 
-    if input.KeyCode == Enum.KeyCode.Q then
-        if selectedAbility then
-            selectedAbility()
-        end
+if input.KeyCode == Enum.KeyCode.Q then
+    if selectedAbility then
+        selectedAbility()
     end
+end
 end)
 
 local on = 1
@@ -107,6 +107,8 @@ local lol21 = 1
 local lol22 = 1
 local lol23 = 1
 local lol24 = 1
+local lol25 = 1
+local lol26 = 1
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -147,9 +149,9 @@ local words = {
 -- NON LOOPS (NOW USE R)
 
 {name = "diamond", action = function()
-    toggleKeyAbility("diamond", function()
-        game:GetService("ReplicatedStorage").Rockmode:FireServer()
-    end)
+toggleKeyAbility("diamond", function()
+game:GetService("ReplicatedStorage").Rockmode:FireServer()
+end)
 end},
 
 {name = "what can i use", action = function()
@@ -162,12 +164,12 @@ ghost
 swapper
 fort
 tycoon
+wings(all gloves)
 error sound spamm (all gloves)
 prop spam (all gloves)
 piano spawn (all gloves)
 za hando
 brick
-camera (all gloves)(op)
 offense
 gold
 replica
@@ -192,33 +194,31 @@ admin
 end},
 
 {name = "zzzzzzz", action = function()
-    toggleKeyAbility("zzzzzzz", function()
-        game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
-    end)
+toggleKeyAbility("zzzzzzz", function()
+game:GetService("ReplicatedStorage").ZZZZZZZSleep:FireServer()
+end)
 end},
 
 {name = "error spam", action = function()
-    lol19 = 1
-    while lol19 == 1 do
-    wait()
-        game.ReplicatedStorage.ErrorDeath:FireServer()
-        end
-   
+lol19 = 1
+while lol19 == 1 do
+wait()
+game.ReplicatedStorage.ErrorDeath:FireServer()
+end
+
 end},
 
 {name = "error spam stopper", action = function()
 lol19 = 0
 end},
 
-
-
 {name = "prop spam", action = function()
-    lol20 = 1
-    while lol20 == 1 do
-    wait()
-        game:GetService("ReplicatedStorage").Prop:FireServer()
-        end
-   
+lol20 = 1
+while lol20 == 1 do
+wait()
+game:GetService("ReplicatedStorage").Prop:FireServer()
+end
+
 end},
 
 {name = "prop spam stopper", action = function()
@@ -226,16 +226,16 @@ lol20 = 0
 end},
 
 {name = "piano spawn", action = function()
-    toggleKeyAbility("piano spawn", function()
-     game.ReplicatedStorage.Piano:FireServer()
-    end)
+toggleKeyAbility("piano spawn", function()
+game.ReplicatedStorage.Piano:FireServer()
+end)
 end},
 
 {name = "piano spam", action = function()
 lol21 = 1
 while lol21 == 1 do
 wait()
-  game.ReplicatedStorage.Piano:FireServer()
+game.ReplicatedStorage.Piano:FireServer()
 end
 end},
 
@@ -245,36 +245,35 @@ lol21 = 0
 end},
 
 {name = "mail", action = function()
-    toggleKeyAbility("mail", function()
-        game:GetService("ReplicatedStorage").MailSend:FireServer()
-    end)
+toggleKeyAbility("mail", function()
+game:GetService("ReplicatedStorage").MailSend:FireServer()
+end)
 end},
 
-{name = "gold inf", action = function() 
-        local args = {[1] = true}
-        game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
-    end},
+{name = "gold inf", action = function()
+local args = {[1] = true}
+game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+end},
 
-    {name = "gold inf stop", action = function() 
-        local args = {[1] = false, [2] = BrickColor.new(37)}
-        game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
-    end},
-
+{name = "gold inf stop", action = function() 
+    local args = {[1] = false, [2] = BrickColor.new(37)}
+    game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+end},
 {name = "MR", action = function()
-    toggleKeyAbility("MR", function()
-        game:GetService("ReplicatedStorage").Spherify:FireServer()
-    end)
+toggleKeyAbility("MR", function()
+game:GetService("ReplicatedStorage").Spherify:FireServer()
+end)
 end},
 
 {name = "G-X speed", action = function()
-    toggleKeyAbility("G-X speed", function()
-       game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
-    end)
+toggleKeyAbility("G-X speed", function()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
+end)
 end},
 
 {name = "G-X punch", action = function()
-    toggleKeyAbility("G-X OP", function()
-     
+toggleKeyAbility("G-X OP", function()
+
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
@@ -286,9 +285,220 @@ local nearestPlayer = nil
 local shortestDistance = math.huge
 
 for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
-        local targetHRP = player.Character.HumanoidRootPart
-        local distance = (HumanoidRootPart.Position - targetHRP.Position).Magnitude
+if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+local targetHRP = player.Character.HumanoidRootPart
+local distance = (HumanoidRootPart.Position - targetHRP.Position).Magnitude
+
+if distance < shortestDistance then
+        shortestDistance = distance
+        nearestPlayer = player
+    end
+end
+end
+
+if nearestPlayer then
+ReplicatedStorage.Events.Opera:FireServer({
+["state"] = "overclock_slap",
+["victim"] = nearestPlayer,
+})
+
+print("Targeted:", nearestPlayer.Name)
+else
+print("No nearby player found")
+end
+end)
+end},
+
+{name = "G-X speed (spamm)", action = function()
+lol12 = 1
+
+while lol12 == 1 do
+wait()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
+end
+end},
+
+{name = "G-X speed (stop)", action = function()
+lol12 = 0
+end},
+
+{name = "reverse", action = function()
+toggleKeyAbility("reverse", function()
+game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
+end)
+end},
+
+{name = "ghost (press it 1x)", action = function()
+
+game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
+end},
+
+{name = "ghost deactivation (click it 1x)", action = function()
+
+game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
+end},
+
+{name = "fort (dont spamm)", action = function()
+toggleKeyAbility("fort", function()
+game:GetService("ReplicatedStorage").Fortlol:FireServer()
+end)
+end},
+
+{name = "pusher (wait till the other wall goes away)", action = function()
+toggleKeyAbility("pusher", function()
+game:GetService("ReplicatedStorage").PusherWall:FireServer()
+end)
+end},
+
+{name = "za hando (dont spamm)", action = function()
+toggleKeyAbility("za hando", function()
+game:GetService("ReplicatedStorage").Erase:FireServer()
+end)
+end},
+
+{name = "offense", action = function()
+toggleKeyAbility("offense", function()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
+end)
+end},
+
+{name = "offense (spamm)", action = function()
+lol9 = 1
+while lol9 == 1 do
+wait()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
+end
+end},
+
+{name = "offense (stop spamm)", action = function()
+lol9 = 0
+end},
+
+{name = "noodle (spamm)", action = function()
+lol24 = 1
+while lol24 == 1 do
+wait()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("pool_noodle")
+end
+end},
+
+{name = "noodle (stop spamm)", action = function()
+lol24 = 0
+end},
+
+{name = "pineapple", action = function()
+toggleKeyAbility("pineapple", function()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+end)
+end},
+
+{name = "pineapple (spamm)", action = function()
+lol10 = 1
+while lol10 == 1 do
+wait()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+end
+end},
+
+{name = "pineapple (stop spamm)", action = function()
+lol10 = 0
+
+end},
+
+{name = "brick (use it in arena)", action = function()
+toggleKeyAbility("brick", function()
+game:GetService("ReplicatedStorage").lbrick:FireServer()
+end)
+end},
+
+{name = "swapper (dont spamm)", action = function()
+toggleKeyAbility("swapper", function()
+game:GetService("ReplicatedStorage").SLOC:FireServer()
+end)
+end},
+
+{name = "glovel", action = function()
+toggleKeyAbility("glovel", function()
+game:GetService("ReplicatedStorage").GlovelFunc:InvokeServer()
+end)
+end},
+
+{name = "fan", action = function()
+toggleKeyAbility("fan", function()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+end)
+end},
+
+{name = "fan (spamm)", action = function()
+lol15 = 1
+while lol15 == 1 do
+wait()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+end
+end},
+
+{name = "fan (stop spamm)", action = function()
+lol15 = 0
+end},
+
+{name = "wings", action = function()
+lol25 = 1
+while lol25 == 1 do
+wait()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("add_wings")
+end
+end},
+
+{name = "wings (stop)", action = function()
+lol25 = 0
+end},
+
+{name = "bind", action = function()
+toggleKeyAbility("bind", function()
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local localPlayer = Players.LocalPlayer
+
+local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
+local rootPart = character:WaitForChild("HumanoidRootPart")
+
+local RunService = game:GetService("RunService")
+local lastPos = nil
+
+RunService.Heartbeat:Connect(function(dt)
+if not targetRoot then return end
+
+local newPos = targetRoot.Position
+
+if lastPos then
+    local rawVel = (newPos - lastPos) / math.max(dt, 0.016)
+
+    -- feed into your prediction logic here
+end
+
+lastPos = newPos
+end)
+
+local speed = 0
+
+if typeof(horizontalVel) == "Vector3" then
+speed = horizontalVel.Magnitude
+end
+
+local PREDICT_DISTANCE = math.clamp(speed * 0.18, 2.5, 6)
+
+local nearestPlayer
+local shortestDistance = math.huge
+
+-- find nearest player
+for _, player in ipairs(Players:GetPlayers()) do
+if player ~= localPlayer then
+local targetChar = player.Character
+local targetRoot = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
+
+if targetRoot then
+        local distance = (rootPart.Position - targetRoot.Position).Magnitude
 
         if distance < shortestDistance then
             shortestDistance = distance
@@ -296,419 +506,47 @@ for _, player in ipairs(Players:GetPlayers()) do
         end
     end
 end
-
-if nearestPlayer then
-    ReplicatedStorage.Events.Opera:FireServer({
-        ["state"] = "overclock_slap",
-        ["victim"] = nearestPlayer,
-    })
-
-    print("Targeted:", nearestPlayer.Name)
-else
-    print("No nearby player found")
-end
-    end)
-end},
-
-
-
-{name = "G-X speed (spamm)", action = function()
-   lol12 = 1
-  
-   while lol12 == 1 do
-    wait()
-      game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
-      end
-end},
-
-
-
-{name = "G-X speed (stop)", action = function()
-   lol12 = 0
-end},
-
-{name = "reverse", action = function()
-    toggleKeyAbility("reverse", function()
-        game:GetService("ReplicatedStorage").ReverseAbility:FireServer()
-    end)
-end},
-
-{name = "ghost (press it 1x)", action = function()
-  
-        game:GetService("ReplicatedStorage").Ghostinvisibilityactivated:FireServer()
-   
-end},
-
-{name = "ghost deactivation (click it 1x)", action = function()
-
-        game:GetService("ReplicatedStorage").Ghostinvisibilitydeactivated:FireServer()
-   
-end},
-
-{name = "fort (dont spamm)", action = function()
-    toggleKeyAbility("fort", function()
-        game:GetService("ReplicatedStorage").Fortlol:FireServer()
-    end)
-end},
-
-{name = "pusher (wait till the other wall goes away)", action = function()
-    toggleKeyAbility("pusher", function()
-        game:GetService("ReplicatedStorage").PusherWall:FireServer()
-    end)
-end},
-
-{name = "za hando (dont spamm)", action = function()
-    toggleKeyAbility("za hando", function()
-        game:GetService("ReplicatedStorage").Erase:FireServer()
-    end)
-end},
-
-{name = "offense", action = function()
-    toggleKeyAbility("offense", function()
-       game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
-    end)
-end},
-
-{name = "offense (spamm)", action = function()
-    lol9 = 1
-while lol9 == 1 do
-wait()
-       game:GetService("ReplicatedStorage").GeneralAbility:FireServer("E")
-     end
-end},
-
-{name = "offense (stop spamm)", action = function()
-    lol9 = 0
-end},
-
-{name = "noodle (spamm)", action = function()
-    lol24 = 1
-while lol24 == 1 do
-wait()
-       game:GetService("ReplicatedStorage").GeneralAbility:FireServer("pool_noodle")
-     end
-end},
-
-{name = "noodle (stop spamm)", action = function()
-    lol24 = 0
-end},
-
-{name = "pineapple", action = function()
-     toggleKeyAbility("pineapple", function()
-     game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-     end)
-end},
-
-{name = "pineapple (spamm)", action = function()
-    lol10 = 1
-while lol10 == 1 do
-wait()
-         game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-     end
-end},
-
-{name = "pineapple (stop spamm)", action = function()
-lol10 = 0
-    
-end},
-
-
-{name = "brick (use it in arena)", action = function()
-    toggleKeyAbility("brick", function()
-        game:GetService("ReplicatedStorage").lbrick:FireServer()
-    end)
-end},
-
-{name = "swapper (dont spamm)", action = function()
-    toggleKeyAbility("swapper", function()
-        game:GetService("ReplicatedStorage").SLOC:FireServer()
-    end)
-end},
-
-{name = "glovel", action = function()
-    toggleKeyAbility("glovel", function()
-        game:GetService("ReplicatedStorage").GlovelFunc:InvokeServer()
-    end)
-end},
-
-{name = "fan", action = function()
-    toggleKeyAbility("fan", function()
-       game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-    end)
-end},
-
-{name = "fan (spamm)", action = function()
-    lol15 = 1
-    while lol15 == 1 do
-    wait()
-       game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-    end
-end},
-
-{name = "fan (stop spamm)", action = function()
-    lol15 = 0
-end},
-
-{name = "CAMERA SHOOT", action = function()
-    toggleKeyAbility("Camera SHOOT", function()
-     local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local LocalPlayer = Players.LocalPlayer
-local CameraEvent = ReplicatedStorage.Events.camera
-
-local function getNearestPlayer()
-    local character = LocalPlayer.Character
-    if not character or not character:FindFirstChild("HumanoidRootPart") then
-        return nil
-    end
-
-    local root = character.HumanoidRootPart
-    local nearest
-    local shortestDistance = math.huge
-
-    for _, player in ipairs(Players:GetPlayers()) do
-        if player ~= LocalPlayer then
-            local char = player.Character
-            local hrp = char and char:FindFirstChild("HumanoidRootPart")
-            local humanoid = char and char:FindFirstChild("Humanoid")
-
-            if hrp and humanoid and humanoid.Health > 0 then
-                local distance = (hrp.Position - root.Position).Magnitude
-                if distance < shortestDistance then
-                    shortestDistance = distance
-                    nearest = hrp
-                end
-            end
-        end
-    end
-
-    return nearest
-end
-
-local target = getNearestPlayer()
-
-if target then
-    CameraEvent:FireServer({
-        cf = target.CFrame * CFrame.new(0, 0, 10),
-    })
-end
-    end)
-end},
-
-
-{name = "CAMERA SHOOT (spamm)", action = function()
-    lol22 = 1
-    while lol22 == 1 do
-    wait()
-     local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local LocalPlayer = Players.LocalPlayer
-local CameraEvent = ReplicatedStorage.Events.camera
-
-local function getNearestPlayer()
-    local character = LocalPlayer.Character
-    if not character or not character:FindFirstChild("HumanoidRootPart") then
-        return nil
-    end
-
-    local root = character.HumanoidRootPart
-    local nearest
-    local shortestDistance = math.huge
-
-    for _, player in ipairs(Players:GetPlayers()) do
-        if player ~= LocalPlayer then
-            local char = player.Character
-            local hrp = char and char:FindFirstChild("HumanoidRootPart")
-            local humanoid = char and char:FindFirstChild("Humanoid")
-
-            if hrp and humanoid and humanoid.Health > 0 then
-                local distance = (hrp.Position - root.Position).Magnitude
-                if distance < shortestDistance then
-                    shortestDistance = distance
-                    nearest = hrp
-                end
-            end
-        end
-    end
-
-    return nearest
-end
-
-local target = getNearestPlayer()
-
-if target then
-    CameraEvent:FireServer({
-        cf = target.CFrame * CFrame.new(0, 0, 10),
-    })
-end
-    end
-end},
-
-{name = "CAMERA SHOOT (stop spamm)", action = function()
-    lol22 = 0
-end},
-
-{name = "camera shoot v2", action = function()
-    toggleKeyAbility("camera shoot v2", function()
-    
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local LocalPlayer = Players.LocalPlayer
-local Camera = workspace.CurrentCamera
-local CameraEvent = ReplicatedStorage.Events.camera
-
-local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-local root = character:WaitForChild("HumanoidRootPart")
-
--- Start inside your character
-local spawnPos = root.Position
-
--- Use the direction your camera is facing
-local lookDirection = Camera.CFrame.LookVector
-
-CameraEvent:FireServer({
-    cf = CFrame.lookAt(
-        spawnPos,
-        spawnPos + lookDirection
-    ),
-})
-    end)
-end},
-
-{name = "camera shoot v2 (spamm)", action = function()
- lol23 = 1
- while lol23 == 1 do
- wait()
-      
-local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local LocalPlayer = Players.LocalPlayer
-local Camera = workspace.CurrentCamera
-local CameraEvent = ReplicatedStorage.Events.camera
-
-local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
-local root = character:WaitForChild("HumanoidRootPart")
-
--- Start inside your character
-local spawnPos = root.Position
-
--- Use the direction your camera is facing
-local lookDirection = Camera.CFrame.LookVector
-
-CameraEvent:FireServer({
-    cf = CFrame.lookAt(
-        spawnPos,
-        spawnPos + lookDirection
-    ),
-})
-    end
-end},
-
-
-{name = "camera shoot v2 (stop spamm)", action = function()
-   lol23 = 0
-end},
-
-
-
-{name = "bind", action = function()
-    toggleKeyAbility("bind", function()
-     local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local localPlayer = Players.LocalPlayer
-
-local character = localPlayer.Character or localPlayer.CharacterAdded:Wait()
-local rootPart = character:WaitForChild("HumanoidRootPart")
-
-local RunService = game:GetService("RunService")
-local lastPos = nil
-
-RunService.Heartbeat:Connect(function(dt)
-    if not targetRoot then return end
-
-    local newPos = targetRoot.Position
-
-    if lastPos then
-        local rawVel = (newPos - lastPos) / math.max(dt, 0.016)
-
-        -- feed into your prediction logic here
-    end
-
-    lastPos = newPos
-end)
-
-local speed = 0
-
-if typeof(horizontalVel) == "Vector3" then
-    speed = horizontalVel.Magnitude
-end
-
-local PREDICT_DISTANCE = math.clamp(speed * 0.18, 2.5, 6)
-
-local nearestPlayer
-local shortestDistance = math.huge
-
--- find nearest player
-for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= localPlayer then
-        local targetChar = player.Character
-        local targetRoot = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
-
-        if targetRoot then
-            local distance = (rootPart.Position - targetRoot.Position).Magnitude
-
-            if distance < shortestDistance then
-                shortestDistance = distance
-                nearestPlayer = player
-            end
-        end
-    end
 end
 
 if nearestPlayer and nearestPlayer.Character then
-    local targetChar = nearestPlayer.Character
-    local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
+local targetChar = nearestPlayer.Character
+local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
 
-    if targetRoot then
+if targetRoot then
 
-        -- movement-based prediction (better than LookVector alone)
-        local velocity = targetRoot.AssemblyLinearVelocity
-        local moveDir
+    -- movement-based prediction (better than LookVector alone)
+    local velocity = targetRoot.AssemblyLinearVelocity
+    local moveDir
 
-        if velocity.Magnitude > 1 then
-            moveDir = velocity.Unit
-        else
-            moveDir = targetRoot.CFrame.LookVector
-        end
-
-        -- predict 3 studs ahead of movement
-        local predictedPos = targetRoot.Position + (moveDir * PREDICT_DISTANCE)
-
-        -- origin at predicted position
-        local originCFrame = CFrame.lookAt(predictedPos, targetRoot.Position)
-
-        ReplicatedStorage.GeneralAbility:FireServer(
-            "default",
-            {
-                origin = originCFrame,
-                goal = targetRoot.CFrame
-            }
-        )
+    if velocity.Magnitude > 1 then
+        moveDir = velocity.Unit
+    else
+        moveDir = targetRoot.CFrame.LookVector
     end
+
+    -- predict 3 studs ahead of movement
+    local predictedPos = targetRoot.Position + (moveDir * PREDICT_DISTANCE)
+
+    -- origin at predicted position
+    local originCFrame = CFrame.lookAt(predictedPos, targetRoot.Position)
+
+    ReplicatedStorage.GeneralAbility:FireServer(
+        "default",
+        {
+            origin = originCFrame,
+            goal = targetRoot.CFrame
+        }
+    )
 end
-    end)
+end
+end)
 end},
 
 {name = "bind (spamm)", action = function()
-    lol16 = 1
-    while lol16 == 1 do
-    wait(1.8)
-     local Players = game:GetService("Players")
+lol16 = 1
+while lol16 == 1 do
+wait(1.8)
+local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local localPlayer = Players.LocalPlayer
@@ -720,23 +558,23 @@ local RunService = game:GetService("RunService")
 local lastPos = nil
 
 RunService.Heartbeat:Connect(function(dt)
-    if not targetRoot then return end
+if not targetRoot then return end
 
-    local newPos = targetRoot.Position
+local newPos = targetRoot.Position
 
-    if lastPos then
-        local rawVel = (newPos - lastPos) / math.max(dt, 0.016)
+if lastPos then
+    local rawVel = (newPos - lastPos) / math.max(dt, 0.016)
 
-        -- feed into your prediction logic here
-    end
+    -- feed into your prediction logic here
+end
 
-    lastPos = newPos
+lastPos = newPos
 end)
 
 local speed = 0
 
 if typeof(horizontalVel) == "Vector3" then
-    speed = horizontalVel.Magnitude
+speed = horizontalVel.Magnitude
 end
 
 local PREDICT_DISTANCE = math.clamp(speed * 0.18, 2.5, 6)
@@ -746,85 +584,85 @@ local shortestDistance = math.huge
 
 -- find nearest player
 for _, player in ipairs(Players:GetPlayers()) do
-    if player ~= localPlayer then
-        local targetChar = player.Character
-        local targetRoot = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
+if player ~= localPlayer then
+local targetChar = player.Character
+local targetRoot = targetChar and targetChar:FindFirstChild("HumanoidRootPart")
 
-        if targetRoot then
-            local distance = (rootPart.Position - targetRoot.Position).Magnitude
+if targetRoot then
+        local distance = (rootPart.Position - targetRoot.Position).Magnitude
 
-            if distance < shortestDistance then
-                shortestDistance = distance
-                nearestPlayer = player
-            end
+        if distance < shortestDistance then
+            shortestDistance = distance
+            nearestPlayer = player
         end
     end
+end
 end
 
 if nearestPlayer and nearestPlayer.Character then
-    local targetChar = nearestPlayer.Character
-    local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
+local targetChar = nearestPlayer.Character
+local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
 
-    if targetRoot then
+if targetRoot then
 
-        -- movement-based prediction (better than LookVector alone)
-        local velocity = targetRoot.AssemblyLinearVelocity
-        local moveDir
+    -- movement-based prediction (better than LookVector alone)
+    local velocity = targetRoot.AssemblyLinearVelocity
+    local moveDir
 
-        if velocity.Magnitude > 1 then
-            moveDir = velocity.Unit
-        else
-            moveDir = targetRoot.CFrame.LookVector
-        end
-
-        -- predict 3 studs ahead of movement
-        local predictedPos = targetRoot.Position + (moveDir * PREDICT_DISTANCE)
-
-        -- origin at predicted position
-        local originCFrame = CFrame.lookAt(predictedPos, targetRoot.Position)
-
-        ReplicatedStorage.GeneralAbility:FireServer(
-            "default",
-            {
-                origin = originCFrame,
-                goal = targetRoot.CFrame
-            }
-        )
+    if velocity.Magnitude > 1 then
+        moveDir = velocity.Unit
+    else
+        moveDir = targetRoot.CFrame.LookVector
     end
+
+    -- predict 3 studs ahead of movement
+    local predictedPos = targetRoot.Position + (moveDir * PREDICT_DISTANCE)
+
+    -- origin at predicted position
+    local originCFrame = CFrame.lookAt(predictedPos, targetRoot.Position)
+
+    ReplicatedStorage.GeneralAbility:FireServer(
+        "default",
+        {
+            origin = originCFrame,
+            goal = targetRoot.CFrame
+        }
+    )
 end
-    end
+end
+end
 end},
 
 {name = "bind (stop spamm)", action = function()
-   lol16 = 0
+lol16 = 0
 end},
 
 {name = "bind ultimate", action = function()
-    toggleKeyAbility("bind ultimate", function()
-        game:GetService("ReplicatedStorage").GeneralAbility:FireServer(
-            "ultimate",
-            {
-                goal = CFrame.new(-66.8487549, -5.17287636, -14.4855118, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
-                origin = CFrame.new(12.1765127, -5.17286968, -26.9356937, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
-            }
-        )
-    end)
+toggleKeyAbility("bind ultimate", function()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(
+"ultimate",
+{
+goal = CFrame.new(-66.8487549, -5.17287636, -14.4855118, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
+origin = CFrame.new(12.1765127, -5.17286968, -26.9356937, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
+}
+)
+end)
 end},
 
 {name = "bind ultimate (spamm)", action = function()
-    lol17 = 1
+lol17 = 1
 
-    while lol17 == 1 do
-        wait()
+while lol17 == 1 do
+    wait()
 
-        game:GetService("ReplicatedStorage").GeneralAbility:FireServer(
-            "ultimate",
-            {
-                goal = CFrame.new(-66.8487549, -5.17287636, -14.4855118, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
-                origin = CFrame.new(12.1765127, -5.17286968, -26.9356937, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
-            }
-        )
-    end
+    game:GetService("ReplicatedStorage").GeneralAbility:FireServer(
+        "ultimate",
+        {
+            goal = CFrame.new(-66.8487549, -5.17287636, -14.4855118, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
+            origin = CFrame.new(12.1765127, -5.17286968, -26.9356937, -0.15562728, -8.95486423e-08, 0.987815857, -4.50040751e-08, 1, 8.35629237e-08, -0.987815857, -3.14510693e-08, -0.15562728),
+        }
+    )
+end
 end},
 
 {name = "bind ultimate (stop spamm)", action = function()
@@ -832,29 +670,29 @@ lol17 = 0
 end},
 
 {name = "space sound", action = function()
-    toggleKeyAbility("space sound", function()
-        game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
-    end)
+toggleKeyAbility("space sound", function()
+game:GetService("ReplicatedStorage").ZeroGSound:FireServer()
+end)
 end},
 
 {name = "frostbite", action = function()
-    toggleKeyAbility("frostbite", function()
-       game:GetService("ReplicatedStorage").GeneralAbility:FireServer(table.unpack({
-    [1] = 0.3,
-    [2] = 64.46875,
+toggleKeyAbility("frostbite", function()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(table.unpack({
+[1] = 0.3,
+[2] = 64.46875,
 }))
-    end)
+end)
 end},
 
 {name = "frostbite (spamm)", action = function()
 lol18 = 1
 while lol18 == 1 do
 wait()
-       game:GetService("ReplicatedStorage").GeneralAbility:FireServer(table.unpack({
-    [1] = 0.3,
-    [2] = 64.46875,
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer(table.unpack({
+[1] = 0.3,
+[2] = 64.46875,
 }))
-    end
+end
 end},
 
 {name = "frostbite (stop spamm)", action = function()
@@ -863,142 +701,140 @@ lol18 = 0
 end},
 
 {name = "paint brush", action = function()
-    toggleKeyAbility("paint brush", function()
-      game:GetService("ReplicatedStorage").Events.paint:FireServer()
-    end)
+toggleKeyAbility("paint brush", function()
+game:GetService("ReplicatedStorage").Events.paint:FireServer()
+end)
 end},
 
 {name = "paint shoot", action = function()
-    toggleKeyAbility("paint shoot", function()
-     game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-    end)
+toggleKeyAbility("paint shoot", function()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+end)
 end},
 
 {name = "paint brush (spamm)", action = function()
- lol13 = 1
- while lol13 == 1 do
- wait()
-      game:GetService("ReplicatedStorage").Events.paint:FireServer()
-    end
+lol13 = 1
+while lol13 == 1 do
+wait()
+game:GetService("ReplicatedStorage").Events.paint:FireServer()
+end
 end},
 
 {name = "paint shoot (spamm)", action = function()
-    lol14 = 1
-    while lol14 == 1 do
-    wait()
-     game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
-    end
+lol14 = 1
+while lol14 == 1 do
+wait()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer()
+end
 end},
 
 {name = "paint shoot (stop)", action = function()
-    lol14 = 0
-   
+lol14 = 0
+
 end},
 
 {name = "paint brush (stop)", action = function()
- lol13 = 0
+lol13 = 0
 
 end},
 
-
-
 {name = "retro rocket", action = function()
-    toggleKeyAbility("retro rocket", function()
+toggleKeyAbility("retro rocket", function()
 
-        local args = {
-            [1] = "Rocket Launcher"
-        }
+local args = {
+        [1] = "Rocket Launcher"
+    }
 
-        game:GetService("ReplicatedStorage").RetroAbility:FireServer(unpack(args))
-    end)
+    game:GetService("ReplicatedStorage").RetroAbility:FireServer(unpack(args))
+end)
 end},
 
 {name = "retro hammer", action = function()
-    toggleKeyAbility("retro hammer", function()
+toggleKeyAbility("retro hammer", function()
 
-        local args = {
-            [1] = "Ban Hammer"
-        }
+local args = {
+        [1] = "Ban Hammer"
+    }
 
-        game:GetService("ReplicatedStorage").RetroAbility:FireServer(unpack(args))
-    end)
+    game:GetService("ReplicatedStorage").RetroAbility:FireServer(unpack(args))
+end)
 end},
 
 {name = "retro bomb", action = function()
-    toggleKeyAbility("retro bomb", function()
+toggleKeyAbility("retro bomb", function()
 
-        local args = {
-            [1] = "Bomb"
-        }
+local args = {
+        [1] = "Bomb"
+    }
 
-        game:GetService("ReplicatedStorage").RetroAbility:FireServer(unpack(args))
-    end)
+    game:GetService("ReplicatedStorage").RetroAbility:FireServer(unpack(args))
+end)
 end},
 
 {name = "replica", action = function()
-    toggleKeyAbility("replica", function()
+toggleKeyAbility("replica", function()
 
-        local args = {[1] = true}
-        game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack(args))
+local args = {[1] = true}
+    game:GetService("ReplicatedStorage").Duplicate:FireServer(unpack(args))
 
-    end)
+end)
 end},
 
 {name = "defense", action = function()
-    toggleKeyAbility("defense", function()
+toggleKeyAbility("defense", function()
 
-        local args = {[1] = 1}
-        game:GetService("ReplicatedStorage").Barrier:FireServer(unpack(args))
+local args = {[1] = 1}
+    game:GetService("ReplicatedStorage").Barrier:FireServer(unpack(args))
 
-    end)
+end)
 end},
 
 {name = "scythe", action = function()
-    toggleKeyAbility("scythe", function()
+toggleKeyAbility("scythe", function()
 
-        local args = {
-            [1] = "ScytheWeapon"
-        }
+local args = {
+        [1] = "ScytheWeapon"
+    }
 
-        game:GetService("ReplicatedStorage").Scythe:FireServer(unpack(args))
+    game:GetService("ReplicatedStorage").Scythe:FireServer(unpack(args))
 
-    end)
+end)
 end},
 
 {name = "admin anvil", action = function()
-    toggleKeyAbility("admin anvil", function()
+toggleKeyAbility("admin anvil", function()
 
-        local args = {
-            [1] = "Anvil"
-        }
+local args = {
+        [1] = "Anvil"
+    }
 
-        game:GetService("ReplicatedStorage").AdminAbility:FireServer(unpack(args))
+    game:GetService("ReplicatedStorage").AdminAbility:FireServer(unpack(args))
 
-    end)
+end)
 end},
 
 {name = "admin invisible", action = function()
-    toggleKeyAbility("admin invisible", function()
+toggleKeyAbility("admin invisible", function()
 
-        local args = {
-            [1] = "Invisibility"
-        }
+local args = {
+        [1] = "Invisibility"
+    }
 
-        game:GetService("ReplicatedStorage").AdminAbility:FireServer(unpack(args))
+    game:GetService("ReplicatedStorage").AdminAbility:FireServer(unpack(args))
 
-    end)
+end)
 end},
 
 {name = "admin fling", action = function()
-    toggleKeyAbility("admin fling", function()
+toggleKeyAbility("admin fling", function()
 
-        local args = {
-            [1] = "Fling"
-        }
+local args = {
+        [1] = "Fling"
+    }
 
-        game:GetService("ReplicatedStorage").AdminAbility:FireServer(unpack(args))
+    game:GetService("ReplicatedStorage").AdminAbility:FireServer(unpack(args))
 
-    end)
+end)
 end},
 
 -- LOOPS (UNCHANGED)
@@ -1040,6 +876,63 @@ end},
 
 {name = "defense spamm stopper", action = function()
 lol = 0
+end},
+
+{name = "all remote (with all goves)", action = function()
+toggleKeyAbility("all remote (with all glove)", function()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("add_wings")
+game.ReplicatedStorage.ErrorDeath:FireServer()
+game.ReplicatedStorage.Piano:FireServer()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("pool_noodle")
+game:GetService("ReplicatedStorage").Prop:FireServer()
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local HumanoidRootPart = Character:WaitForChild("HumanoidRootPart")
+
+local nearestPlayer = nil
+local shortestDistance = math.huge
+
+for _, player in ipairs(Players:GetPlayers()) do
+if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+local targetHRP = player.Character.HumanoidRootPart
+local distance = (HumanoidRootPart.Position - targetHRP.Position).Magnitude
+
+if distance < shortestDistance then
+        shortestDistance = distance
+        nearestPlayer = player
+    end
+end
+end
+
+if nearestPlayer then
+ReplicatedStorage.Events.Opera:FireServer({
+["state"] = "overclock_slap",
+["victim"] = nearestPlayer,
+})
+
+print("Targeted:", nearestPlayer.Name)
+else
+print("No nearby player found")
+end
+end)
+end},
+
+{name = "all remote (effects spamm)", action = function()
+lol26 = 1
+while lol26 == 1 do
+wait()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("add_wings")
+game.ReplicatedStorage.ErrorDeath:FireServer()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("pool_noodle")
+game:GetService("ReplicatedStorage").Prop:FireServer()
+end
+end},
+
+{name = "all remote (effects spamm stop)", action = function()
+lol26 = 0
 end},
 
 {name = "mail spammer", action = function()
@@ -1084,7 +977,7 @@ while lol5 == 1 do
 wait()
 
 local args = {
-    [1] = "ScytheWeapon"
+[1] = "ScytheWeapon"
 }
 
 game:GetService("ReplicatedStorage").Scythe:FireServer(unpack(args))
@@ -1136,42 +1029,43 @@ end},
 }
 
 local function clearSuggestions()
-    for _, child in ipairs(suggestionFrame:GetChildren()) do
-        if child:IsA("TextButton") then
-            child:Destroy()
-        end
-    end
+for _, child in ipairs(suggestionFrame:GetChildren()) do
+if child:IsA("TextButton") then
+child:Destroy()
+end
+end
 end
 
 searchBar:GetPropertyChangedSignal("Text"):Connect(function()
-    local query = string.lower(searchBar.Text)
-    clearSuggestions()
+local query = string.lower(searchBar.Text)
+clearSuggestions()
 
-    if query ~= "" then
-        local yPos = 0
+if query ~= "" then
+    local yPos = 0
 
-        for _, wordData in ipairs(words) do
-            local wordName = string.lower(wordData.name)
+    for _, wordData in ipairs(words) do
+        local wordName = string.lower(wordData.name)
 
-            if string.sub(wordName, 1, #query) == query then
-                local btn = Instance.new("TextButton")
+        if string.sub(wordName, 1, #query) == query then
+            local btn = Instance.new("TextButton")
 
-                btn.Size = UDim2.new(1, 0, 0, 25)
-                btn.Position = UDim2.new(0, 0, 0, yPos)
-                btn.Text = wordData.name
-                btn.Parent = suggestionFrame
+            btn.Size = UDim2.new(1, 0, 0, 25)
+            btn.Position = UDim2.new(0, 0, 0, yPos)
+            btn.Text = wordData.name
+            btn.Parent = suggestionFrame
 
-                btn.MouseButton1Click:Connect(function()
-                    wordData.action()
-                end)
+            btn.MouseButton1Click:Connect(function()
+                wordData.action()
+            end)
 
-                yPos += 25
-            end
+            yPos += 25
         end
     end
+end
 end)
 
 toggleButton.MouseButton1Click:Connect(function()
-    mainFrame.Visible = not mainFrame.Visible
-    toggleButton.Text = mainFrame.Visible and "Close Search" or "Open Search"
+mainFrame.Visible = not mainFrame.Visible
+toggleButton.Text = mainFrame.Visible and "Close Search" or "Open Search"
 end)
+
