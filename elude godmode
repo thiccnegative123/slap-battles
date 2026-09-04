@@ -1,0 +1,145 @@
+-- LocalScript
+-- Put this in StarterPlayer > StarterPlayerScripts
+
+local Players = game:GetService("Players")
+local UserInputService = game:GetService("UserInputService")
+local RunService = game:GetService("RunService")
+
+local player = Players.LocalPlayer
+
+local enabled = true
+local lastPosition = nil
+
+-- How far the player can move in one frame before it is considered a teleport
+local TELEPORT_DISTANCE = 20
+
+-- Cube of Death
+local cube = game.Workspace.Arena.CubeOfDeathArea["the cube of death(i heard it kills)"]
+
+
+-- Create status GUI
+local screenGui = Instance.new("ScreenGui")
+screenGui.Name = "TeleportDetectionStatus"
+screenGui.ResetOnSpawn = false
+screenGui.Parent = player:WaitForChild("PlayerGui")
+
+local statusLabel = Instance.new("TextLabel")
+statusLabel.Size = UDim2.new(0, 220, 0, 45)
+statusLabel.Position = UDim2.new(0, 10, 0, 10)
+statusLabel.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+statusLabel.BackgroundTransparency = 0.15
+statusLabel.BorderSizePixel = 0
+statusLabel.TextColor3 = Color3.fromRGB(50, 255, 50)
+statusLabel.TextSize = 20
+statusLabel.Font = Enum.Font.GothamBold
+statusLabel.Text = "Teleport Detection: ON"
+statusLabel.Parent = screenGui
+
+local corner = Instance.new("UICorner")
+corner.CornerRadius = UDim.new(0, 8)
+corner.Parent = statusLabel
+
+
+local function updateStatus()
+	if enabled then
+		statusLabel.Text = "Teleport Detection: ON"
+		statusLabel.TextColor3 = Color3.fromRGB(50, 255, 50)
+
+		-- Disable Cube of Death
+		cube.CanTouch = false
+	else
+		statusLabel.Text = "Teleport Detection: OFF"
+		statusLabel.TextColor3 = Color3.fromRGB(255, 70, 70)
+
+		-- Enable Cube of Death
+		cube.CanTouch = true
+	end
+end
+
+
+local function getRoot()
+	local character = player.Character
+	if not character then return nil end
+
+	return character:FindFirstChild("HumanoidRootPart")
+end
+
+
+-- Toggle with P
+UserInputService.InputBegan:Connect(function(input, processed)
+	if processed then return end
+
+	if input.KeyCode == Enum.KeyCode.P then
+		enabled = not enabled
+		updateStatus()
+
+		print("Teleport detection:", enabled and "ON" or "OFF")
+	end
+end)
+
+
+RunService.Heartbeat:Connect(function()
+	local root = getRoot()
+
+	if not root then
+		lastPosition = nil
+		return
+	end
+
+	local currentPosition = root.Position
+
+	if enabled and lastPosition then
+		local distance = (currentPosition - lastPosition).Magnitude
+
+		if distance > TELEPORT_DISTANCE then
+			-- Teleport back to the last known position
+			root.CFrame = CFrame.new(lastPosition)
+		else
+			-- Normal movement, update saved position
+			lastPosition = currentPosition
+		end
+	else
+		lastPosition = currentPosition
+	end
+end)
+
+
+-- Set initial status
+updateStatus()
+
+
+
+
+
+
+
+
+
+
+
+
+local Workspace = game:GetService("Workspace")
+
+local function deleteDoor()
+	local door = Workspace:FindFirstChild("Door")
+	
+	if door then
+		door:Destroy()
+	end
+end
+
+-- Delete it if it's already there
+deleteDoor()
+
+-- Detect when Door spawns
+Workspace.ChildAdded:Connect(function(child)
+	if child.Name == "Door" then
+		child:Destroy()
+	end
+end)
+
+-- Backup in case it gets recreated
+while task.wait(0.05) do
+	deleteDoor()
+end
+
