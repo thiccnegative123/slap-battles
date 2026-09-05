@@ -9,7 +9,7 @@ fort
 tycoon
 za hando
 brick
-gold
+elude godmode
 replica
 pool noodle(all gloves)
 reverse
@@ -171,7 +171,7 @@ piano spawn (all gloves)
 za hando
 brick
 offense
-gold
+elude godmode
 replica
 pool noodle (all gloves)
 G-X (all gloves)
@@ -250,15 +250,22 @@ game:GetService("ReplicatedStorage").MailSend:FireServer()
 end)
 end},
 
-{name = "gold inf", action = function()
-local args = {[1] = true}
-game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
+{name = "elude godmode", action = function()
+game.StarterGui:SetCore("SendNotification", {
+        Title = "press pto turn on/off";
+        Text = "hi";
+        Duration = 3
+    })
+
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/thiccnegative123/slap-battles/refs/heads/main/elude%20godmode"))()
 end},
 
-{name = "gold inf stop", action = function() 
-    local args = {[1] = false, [2] = BrickColor.new(37)}
-    game:GetService("ReplicatedStorage").Goldify:FireServer(unpack(args))
-end},
+
+
+
+
+
 {name = "MR", action = function()
 toggleKeyAbility("MR", function()
 game:GetService("ReplicatedStorage").Spherify:FireServer()
@@ -1068,4 +1075,3 @@ toggleButton.MouseButton1Click:Connect(function()
 mainFrame.Visible = not mainFrame.Visible
 toggleButton.Text = mainFrame.Visible and "Close Search" or "Open Search"
 end)
-
