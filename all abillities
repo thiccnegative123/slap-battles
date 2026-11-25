@@ -1,3 +1,4 @@
+
 print([[
 these are the abilities:
 diamond
@@ -109,6 +110,8 @@ local lol23 = 1
 local lol24 = 1
 local lol25 = 1
 local lol26 = 1
+local lol27 = 1
+local lol28 = 1
 
 local screenGui = Instance.new("ScreenGui")
 screenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
@@ -843,6 +846,101 @@ local args = {
 
 end)
 end},
+
+{name = "jester nearest player", action = function()
+toggleKeyAbility("jester nearest player", function()
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local Root = Character:WaitForChild("HumanoidRootPart")
+
+local NearestPlayer = nil
+local ShortestDistance = math.huge
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer and player.Character then
+        local TargetRoot = player.Character:FindFirstChild("HumanoidRootPart")
+
+        if TargetRoot then
+            local Distance = (Root.Position - TargetRoot.Position).Magnitude
+
+            if Distance < ShortestDistance then
+                ShortestDistance = Distance
+                NearestPlayer = player
+            end
+        end
+    end
+end
+
+if NearestPlayer then
+    game:GetService("ReplicatedStorage").GeneralAbility:FireServer(
+        "Ability3",
+        NearestPlayer
+    )
+end
+end)
+end},
+
+{name = "jester nearest player (spamm)", action = function()
+lol28 = 1
+while lol28 == 1 do
+    wait()
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local Root = Character:WaitForChild("HumanoidRootPart")
+
+local NearestPlayer = nil
+local ShortestDistance = math.huge
+
+for _, player in ipairs(Players:GetPlayers()) do
+    if player ~= LocalPlayer and player.Character then
+        local TargetRoot = player.Character:FindFirstChild("HumanoidRootPart")
+
+        if TargetRoot then
+            local Distance = (Root.Position - TargetRoot.Position).Magnitude
+
+            if Distance < ShortestDistance then
+                ShortestDistance = Distance
+                NearestPlayer = player
+            end
+        end
+    end
+end
+
+if NearestPlayer then
+    game:GetService("ReplicatedStorage").GeneralAbility:FireServer(
+        "Ability3",
+        NearestPlayer
+    )
+    end
+end
+end},
+
+{name = "jester nearest player (unspamm)", action = function()
+lol28 = 0
+end},
+
+{name = "jester pie", action = function()
+toggleKeyAbility("jester pie", function()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("Ability1")
+end)
+end},
+
+{name = "jester pie (spamm)", action = function()
+lol27 = 1
+while lol27 == 1 do
+wait()
+game:GetService("ReplicatedStorage").GeneralAbility:FireServer("Ability1")
+end
+end},
+
+{name = "jester pie (spamm stopper)", action = function()
+lol27 = 0
+end},
+
 
 -- LOOPS (UNCHANGED)
 
