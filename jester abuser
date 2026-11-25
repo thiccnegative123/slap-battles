@@ -1,0 +1,194 @@
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local LocalPlayer = Players.LocalPlayer
+
+local Remote = ReplicatedStorage:WaitForChild("GeneralAbility")
+
+local Gui = Instance.new("ScreenGui")
+Gui.Name = "AbilityTargetGUI"
+Gui.ResetOnSpawn = false
+Gui.Parent = game:GetService("CoreGui")
+
+local Frame = Instance.new("Frame")
+Frame.Size = UDim2.new(0, 300, 0, 220)
+Frame.Position = UDim2.new(0.5, -150, 0.5, -110)
+Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
+Frame.Active = true
+Frame.Draggable = true
+Frame.Parent = Gui
+
+local Corner = Instance.new("UICorner")
+Corner.CornerRadius = UDim.new(0, 12)
+Corner.Parent = Frame
+
+local Title = Instance.new("TextLabel")
+Title.Size = UDim2.new(1, -30, 0, 25)
+Title.Position = UDim2.new(0, 15, 0, 10)
+Title.BackgroundTransparency = 1
+Title.Text = "Ability Target GUI"
+Title.TextColor3 = Color3.new(1, 1, 1)
+Title.TextXAlignment = Enum.TextXAlignment.Left
+Title.Parent = Frame
+
+local Input = Instance.new("TextBox")
+Input.Size = UDim2.new(1, -30, 0, 40)
+Input.Position = UDim2.new(0, 15, 0, 45)
+Input.PlaceholderText = "Enter username, me, or all"
+Input.Text = ""
+Input.TextColor3 = Color3.new(1, 1, 1)
+Input.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
+Input.Parent = Frame
+
+local FireButton = Instance.new("TextButton")
+FireButton.Size = UDim2.new(1, -30, 0, 40)
+FireButton.Position = UDim2.new(0, 15, 0, 95)
+FireButton.Text = "Fire Ability"
+FireButton.TextColor3 = Color3.new(1, 1, 1)
+FireButton.BackgroundColor3 = Color3.fromRGB(90, 80, 200)
+FireButton.Parent = Frame
+
+local LoopButton = Instance.new("TextButton")
+LoopButton.Size = UDim2.new(1, -30, 0, 40)
+LoopButton.Position = UDim2.new(0, 15, 0, 145)
+LoopButton.Text = "Start Loop"
+LoopButton.TextColor3 = Color3.new(1, 1, 1)
+LoopButton.BackgroundColor3 = Color3.fromRGB(200, 80, 80)
+LoopButton.Parent = Frame
+
+local Status = Instance.new("TextLabel")
+Status.Size = UDim2.new(1, -30, 0, 25)
+Status.Position = UDim2.new(0, 15, 0, 190)
+Status.BackgroundTransparency = 1
+Status.TextColor3 = Color3.new(1, 1, 1)
+Status.Text = "Ready"
+Status.Parent = Frame
+
+local Looping = false
+
+local function FindPlayer(Search)
+    Search = Search:lower()
+
+    if Search == "" then
+        return nil
+    end
+
+    if Search == "me" then
+        return LocalPlayer
+    end
+
+    for _, Player in ipairs(Players:GetPlayers()) do
+        if Player.Name:lower() == Search then
+            return Player
+        elseif Player.Name:lower():sub(1, #Search) == Search then
+            return Player
+        end
+    end
+
+    return nil
+end
+
+local function FireToPlayer(Player)
+    if Player then
+        Remote:FireServer("Ability3", Player)
+        Status.Text = "Sent to " .. Player.Name
+    end
+end
+
+local function FireToAll()
+    for _, Player in ipairs(Players:GetPlayers()) do
+        if Player ~= LocalPlayer then
+            FireToPlayer(Player)
+            task.wait(0.1)
+        end
+    end
+
+    Status.Text = "Sent to all other players!"
+end
+
+FireButton.MouseButton1Click:Connect(function()
+    local Search = Input.Text:lower()
+
+    if Search == "" then
+        Status.Text = "Enter a username!"
+        return
+    end
+
+    if Search == "all" then
+        FireToAll()
+        return
+    end
+
+    local Found = FindPlayer(Search)
+
+    if Found then
+        FireToPlayer(Found)
+    else
+        Status.Text = "Player not found!"
+    end
+end)
+
+LoopButton.MouseButton1Click:Connect(function()
+    local Search = Input.Text:lower()
+
+    if Search == "" then
+        Status.Text = "Enter a username!"
+        return
+    end
+
+    if Search ~= "all" then
+        local Found = FindPlayer(Search)
+
+        if not Found then
+            Status.Text = "Player not found!"
+            return
+        end
+    end
+
+    Looping = not Looping
+
+    if Looping then
+        LoopButton.Text = "Stop Loop"
+        LoopButton.BackgroundColor3 = Color3.fromRGB(80, 160, 80)
+
+        task.spawn(function()
+            while Looping do
+                local CurrentSearch = Input.Text:lower()
+
+                if CurrentSearch == "all" then
+                    for _, Player in ipairs(Players:GetPlayers()) do
+                        if not Looping then
+                            break
+                        end
+
+                        if Player ~= LocalPlayer then
+                            FireToPlayer(Player)
+                            task.wait(0.1)
+                        end
+                    end
+
+                    Status.Text = "Looping all other players"
+                else
+                    local CurrentTarget = FindPlayer(CurrentSearch)
+
+                    if CurrentTarget then
+                        FireToPlayer(CurrentTarget)
+                    else
+                        Status.Text = "Player not found!"
+                        Looping = false
+                        break
+                    end
+
+                    task.wait(0.1)
+                end
+            end
+
+            LoopButton.Text = "Start Loop"
+            LoopButton.BackgroundColor3 = Color3.fromRGB(200, 80, 80)
+            Status.Text = "Loop stopped"
+        end)
+    else
+        LoopButton.Text = "Start Loop"
+        LoopButton.BackgroundColor3 = Color3.fromRGB(200, 80, 80)
+        Status.Text = "Loop stopped"
+    end
+end)
