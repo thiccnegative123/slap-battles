@@ -1,5 +1,3 @@
-
-
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local LocalPlayer = Players.LocalPlayer
@@ -35,7 +33,7 @@ Title.Parent = Frame
 local Input = Instance.new("TextBox")
 Input.Size = UDim2.new(1, -30, 0, 40)
 Input.Position = UDim2.new(0, 15, 0, 45)
-Input.PlaceholderText = "Enter username, me, or all"
+Input.PlaceholderText = "user1, user2, user3 | me | all"
 Input.Text = ""
 Input.TextColor3 = Color3.new(1, 1, 1)
 Input.BackgroundColor3 = Color3.fromRGB(50, 50, 60)
@@ -85,7 +83,7 @@ local Looping = false
 local Ability1Spamming = false
 
 local function FindPlayer(Search)
-    Search = Search:lower()
+    Search = Search:lower():gsub("^%s+", ""):gsub("%s+$", "")
 
     if Search == "" then
         return nil
@@ -106,6 +104,37 @@ local function FindPlayer(Search)
     return nil
 end
 
+local function GetTargets()
+    local Text = Input.Text:lower()
+    local Targets = {}
+    local FoundNames = {}
+
+    if Text == "" then
+        return Targets
+    end
+
+    if Text == "all" then
+        for _, Player in ipairs(Players:GetPlayers()) do
+            if Player ~= LocalPlayer then
+                table.insert(Targets, Player)
+            end
+        end
+
+        return Targets
+    end
+
+    for Name in string.gmatch(Text, "[^,]+") do
+        local Player = FindPlayer(Name)
+
+        if Player and not FoundNames[Player.Name] then
+            FoundNames[Player.Name] = true
+            table.insert(Targets, Player)
+        end
+    end
+
+    return Targets
+end
+
 local function FireToPlayer(Player)
     if Player then
         Remote:FireServer("Ability3", Player)
@@ -113,54 +142,41 @@ local function FireToPlayer(Player)
     end
 end
 
-local function FireToAll()
-    for _, Player in ipairs(Players:GetPlayers()) do
-        if Player ~= LocalPlayer then
-            FireToPlayer(Player)
-            task.wait(0.1)
-        end
+local function FireToTargets()
+    local Targets = GetTargets()
+
+    if #Targets == 0 then
+        Status.Text = "No valid players found!"
+        return
     end
 
-    Status.Text = "Sent to all other players!"
+    for _, Player in ipairs(Targets) do
+        FireToPlayer(Player)
+        task.wait(0.1)
+    end
+
+    if #Targets == 1 then
+        Status.Text = "Sent to " .. Targets[1].Name
+    else
+        Status.Text = "Sent to " .. #Targets .. " players!"
+    end
 end
 
 FireButton.MouseButton1Click:Connect(function()
-    local Search = Input.Text:lower()
-
-    if Search == "" then
+    if Input.Text:lower() == "" then
         Status.Text = "Enter a username!"
         return
     end
 
-    if Search == "all" then
-        FireToAll()
-        return
-    end
-
-    local Found = FindPlayer(Search)
-
-    if Found then
-        FireToPlayer(Found)
-    else
-        Status.Text = "Player not found!"
-    end
+    FireToTargets()
 end)
 
 LoopButton.MouseButton1Click:Connect(function()
-    local Search = Input.Text:lower()
+    local Targets = GetTargets()
 
-    if Search == "" then
-        Status.Text = "Enter a username!"
+    if #Targets == 0 then
+        Status.Text = "No valid players found!"
         return
-    end
-
-    if Search ~= "all" then
-        local Found = FindPlayer(Search)
-
-        if not Found then
-            Status.Text = "Player not found!"
-            return
-        end
     end
 
     Looping = not Looping
@@ -171,33 +187,27 @@ LoopButton.MouseButton1Click:Connect(function()
 
         task.spawn(function()
             while Looping do
-                local CurrentSearch = Input.Text:lower()
+                local CurrentTargets = GetTargets()
 
-                if CurrentSearch == "all" then
-                    for _, Player in ipairs(Players:GetPlayers()) do
-                        if not Looping then
-                            break
-                        end
+                if #CurrentTargets == 0 then
+                    Status.Text = "No valid players found!"
+                    Looping = false
+                    break
+                end
 
-                        if Player ~= LocalPlayer then
-                            FireToPlayer(Player)
-                            task.wait(0.1)
-                        end
-                    end
-
-                    Status.Text = "Looping all other players"
-                else
-                    local CurrentTarget = FindPlayer(CurrentSearch)
-
-                    if CurrentTarget then
-                        FireToPlayer(CurrentTarget)
-                    else
-                        Status.Text = "Player not found!"
-                        Looping = false
+                for _, Player in ipairs(CurrentTargets) do
+                    if not Looping then
                         break
                     end
 
+                    FireToPlayer(Player)
                     task.wait(0.1)
+                end
+
+                if #CurrentTargets == 1 then
+                    Status.Text = "Looping " .. CurrentTargets[1].Name
+                else
+                    Status.Text = "Looping " .. #CurrentTargets .. " players"
                 end
             end
 
