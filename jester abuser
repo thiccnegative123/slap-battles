@@ -1,3 +1,5 @@
+
+
 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local LocalPlayer = Players.LocalPlayer
@@ -10,8 +12,8 @@ Gui.ResetOnSpawn = false
 Gui.Parent = game:GetService("CoreGui")
 
 local Frame = Instance.new("Frame")
-Frame.Size = UDim2.new(0, 300, 0, 220)
-Frame.Position = UDim2.new(0.5, -150, 0.5, -110)
+Frame.Size = UDim2.new(0, 300, 0, 270)
+Frame.Position = UDim2.new(0.5, -150, 0.5, -135)
 Frame.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
 Frame.Active = true
 Frame.Draggable = true
@@ -55,15 +57,32 @@ LoopButton.TextColor3 = Color3.new(1, 1, 1)
 LoopButton.BackgroundColor3 = Color3.fromRGB(200, 80, 80)
 LoopButton.Parent = Frame
 
+local Ability1Button = Instance.new("TextButton")
+Ability1Button.Size = UDim2.new(0.5, -20, 0, 40)
+Ability1Button.Position = UDim2.new(0, 15, 0, 195)
+Ability1Button.Text = "Ability1"
+Ability1Button.TextColor3 = Color3.new(1, 1, 1)
+Ability1Button.BackgroundColor3 = Color3.fromRGB(70, 130, 200)
+Ability1Button.Parent = Frame
+
+local Ability1SpamButton = Instance.new("TextButton")
+Ability1SpamButton.Size = UDim2.new(0.5, -20, 0, 40)
+Ability1SpamButton.Position = UDim2.new(0.5, 5, 0, 195)
+Ability1SpamButton.Text = "Spam Ability1"
+Ability1SpamButton.TextColor3 = Color3.new(1, 1, 1)
+Ability1SpamButton.BackgroundColor3 = Color3.fromRGB(200, 120, 50)
+Ability1SpamButton.Parent = Frame
+
 local Status = Instance.new("TextLabel")
 Status.Size = UDim2.new(1, -30, 0, 25)
-Status.Position = UDim2.new(0, 15, 0, 190)
+Status.Position = UDim2.new(0, 15, 0, 240)
 Status.BackgroundTransparency = 1
 Status.TextColor3 = Color3.new(1, 1, 1)
 Status.Text = "Ready"
 Status.Parent = Frame
 
 local Looping = false
+local Ability1Spamming = false
 
 local function FindPlayer(Search)
     Search = Search:lower()
@@ -190,5 +209,35 @@ LoopButton.MouseButton1Click:Connect(function()
         LoopButton.Text = "Start Loop"
         LoopButton.BackgroundColor3 = Color3.fromRGB(200, 80, 80)
         Status.Text = "Loop stopped"
+    end
+end)
+
+Ability1Button.MouseButton1Click:Connect(function()
+    Remote:FireServer("Ability1")
+    Status.Text = "Fired Ability1 on me"
+end)
+
+Ability1SpamButton.MouseButton1Click:Connect(function()
+    Ability1Spamming = not Ability1Spamming
+
+    if Ability1Spamming then
+        Ability1SpamButton.Text = "Stop Spam"
+        Ability1SpamButton.BackgroundColor3 = Color3.fromRGB(200, 80, 80)
+        Status.Text = "Spamming Ability1 on me"
+
+        task.spawn(function()
+            while Ability1Spamming do
+                Remote:FireServer("Ability1")
+                task.wait(0.1)
+            end
+
+            Ability1SpamButton.Text = "Spam Ability1"
+            Ability1SpamButton.BackgroundColor3 = Color3.fromRGB(200, 120, 50)
+            Status.Text = "Ability1 spam stopped"
+        end)
+    else
+        Ability1SpamButton.Text = "Spam Ability1"
+        Ability1SpamButton.BackgroundColor3 = Color3.fromRGB(200, 120, 50)
+        Status.Text = "Ability1 spam stopped"
     end
 end)
